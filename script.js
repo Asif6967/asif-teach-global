@@ -1,7 +1,7 @@
-// --- script.js (FINAL COMPLETED VERSION) ---
+// --- script.js (FIXED NEWS TICKER) ---
 console.log("System Online: All Modules Loaded");
 
-// 1. PARTICLES ANIMATION (Moving Dots)
+// 1. PARTICLES ANIMATION
 const canvas = document.getElementById("particle-canvas");
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
@@ -56,7 +56,7 @@ const bgImages = [
 let bgIndex = 0;
 const globalBg = document.getElementById("global-bg");
 
-// Set initial background immediately
+// Initial Set
 globalBg.style.background = `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('${bgImages[0]}')`;
 globalBg.style.backgroundSize = "cover";
 globalBg.style.backgroundPosition = "center";
@@ -83,25 +83,41 @@ new Chart(document.getElementById('mbaChart'), {
     data: { labels: ['Strategy', 'Finance', 'Marketing', 'Ops'], datasets: [{ label: 'Skill', data: [88, 92, 75, 80], backgroundColor: 'rgba(239, 68, 68, 0.4)', borderColor: '#ef4444' }] }
 });
 
-// 4. NEWS TICKER (Fixed & Completed)
+// 4. NEWS TICKER (SMART BACKUP SYSTEM)
 async function fetchNews() {
+    const newsBox = document.getElementById('newsFeed');
+    
+    // Backup News (Agar API fail ho jaye to ye chalega)
+    const backupNews = `
+        <span>🔴 Asif Teach Global is Live...</span>
+        <span>🔴 Latest Cyber Security Trends 2026...</span>
+        <span>🔴 Python Automation & Java Logic...</span>
+        <span>🔴 Full Stack Development Updates...</span>
+        <span>🔴 Contact for Business Strategy...</span>
+    `;
+
     try {
         const res = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/TheHackersNews');
         const data = await res.json();
-        let newsHtml = "";
+        
         if(data.status === 'ok') {
+            let newsHtml = "";
             data.items.forEach(item => {
                 newsHtml += `<span>🔴 ${item.title}</span>`;
             });
-            document.getElementById('newsFeed').innerHTML = newsHtml;
+            newsBox.innerHTML = newsHtml;
+        } else {
+            // Agar API limit khatam ho gayi
+            newsBox.innerHTML = backupNews;
         }
     } catch(e) {
-        document.getElementById('newsFeed').innerHTML = "<span>🔴 Asif Cyber Portfolio is Live... Systems Online.</span>";
+        // Agar Internet ya Server issue ho
+        newsBox.innerHTML = backupNews;
     }
 }
 fetchNews();
 
-// 5. Contact Form Handler
+// 5. Contact Form
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
     alert("✅ Message Sent! (Github Pages Demo)");
