@@ -1,70 +1,70 @@
-/* --- style.css (SIRF DESIGN) --- */
+/* --- COMPLETE PROFESSIONAL STYLE --- */
+
+/* 1. GLOBAL RESET */
 * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 body { font-family: 'Poppins', sans-serif; color: #e2e8f0; background-color: #0f172a; overflow-x: hidden; padding-bottom: 50px; }
 
-/* CONTAINER & LAYOUT */
+/* 2. BACKGROUND & HERO */
+#global-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1920') center/cover fixed; }
+#particle-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+
+.hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
+.hero h1 { font-size: 56px; font-weight: 700; margin-bottom: 15px; color: white; text-shadow: 0 0 20px rgba(59, 130, 246, 0.6); }
+
+/* 3. LAYOUT & GLASS EFFECT */
 .container { max-width: 1100px; margin: 0 auto; padding: 50px 20px; }
 .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px; }
 
-/* GLASS EFFECT */
-.glass-box { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); padding: 40px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 40px; border-top: 5px solid #3b82f6; transition: 0.3s; }
+.glass-box { 
+    background: rgba(30, 41, 59, 0.7); 
+    backdrop-filter: blur(12px); 
+    padding: 40px; 
+    border-radius: 20px; 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    margin-bottom: 40px; 
+    border-top: 5px solid #3b82f6; 
+    transition: 0.3s; 
+}
 .glass-box:hover { transform: translateY(-5px); box-shadow: 0 0 25px rgba(59, 130, 246, 0.3); }
 
-/* PROJECT CARDS */
+/* 4. NAVBAR */
+nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(15, 23, 42, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.logo { font-size: 24px; font-weight: 700; color: white; } .logo span { color: #3b82f6; }
+.nav-links a { color: #cbd5e1; text-decoration: none; margin-left: 25px; font-size: 14px; font-weight: 500; transition: 0.3s; }
+.nav-links a:hover { color: #3b82f6; }
+
+/* 5. PROJECT CARDS */
 .project-card { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 5px solid; }
 .java-card { border-color: #f59e0b; }
 .python-card { border-color: #3b82f6; }
 .code-btn { background: #333; color: white; padding: 5px 15px; border-radius: 5px; text-decoration: none; font-size: 12px; margin-top: 10px; display: inline-block; }
 
-/* HERO & NAVBAR */
-.hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
-.hero h1 { font-size: 56px; font-weight: 700; margin-bottom: 15px; color: white; text-shadow: 0 0 20px rgba(59, 130, 246, 0.6); }
-nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(15, 23, 42, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1); }
-.logo { font-size: 24px; font-weight: 700; color: white; } .logo span { color: #3b82f6; }
-.nav-links a { color: #cbd5e1; text-decoration: none; margin-left: 25px; font-size: 14px; }
+/* 6. SECURITY TOOL STYLES (Ye wala missing tha) */
+.security-box { text-align: center; border: 1px solid #3b82f6; background: rgba(0, 0, 0, 0.6); padding: 20px; border-radius: 15px; margin-top: 20px; }
+.pass-input { 
+    width: 80%; padding: 15px; font-size: 18px; border-radius: 50px; 
+    border: 2px solid #333; background: #111; color: white; text-align: center; 
+    outline: none; font-family: monospace; transition: 0.3s; 
+}
+.pass-input:focus { border-color: #eab308; box-shadow: 0 0 15px rgba(234, 179, 8, 0.3); }
+.result-text { margin-top: 15px; font-size: 20px; font-weight: bold; text-transform: uppercase; }
 
-/* PYTHON TERMINAL */
-.py-terminal { background: black; padding: 15px; border-radius: 10px; font-family: monospace; color: #0f0; margin-top: 10px; }
+/* 7. CONTACT FORM (Ye bhi toot gaya tha, ab fix hai) */
+.contact-input { 
+    width: 100%; padding: 15px; margin-bottom: 15px; 
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); 
+    color: white; border-radius: 10px; outline: none; 
+}
+.btn-submit { 
+    width: 100%; padding: 15px; background: #3b82f6; 
+    color: white; border: none; border-radius: 10px; 
+    font-weight: bold; cursor: pointer; transition: 0.3s; 
+}
+.btn-submit:hover { background: #2563eb; }
 
-/* EXTRAS */
-#global-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1920') center/cover fixed; }
+/* 8. EXTRAS */
 .news-ticker-container { position: fixed; bottom: 0; left: 0; width: 100%; height: 40px; background: #111; border-top: 1px solid #3b82f6; display: flex; align-items: center; z-index: 2000; font-size: 14px; white-space: nowrap; overflow: hidden; }
 .ticker-content { display: inline-block; padding-left: 100%; animation: scroll-left 30s linear infinite; color: #cbd5e1; }
 @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
-@media (max-width: 768px) { .split-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 42px; } }
-/* --- PYTHON SECURITY TOOL STYLES --- */
-.security-box {
-    text-align: center;
-    border: 1px solid #3b82f6;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    border-radius: 15px;
-}
-
-.pass-input {
-    width: 80%;
-    padding: 15px;
-    font-size: 18px;
-    border-radius: 50px;
-    border: 2px solid #333;
-    background: #111;
-    color: white;
-    text-align: center;
-    outline: none;
-    font-family: monospace;
-    transition: 0.3s;
-}
-
-.pass-input:focus {
-    border-color: #eab308;
-    box-shadow: 0 0 15px rgba(234, 179, 8, 0.3);
-}
-
-.result-text {
-    margin-top: 15px;
-    font-size: 20px;
-    font-weight: bold;
-    font-family: 'Poppins', sans-serif;
-    text-transform: uppercase;
-}
+@media (max-width: 768px) { .split-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 42px; } .pass-input { width: 100%; } }
