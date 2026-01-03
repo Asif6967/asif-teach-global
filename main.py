@@ -6,21 +6,18 @@ def check_password(e):
     
     score = 0
     
+    # Logic starts here
     if len(password) > 0:
-        # Check 1: Length
         if len(password) >= 8:
             score += 1
-        # Check 2: Uppercase
         if any(c.isupper() for c in password):
             score += 1
-        # Check 3: Digits
         if any(c.isdigit() for c in password):
             score += 1
-        # Check 4: Special Symbols
         if any(c in "!@#$%^&*()_+" for c in password):
             score += 1
         
-        # FINAL RESULT LOGIC
+        # Result Colors
         if score == 0:
             output.innerHTML = "TOO SHORT"
             output.style.color = "gray"
