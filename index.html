@@ -4,48 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASIF | MBA & Tech Portfolio</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <style>
+        /* --- GLOBAL --- */
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; color: #e2e8f0; background-color: #0f172a; overflow-x: hidden; padding-bottom: 50px; }
 
-        /* News Ticker */
-        .news-ticker-container { position: fixed; bottom: 0; left: 0; width: 100%; height: 40px; background: #111; border-top: 1px solid #3b82f6; display: flex; align-items: center; z-index: 2000; font-size: 14px; white-space: nowrap; overflow: hidden; }
-        .ticker-label { background: #ef4444; color: white; padding: 0 15px; height: 100%; display: flex; align-items: center; font-weight: bold; font-size: 12px; box-shadow: 5px 0 10px rgba(0,0,0,0.5); z-index: 10; }
-        .ticker-content { display: inline-block; padding-left: 100%; animation: scroll-left 30s linear infinite; color: #cbd5e1; }
+        /* --- NEWS TICKER --- */
+        .news-ticker-container {
+            position: fixed; bottom: 0; left: 0; width: 100%; height: 40px;
+            background: #111; border-top: 1px solid #3b82f6;
+            display: flex; align-items: center; z-index: 2000;
+            font-size: 14px; white-space: nowrap; overflow: hidden;
+        }
+        .ticker-label {
+            background: #ef4444; color: white; padding: 0 15px; height: 100%;
+            display: flex; align-items: center; font-weight: bold; font-size: 12px;
+            box-shadow: 5px 0 10px rgba(0,0,0,0.5); z-index: 10;
+        }
+        .ticker-content {
+            display: inline-block; padding-left: 100%;
+            animation: scroll-left 30s linear infinite;
+            color: #cbd5e1;
+        }
         .ticker-content span { margin-right: 50px; }
         @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
-        /* Layout */
-        .container { max-width: 1100px; margin: 0 auto; padding: 50px 20px; }
-        .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        /* --- HERO SECTION --- */
         .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
         .hero h1 { font-size: 56px; font-weight: 700; margin-bottom: 15px; color: white; text-shadow: 0 0 20px rgba(59, 130, 246, 0.6); }
-        
-        /* Glass Box */
-        .glass-box { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); padding: 40px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 40px; border-top: 5px solid #3b82f6; transition: 0.3s; }
+        .badge { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 8px 20px; border-radius: 50px; font-size: 13px; font-weight: 600; text-transform: uppercase; margin: 0 5px; }
+        .visitor-badge { background: rgba(0,0,0,0.5); border: 1px solid #3b82f6; padding: 8px 15px; border-radius: 50px; color: #3b82f6; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+
+        /* --- CONTAINER & GLASS BOXES --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 50px 20px; }
+        .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .glass-box {
+            background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px);
+            padding: 40px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 40px; border-top: 5px solid #3b82f6;
+            transition: 0.3s;
+        }
         .glass-box:hover { transform: translateY(-5px); box-shadow: 0 0 25px rgba(59, 130, 246, 0.3); }
         .mba-box { border-top-color: #ef4444; }
 
-        /* Badge & Button */
-        .badge { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 8px 20px; border-radius: 50px; font-size: 13px; font-weight: 600; text-transform: uppercase; margin: 0 5px; }
-        .visitor-badge { background: rgba(0,0,0,0.5); border: 1px solid #3b82f6; padding: 8px 15px; border-radius: 50px; color: #3b82f6; font-size: 14px; font-weight: 600; margin-bottom: 20px; display: inline-flex; align-items: center; gap: 8px; }
+        /* --- FORM & BUTTONS --- */
+        .contact-input { width: 100%; padding: 15px; margin-bottom: 15px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 10px; outline: none; }
         .btn-submit { width: 100%; padding: 15px; background: #3b82f6; color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        
-        /* Navbar */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(15, 23, 42, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .logo { font-size: 24px; font-weight: 700; color: white; display: flex; align-items: center; } .logo span { color: #3b82f6; }
-        .nav-links a { color: #cbd5e1; text-decoration: none; margin-left: 25px; font-size: 14px; font-weight: 500; transition: 0.3s; } .nav-links a:hover { color: #3b82f6; }
-        .live-dot { height: 10px; width: 10px; background-color: #22c55e; border-radius: 50%; display: inline-block; margin-left: 10px; animation: pulse-green 2s infinite; }
-        @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); } 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); } }
+        .btn-submit:hover { background: #2563eb; }
 
-        /* Extras */
+        /* --- EXTRAS --- */
         #global-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1920') center/cover fixed; }
-        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 50px; left: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 2000; display: flex; justify-content: center; align-items: center; }
-        .product-img { width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1); }
-        
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(15, 23, 42, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .logo { font-size: 24px; font-weight: 700; color: white; } .logo span { color: #3b82f6; }
+        .nav-links a { color: #cbd5e1; text-decoration: none; margin-left: 25px; font-size: 14px; font-weight: 500; }
+        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 50px; left: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; z-index: 2000; display: flex; justify-content: center; align-items: center; }
+
         @media (max-width: 768px) { .split-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 42px; } }
     </style>
 </head>
@@ -55,11 +73,11 @@
 
     <div class="news-ticker-container">
         <div class="ticker-label">LIVE NEWS</div>
-        <div class="ticker-content" id="newsFeed"><span>Loading Cyber Updates...</span></div>
+        <div class="ticker-content" id="newsFeed"><span>Loading Cyber Security Updates...</span></div>
     </div>
 
     <nav>
-        <div class="logo">ASIF<span>.PRO</span> <div class="live-dot" title="Online"></div></div>
+        <div class="logo">ASIF<span>.PRO</span></div>
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#analytics">Skills</a>
@@ -78,6 +96,7 @@
     </div>
 
     <div class="container">
+        
         <div class="glass-box" id="about">
             <h3 style="font-size:28px; margin-bottom:20px; color:white;">Who am I?</h3>
             <p style="line-height:1.8; color:#cbd5e1; font-size:16px;">Hi, I'm <b>Asif</b>. I am currently pursuing my <b>MBA</b> at <b>Vivek University</b>. I combine professional <b>Business Management</b> skills with passion for <b>Technology</b>.</p>
@@ -89,44 +108,31 @@
             <div class="glass-box mba-box"><h3 style="text-align:center; color:#ef4444;">Management</h3><canvas id="mbaChart"></canvas></div>
         </div>
 
-        <h2 style="text-align:center; color:white; margin-bottom:30px;" id="shop">My Gear</h2>
-        <div class="split-grid">
-            <div class="glass-box" style="text-align:center;">
-                <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca4?q=80&w=400" class="product-img">
-                <h3 style="color:white; font-size:20px;">MacBook Air M2</h3>
-                <a href="#" style="color:#f59e0b; font-weight:bold;">Check Price</a>
-            </div>
-            <div class="glass-box" style="text-align:center;">
-                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=400" class="product-img">
-                <h3 style="color:white; font-size:20px;">Cloud Hosting</h3>
-                <a href="#" style="color:#f59e0b; font-weight:bold;">Get Hosting</a>
-            </div>
-        </div>
-
         <div class="glass-box" id="contact" style="max-width:600px; margin:0 auto;">
             <h3 style="text-align:center; color:white; margin-bottom:20px;">Contact Me</h3>
             <form id="contactForm">
-                <input type="text" placeholder="Name" style="width:100%; padding:15px; margin-bottom:15px; background:rgba(255,255,255,0.1); border:none; color:white; border-radius:10px;">
-                <textarea rows="4" placeholder="Message" style="width:100%; padding:15px; margin-bottom:15px; background:rgba(255,255,255,0.1); border:none; color:white; border-radius:10px;"></textarea>
+                <input type="text" placeholder="Name" class="contact-input" required>
+                <textarea rows="4" placeholder="Message" class="contact-input" required></textarea>
                 <button type="submit" class="btn-submit">Send Message</button>
             </form>
         </div>
+
     </div>
 
     <a href="https://whatsapp.com/channel/0029Vb73fjEFnSz6IcUhpU07" class="whatsapp-float" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
 
     <script>
-        // Form Simulation
+        // 1. Form Logic (Demo)
         document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault(); alert("✅ Message Sent! (Demo Mode)"); this.reset();
+            e.preventDefault(); alert("✅ Message Sent! (Github Pages Demo)"); this.reset();
         });
 
-        // Charts
+        // 2. Charts
         Chart.defaults.color = '#cbd5e1'; Chart.defaults.borderColor = 'rgba(255,255,255,0.1)';
         new Chart(document.getElementById('techChart'), { type: 'bar', data: { labels: ['PHP', 'SQL', 'Linux', 'Python'], datasets: [{ label: '%', data: [90, 85, 80, 70], backgroundColor: '#3b82f6' }] }, options: { scales: { y: { beginAtZero: true, max: 100 } } } });
         new Chart(document.getElementById('mbaChart'), { type: 'radar', data: { labels: ['Strategy', 'Finance', 'Marketing', 'Ops'], datasets: [{ label: 'Skill', data: [88, 92, 75, 80], backgroundColor: 'rgba(239, 68, 68, 0.4)', borderColor: '#ef4444' }] } });
 
-        // News
+        // 3. News Ticker
         async function fetchNews() {
             try {
                 const res = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/TheHackersNews');
@@ -134,7 +140,7 @@
                 let newsHtml = "";
                 if(data.status === 'ok') data.items.forEach(item => { newsHtml += `<span>🔴 ${item.title}</span>`; });
                 document.getElementById('newsFeed').innerHTML = newsHtml;
-            } catch(e) { document.getElementById('newsFeed').innerHTML = "<span>🔴 Asif Cyber Portfolio Live...</span>"; }
+            } catch(e) { document.getElementById('newsFeed').innerHTML = "<span>🔴 Asif Cyber Portfolio is Live...</span>"; }
         }
         fetchNews();
     </script>
