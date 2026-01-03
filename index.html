@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASIF | MBA & Tech Portfolio</title>
+    <title>Asif Teach Global | Portfolio</title>
     
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
     <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
     <script defer src="https://pyscript.net/latest/pyscript.js"></script>
 </head>
@@ -18,63 +17,59 @@
     <div id="global-bg"></div>
     <canvas id="particle-canvas"></canvas>
 
-    <div class="news-ticker-container">
-        <div style="background:#ef4444; color:white; padding:0 15px; height:100%; display:flex; align-items:center;">LIVE NEWS</div>
-        <div class="ticker-content" id="newsFeed"><span>Loading Updates...</span></div>
-    </div>
-
     <nav>
-        <div class="logo">ASIF<span>.PRO</span></div>
+        <div class="logo">Asif Teach<span> Global</span></div>
         <div class="nav-links">
-            <a href="#projects">Code</a>
-            <a href="#python">Security Tool</a>
+            <a href="#projects">Projects</a>
+            <a href="#python">Tools</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
 
     <div class="hero">
-        <div style="margin-bottom:20px; color:#3b82f6; font-weight:bold;">CYBER • MBA • TECH</div>
+        <div style="margin-bottom:15px; color:#3b82f6; font-weight:bold; letter-spacing: 2px;">CYBER • MBA • TECH</div>
         <h1>Full Stack & Strategy</h1>
-        <p style="color:#cbd5e1; font-size:18px;">Showcasing secure code and business logic.</p>
+        <p style="color:#cbd5e1; font-size:18px; max-width: 600px;">Bridging the gap between Business Strategy and Advanced Technology.</p>
     </div>
 
     <div class="container">
-        
         <div class="glass-box" id="projects">
             <h2 style="color:white; text-align:center; margin-bottom:20px;">My Projects</h2>
-            <div class="project-card java-card">
-                <h3 style="color:#f59e0b;"><i class="fa-brands fa-java"></i> Java App</h3>
-                <p style="color:#ccc;">Enterprise logic & algorithms.</p>
-            </div>
-            <div class="project-card python-card">
-                <h3 style="color:#3b82f6;"><i class="fa-brands fa-python"></i> Data Analysis</h3>
-                <p style="color:#ccc;">Python automation scripts.</p>
+            <div class="split-grid">
+                <div class="project-card java-card">
+                    <h3 style="color:#f59e0b;"><i class="fa-brands fa-java"></i> Java App</h3>
+                    <p style="color:#ccc;">Enterprise logic & algorithms.</p>
+                </div>
+                <div class="project-card python-card">
+                    <h3 style="color:#3b82f6;"><i class="fa-brands fa-python"></i> Data Analysis</h3>
+                    <p style="color:#ccc;">Python automation scripts.</p>
+                </div>
             </div>
         </div>
 
         <div class="glass-box" id="python" style="border-top-color: #eab308;">
-            <h3 style="color:#eab308; text-align:center; margin-bottom:20px;">
-                <i class="fa-solid fa-shield-halved"></i> Python Password Analyzer
+            <h3 style="color:#eab308; text-align:center; margin-bottom:10px;">
+                <i class="fa-solid fa-shield-halved"></i> Password Analyzer
             </h3>
-            <p style="text-align:center; color:#ccc; margin-bottom:20px;">
-                Type a password below. <b>Python</b> runs in your browser to check its strength instantly.
-            </p>
-            
             <div class="security-box">
-                <input type="password" id="passInput" class="pass-input" placeholder="Type password here..." py-input="check_password">
-                <div id="resultOutput" class="result-text" style="color: #555;">WAITING FOR INPUT...</div>
+                <input type="password" id="passInput" class="pass-input" placeholder="Enter Password..." py-input="check_password">
+                <div id="resultOutput" class="result-text" style="color: #aaa; margin-top:10px;">WAITING...</div>
             </div>
-
             <py-script src="./main.py"></py-script>
         </div>
 
         <div class="glass-box" id="contact" style="max-width:600px; margin:0 auto;">
             <h3 style="text-align:center; color:white;">Contact Me</h3>
             <form id="contactForm">
-                <input type="text" placeholder="Name" class="contact-input" required>
+                <input type="text" placeholder="Your Name" class="contact-input" required>
                 <button class="btn-submit">Send Message</button>
             </form>
         </div>
+    </div>
+
+    <div class="news-ticker-container">
+        <div style="background:#ef4444; color:white; padding:0 20px; height:100%; display:flex; align-items:center; font-weight:bold;">UPDATES</div>
+        <div class="ticker-content" id="newsFeed"><span>Loading Asif Teach Global News...</span></div>
     </div>
 
     <script src="script.js"></script>
