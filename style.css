@@ -1,66 +1,57 @@
-/* --- VERTICAL SIDEBAR STYLE --- */
+/* --- ASIF TEACH GLOBAL: MASTER DASHBOARD --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Poppins', sans-serif; background: #0f172a; color: white; display: flex; overflow-x: hidden; }
-
-/* SIDEBAR DESIGN */
-.sidebar {
-    width: 300px;
-    height: 100vh;
-    background: rgba(15, 23, 42, 0.9);
-    border-right: 2px solid #3b82f6;
-    padding: 20px;
-    position: fixed;
-    left: 0;
-    top: 0;
-    overflow-y: auto;
-    z-index: 1000;
-}
-
-.update-heading {
-    color: #eab308;
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.job-section { margin-bottom: 25px; }
-.job-section h4 { 
-    font-size: 14px; 
-    text-transform: uppercase; 
-    color: #3b82f6; 
-    border-bottom: 1px solid #333;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-}
-
-.update-link {
-    display: block;
-    color: #cbd5e1;
-    font-size: 12px;
-    text-decoration: none;
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-.update-link:hover { color: #eab308; }
-
-/* MAIN CONTENT */
-.main-content {
-    margin-left: 300px;
-    width: calc(100% - 300px);
-    padding: 40px;
+body { 
+    font-family: 'Poppins', sans-serif; 
+    background: #0f172a; 
+    color: white; 
+    display: flex; /* Sidebar aur Main Content ko saath lane ke liye */
     min-height: 100vh;
 }
 
-.hero h1 { font-size: 45px; margin-bottom: 10px; }
-.glass-box { background: rgba(30, 41, 59, 0.6); padding: 30px; border-radius: 15px; margin-bottom: 20px; }
+/* LEFT SIDEBAR: SARKARI UPDATES */
+.sidebar {
+    width: 280px;
+    background: rgba(15, 23, 42, 0.95);
+    border-right: 1px solid #3b82f6;
+    padding: 20px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+}
 
-#global-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background: #0f172a; }
+.sidebar h2 { color: #eab308; font-size: 18px; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
 
-@media (max-width: 768px) {
+.job-cat { margin-bottom: 25px; }
+.job-cat h4 { color: #3b82f6; border-bottom: 1px solid #333; padding-bottom: 5px; margin-bottom: 10px; font-size: 13px; text-transform: uppercase; }
+
+.update-item { display: block; color: #cbd5e1; font-size: 12px; text-decoration: none; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
+.update-item:hover { color: #eab308; padding-left: 5px; }
+
+/* RIGHT MAIN CONTENT */
+.main-area {
+    margin-left: 280px; /* Sidebar ki wajah se margin */
+    flex: 1;
+    padding: 40px;
+}
+
+.hero-box { text-align: center; margin-bottom: 50px; }
+.hero-box h1 { font-size: 40px; text-transform: uppercase; letter-spacing: 2px; }
+.hero-box span { color: #3b82f6; }
+
+/* PROJECT CARDS (JAVA & PYTHON) */
+.grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.glass-card { 
+    background: rgba(30, 41, 59, 0.7); 
+    backdrop-filter: blur(10px); 
+    border: 1px solid rgba(255,255,255,0.1); 
+    border-radius: 15px; 
+    padding: 30px;
+    border-top: 4px solid #3b82f6;
+}
+.java-theme { border-top-color: #f59e0b; }
+
+@media (max-width: 900px) {
     body { flex-direction: column; }
-    .sidebar { width: 100%; height: auto; position: relative; }
-    .main-content { margin-left: 0; width: 100%; }
+    .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid #3b82f6; }
+    .main-area { margin-left: 0; }
 }
