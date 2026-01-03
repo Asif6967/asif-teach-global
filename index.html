@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asif Teach Global | Portfolio</title>
+    <title>Asif Teach Global | Real Updates</title>
     
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -20,21 +20,52 @@
     <nav>
         <div class="logo">Asif Teach<span> Global</span></div>
         <div class="nav-links">
+            <a href="#updates" style="color:#eab308;">Live Jobs</a>
             <a href="#projects">Projects</a>
-            <a href="#python">Tools</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
 
     <div class="hero">
-        <div style="margin-bottom:15px; color:#3b82f6; font-weight:bold; letter-spacing: 2px;">CYBER • MBA • TECH</div>
-        <h1>Full Stack & Strategy</h1>
-        <p style="color:#cbd5e1; font-size:18px; max-width: 600px;">Bridging the gap between Business Strategy and Advanced Technology.</p>
+        <div style="margin-bottom:15px; color:#3b82f6; font-weight:bold; letter-spacing: 2px;">LIVE DATA • GOVT JOBS</div>
+        <h1>Your Career Portal</h1>
+        <p style="color:#cbd5e1; font-size:18px; max-width: 600px;">Real-time updates fetched directly from Job Feeds.</p>
     </div>
 
     <div class="container">
+
+        <div class="glass-box" id="updates">
+            <h2 style="color:white; text-align:center; margin-bottom:10px;">📢 Sarkari Updates (Live)</h2>
+            <p style="text-align:center; color:#aaa; font-size:12px; margin-bottom:20px;">* Updates are fetched automatically via RSS Feeds.</p>
+            
+            <div class="sarkari-grid">
+                
+                <div class="update-column col-result">
+                    <div class="update-header">Results</div>
+                    <div id="result-list">
+                        <span style="color:gray; font-size:12px;">Loading Real Data...</span>
+                    </div>
+                </div>
+
+                <div class="update-column col-admit">
+                    <div class="update-header">Admit Cards</div>
+                    <div id="admit-list">
+                        <span style="color:gray; font-size:12px;">Loading Real Data...</span>
+                    </div>
+                </div>
+
+                <div class="update-column col-job">
+                    <div class="update-header">Latest Jobs</div>
+                    <div id="job-list">
+                        <span style="color:gray; font-size:12px;">Loading Real Data...</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
         <div class="glass-box" id="projects">
-            <h2 style="color:white; text-align:center; margin-bottom:20px;">My Projects</h2>
+            <h2 style="color:white; text-align:center; margin-bottom:20px;">Tech Projects</h2>
             <div class="split-grid">
                 <div class="project-card java-card">
                     <h3 style="color:#f59e0b;"><i class="fa-brands fa-java"></i> Java App</h3>
@@ -61,7 +92,7 @@
         <div class="glass-box" id="contact" style="max-width:600px; margin:0 auto;">
             <h3 style="text-align:center; color:white;">Contact Me</h3>
             <form id="contactForm">
-                <input type="text" placeholder="Your Name" class="contact-input" required>
+                <input type="text" placeholder="Name" class="contact-input" required>
                 <button class="btn-submit">Send Message</button>
             </form>
         </div>
@@ -69,7 +100,7 @@
 
     <div class="news-ticker-container">
         <div style="background:#ef4444; color:white; padding:0 20px; height:100%; display:flex; align-items:center; font-weight:bold;">UPDATES</div>
-        <div class="ticker-content" id="newsFeed"><span>Loading Asif Teach Global News...</span></div>
+        <div class="ticker-content" id="newsFeed"><span>Loading...</span></div>
     </div>
 
     <script src="script.js"></script>
