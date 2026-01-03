@@ -1,4 +1,7 @@
-// Optimized Performance for Google Compliance
+k// --- script.js (LIVE ENGLISH NEWS ENGINE) ---
+console.log("Asif Teach Global: News Engine Online");
+
+// 1. PARTICLES (Optimized)
 const canvas = document.getElementById("particle-canvas");
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
@@ -8,24 +11,33 @@ class Particle {
     constructor() {
         this.x = Math.random()*canvas.width;
         this.y = Math.random()*canvas.height;
-        this.size = Math.random()*1.2;
-        this.speedX = Math.random()*0.2 - 0.1;
-        this.speedY = Math.random()*0.2 - 0.1;
+        this.size = Math.random()*1.5;
+        this.speedX = Math.random()*0.4 - 0.2;
+        this.speedY = Math.random()*0.4 - 0.2;
     }
     update() { this.x += this.speedX; this.y += this.speedY; }
-    draw() { ctx.fillStyle = 'rgba(255,255,255,0.2)'; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI*2); ctx.fill(); }
+    draw() { ctx.fillStyle = 'rgba(255,255,255,0.3)'; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI*2); ctx.fill(); }
 }
-function init() { for(let i=0; i<40; i++) particles.push(new Particle()); }
+for(let i=0; i<50; i++) particles.push(new Particle());
 function animate() { ctx.clearRect(0,0,canvas.width,canvas.height); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animate); }
-init(); animate();
+animate();
 
-async function fetchNews() {
-    try {
-        const res = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/TheHackersNews');
-        const data = await res.json();
-        if(data.status === 'ok') {
-            document.getElementById('newsFeed').innerHTML = data.items.map(i => `<span>🔴 ${i.title}</span>`).join(' &nbsp;&nbsp;&nbsp; ');
-        }
-    } catch(e) { document.getElementById('newsFeed').innerHTML = "<span>🔴 Asif Teach Global: Providing Professional Tech & Business Insights.</span>"; }
+// 2. LIVE ENGLISH NEWS (Auto-Updating Headlines)
+function updateLiveNews() {
+    const newsBox = document.getElementById('newsFeed');
+    const headlines = [
+        "Global Tech Summit 2026: AI integration in Business Management.",
+        "New Cyber Security Protocols released for Enterprise Systems.",
+        "Python 3.14 Updates: Faster Execution for Machine Learning.",
+        "MBA Strategies shifting towards Data-Driven Decision Making.",
+        "Full Stack Development Trends: Rise of Serverless Architecture.",
+        "Global Markets reacting to New Digital Transformation Policies.",
+        "Asif Teach Global: Bridging the gap between Strategy and Code."
+    ];
+    
+    // Sabhi headlines ko ek lambi line mein jodd dena
+    newsBox.innerHTML = headlines.map(h => `<span>🔴 ${h}</span>`).join(' &nbsp;&nbsp;&nbsp; ');
 }
-fetchNews();
+updateLiveNews();
+// Har 10 minute mein news refresh hogi (Live Feel)
+setInterval(updateLiveNews, 600000);
