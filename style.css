@@ -8,17 +8,19 @@ body {
 }
 
 /* ========== BACKGROUND IMAGE ========== */
+/* ========== BACKGROUND IMAGE FIXED LAYER ========== */
 #dynamic-bg {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: brightness(0.35);
+  z-index: -1;
+  filter: brightness(0.45) blur(0px);
+}
 }
 
 /* ========== NAVIGATION ========== */
@@ -61,40 +63,23 @@ nav {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 0 20px;
-  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
-  font-size: clamp(36px, 6vw, 60px);
+  font-size: clamp(32px, 8vw, 60px);
   font-weight: 800;
   color: #fff;
-  text-shadow: 0 0 15px rgba(255, 140, 0, 0.8);
-  margin-bottom: 10px;
-}
-.hero h1 span {
-  color: #3b82f6;
+  text-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
 }
 
 .hero p {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   opacity: 0.9;
-}
-
-.cta-btn {
-  margin-top: 30px;
-  background: linear-gradient(90deg, #ffae42, #ff6a00);
-  color: #000;
-  padding: 12px 28px;
-  border-radius: 30px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-.cta-btn:hover {
-  background: #fff;
-  transform: scale(1.07);
+  margin-top: 10px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }
 
 /* ========== CONTENT AREA ========== */
