@@ -2,10 +2,10 @@ body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     color: white;
-    background: #020617; /* Backup black color */
+    background: #020617; /* Base Dark Color */
 }
 
-/* Background Fix */
+/* Background Layer */
 #dynamic-bg {
     position: fixed;
     top: 0;
@@ -15,48 +15,37 @@ body {
     z-index: -1;
     background-size: cover;
     background-position: center;
-    filter: brightness(0.35); /* Image ko thoda dark rakha hai taaki text dikhe */
+    background-repeat: no-repeat;
+    filter: brightness(0.3); /* Isse photo thodi dark rahegi taaki text dikhe */
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     padding: 20px 5%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(10px);
 }
 
-.logo { font-size: 26px; font-weight: 800; letter-spacing: 1px; }
+.logo { font-size: 26px; font-weight: 800; }
 .logo span { color: #3b82f6; }
 
-.nav-links a { color: white; text-decoration: none; margin-left: 20px; font-weight: 400; }
-
 .hero { text-align: center; padding: 120px 20px; }
-.hero h1 { font-size: clamp(32px, 8vw, 60px); font-weight: 800; margin: 0; }
+.hero h1 { font-size: clamp(32px, 8vw, 60px); font-weight: 800; }
 
 .container { max-width: 900px; margin: auto; padding: 20px; }
 
 .glass-box {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    padding: 40px;
+    padding: 35px;
     backdrop-filter: blur(15px);
 }
-
-.section-title { color: #eab308; margin-bottom: 30px; text-align: center; }
 
 .article-card {
     background: rgba(0, 0, 0, 0.4);
     padding: 25px;
     border-radius: 15px;
     border-left: 5px solid #3b82f6;
-}
-
-.read-more { color: #3b82f6; text-decoration: none; font-weight: 600; display: inline-block; margin-top: 15px; }
-
-/* Mobile View Fix */
-@media (max-width: 768px) {
-    nav { flex-direction: column; text-align: center; gap: 15px; }
-    .hero { padding: 80px 20px; }
 }
