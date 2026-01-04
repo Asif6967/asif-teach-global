@@ -32,14 +32,44 @@
     <p>Leading the Digital Transformation in Business Education.</p>
     <a href="#insights" class="cta-btn">Explore Insights</a>
   </section>
-<!-- ====== YouTube Live Updates Section ====== -->
-<section id="youtube-updates" class="glass-box">
-  <h2 class="section-title">🎥 Latest From YouTube</h2>
-  <div id="youtube-videos" class="video-grid">
-    <p>Loading latest videos...</p>
-  </div>
-</section>
 
+<script>
+  const API_KEY = "AIzaSyDdbmzW7oLnAlv4cDqxPYkgLYv7E7lMKDM"; // यहाँ अपनी नई key डाल
+  const CHANNEL_ID = "UCRfvXfU4toossqCIbuXNblA";
+  const maxResults = 4;
+
+  async function loadYouTubeVideos() {
+    const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${maxResults}`;
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      const container = document.getElementById('youtube-videos');
+      container.innerHTML = '';
+
+      if (data.items) {
+        data.items.forEach(item => {
+          if (item.id.videoId) {
+            const videoEl = document.createElement('div');
+            videoEl.classList.add('video-card');
+            videoEl.innerHTML = `
+              <iframe src="https://www.youtube.com/embed/${item.id.videoId}" frameborder="0" allowfullscreen></iframe>
+              <h4>${item.snippet.title}</h4>
+            `;
+            container.appendChild(videoEl);
+          }
+        });
+      } else {
+        container.innerHTML = "<p>⚠️ No videos found — check API key or restrictions.</p>";
+      }
+    } catch (error) {
+      document.getElementById('youtube-videos').innerHTML = `<p>⚠️ ${error.message}</p>`;
+    }
+  }
+
+  loadYouTubeVideos();
+</script>
+
+</section>
   <!-- Insights Section -->
   <div class="container" id="insights">
     <h2 class="section-title">Latest Tech Insights</h2>
