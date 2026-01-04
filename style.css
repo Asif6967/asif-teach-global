@@ -3,45 +3,49 @@ body {
     font-family: 'Poppins', sans-serif;
     background: #0f172a;
     color: white;
-    overflow-x: hidden;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 20px 5%;
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(10px);
+    background: rgba(15, 23, 42, 0.9);
 }
 
 .logo { font-size: 24px; font-weight: 700; }
 .logo span { color: #3b82f6; }
 
-.nav-links a {
-    color: #cbd5e1;
-    text-decoration: none;
-    margin-left: 20px;
-    font-size: 14px;
-}
+.nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 14px; }
 
-.hero {
-    text-align: center;
-    padding: 100px 20px;
-}
+.hero { text-align: center; padding: 80px 20px; }
+.hero h1 { font-size: 40px; }
 
-.hero h1 { font-size: 48px; margin-bottom: 10px; }
-
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-}
+.container { max-width: 1000px; margin: auto; padding: 20px; }
 
 .glass-box {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
-    padding: 30px;
-    margin-bottom: 30px;
+    padding: 25px;
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.article-card {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #3b82f6;
+}
+
+.article-card a { color: #3b82f6; text-decoration: none; font-size: 13px; font-weight: bold; }
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 28px; }
+    nav { flex-direction: column; text-align: center; gap: 10px; }
 }
