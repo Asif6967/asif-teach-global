@@ -76,29 +76,38 @@
   <!-- Dynamic Background -->
 <script>
   const bg = document.getElementById('dynamic-bg');
-  const businessImages = [
+  const businessPhotos = [
     "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=80",
     "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=80",
     "https://images.unsplash.com/photo-1522204508132-3e473b8a3c6b?auto=format&fit=crop&w=1600&q=80",
     "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80",
-    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80",
     "https://images.unsplash.com/photo-1603791452906-c8d6c92a3c89?auto=format&fit=crop&w=1600&q=80",
     "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=1600&q=80",
     "https://images.unsplash.com/photo-1531497865144-0464ef8fb9a6?auto=format&fit=crop&w=1600&q=80",
     "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80",
-    "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80"
+    "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80",
+    "https://images.unsplash.com/photo-1581092334856-8d2c1a1b9d24?auto=format&fit=crop&w=1600&q=80"
   ];
 
-  function changeBackground() {
-    const random = Math.floor(Math.random() * businessImages.length);
-    const newImage = businessImages[random];
-    bg.style.backgroundImage = `url('${newImage}')`;
-    bg.style.transition = "background-image 2s ease-in-out";
+  function preloadAndShow(imgUrl) {
+    const img = new Image();
+    img.onload = () => {
+      bg.style.backgroundImage = `url('${imgUrl}')`;
+      bg.classList.add('visible');
+    };
+    img.src = imgUrl;
   }
 
-  changeBackground();           // first load
-  setInterval(changeBackground, 10000);  // har 10 second me new photo
-</script>
+  function changeBackground() {
+    const randomIndex = Math.floor(Math.random() * businessPhotos.length);
+    const newImage = businessPhotos[randomIndex];
+    bg.classList.remove('visible');
+    setTimeout(() => preloadAndShow(newImage), 500);
+  }
+
+  // Pehli image aur interval setup
+  changeBackground();
+  setInterval(changeBackground, 10000);
 </script>
 </body>
 </html>

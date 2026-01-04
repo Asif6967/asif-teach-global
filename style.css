@@ -10,6 +10,13 @@ body {
 /* ========== BACKGROUND IMAGE ========== */
 /* ========== BACKGROUND IMAGE FIXED LAYER ========== */
 #dynamic-bg {
+/* Prevent white flash while image loads */
+body {
+  background-color: #0a0f1a; /* Dark base instead of white */
+}
+
+/* Smooth fade effect for background */
+#dynamic-bg {
   position: fixed;
   top: 0;
   left: 0;
@@ -19,10 +26,10 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   z-index: -1;
-  filter: brightness(0.45) blur(0px);
+  filter: brightness(0.45);
+  transition: opacity 1.5s ease-in-out;
+  opacity: 0;
 }
-}
-
 /* ========== NAVIGATION ========== */
 nav {
   display: flex;
