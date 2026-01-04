@@ -19,3 +19,65 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .news-ticker-container { position: fixed; bottom: 0; left: 0; width: 100%; height: 40px; background: #111; border-top: 1px solid #ef4444; display: flex; align-items: center; z-index: 2000; overflow: hidden; }
 .ticker-content { display: inline-block; padding-left: 100%; animation: scroll-left 35s linear infinite; color: #cbd5e1; white-space: nowrap; }
 @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+/* --- 1. PC aur Badi Screen ke liye Basics --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #0f172a;
+    color: white;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Glass Box Design */
+.glass-box {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* PC par grid (Articles bagal-bagal dikhenge) */
+.insights-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* --- 2. MOBILE & IPHONE FIX (Screen size 768px se kam hone par) --- */
+@media (max-width: 768px) {
+    .insights-grid {
+        grid-template-columns: 1fr; /* Mobile par articles ek ke niche ek ayenge */
+    }
+    
+    .hero h1 {
+        font-size: 26px; /* Phone par heading choti ho jayegi */
+        text-align: center;
+    }
+    
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+        font-size: 14px;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+
+    /* iPhone aur mobile par text na kate iske liye padding */
+    p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}
