@@ -95,3 +95,62 @@ px);
   z-index: 1;
   margin-top: 100vh; /* content hero ke neeche se start ho */
 }
+/* ============================
+   FIXED HERO SECTION (FINAL)
+============================ */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+#dynamic-bg {
+  position: fixed;           /* background fix ho gaya */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;               /* content ke peeche rahe */
+}
+
+.hero-content {
+  position: fixed;            /* text bhi fix */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 20px 40px;
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 15px rgba(255, 140, 0, 0.8);
+}
+
+.hero-content span {
+  color: #ffae42;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+/* Content below hero */
+.container {
+  position: relative;
+  z-index: 1;
+  margin-top: 100vh;
+  padding-top: 40px;
+}
