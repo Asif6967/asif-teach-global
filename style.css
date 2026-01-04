@@ -49,3 +49,10 @@ nav {
     border-radius: 15px;
     border-left: 5px solid #3b82f6;
 }
+px);
+}
+
+.article-card {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 25px;
+    border-radius: 15px;
