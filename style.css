@@ -1,69 +1,62 @@
-/* Purana mita kar ye naya wala daal dein */
-:root {
-    --primary: #3b82f6;
-    --accent: #eab308;
-    --bg: #0f172a;
-}
-
+/* --- 1. PC aur Badi Screen ke liye Basics --- */
 body {
-    background: var(--bg);
-    color: #f8fafc;
     font-family: 'Poppins', sans-serif;
     margin: 0;
-    line-height: 1.6;
-}
-
-/* Next Level Glass Effect */
-.glass-box {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 25px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 25px;
-}
-
-.glass-box:hover {
-    transform: translateY(-10px); /* Hover karne par upar uthega */
-    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
-    border: 1px solid var(--primary);
-}
-
-/* Animated Gradient Heading */
-h1 {
-    font-size: 3.5rem;
-    background: linear-gradient(90deg, #fff, var(--primary), #fff);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 3s linear infinite;
-}
-
-@keyframes shine {
-    to { background-position: 200% center; }
-}
-
-/* Button Premium Look */
-.read-more {
-    background: linear-gradient(45deg, var(--primary), #1d4ed8);
+    padding: 0;
+    background: #0f172a;
     color: white;
-    padding: 10px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    display: inline-block;
-    transition: 0.3s;
+    overflow-x: hidden;
 }
 
-.read-more:hover {
-    letter-spacing: 1px;
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
 }
 
-/* Mobile responsive fixes */
+/* Glass Box Design */
+.glass-box {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* PC par grid (Articles bagal-bagal dikhenge) */
+.insights-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* --- 2. MOBILE & IPHONE FIX (Screen size 768px se kam hone par) --- */
 @media (max-width: 768px) {
-    h1 { font-size: 2.2rem; }
-    .container { padding: 15px; }
+    .insights-grid {
+        grid-template-columns: 1fr; /* Mobile par articles ek ke niche ek ayenge */
+    }
+    
+    .hero h1 {
+        font-size: 26px; /* Phone par heading choti ho jayegi */
+        text-align: center;
+    }
+    
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+        font-size: 14px;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+
+    /* iPhone aur mobile par text na kate iske liye padding */
+    p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
 }
