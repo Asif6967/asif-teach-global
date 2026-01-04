@@ -72,7 +72,18 @@
         <div style="background:#ef4444; color:white; padding:0 20px; height:100%; display:flex; align-items:center; font-weight:bold; font-size:12px;">LIVE UPDATES</div>
         <div class="ticker-content" id="newsFeed"><span>Loading Real-time Tech News...</span></div>
     </div>
+<div id="chat-button" onclick="toggleChat()" style="position:fixed; bottom:20px; right:80px; background:#3b82f6; color:white; padding:15px; border-radius:50%; cursor:pointer; z-index:1000; box-shadow:0 0 15px rgba(59,130,246,0.5); border: 2px solid white;">
+    <i class="fa-solid fa-robot"></i>
+</div>
 
+<div id="chat-box" style="display:none; position:fixed; bottom:90px; right:20px; width:300px; background:#1e293b; border:2px solid #3b82f6; border-radius:15px; z-index:1000; padding:15px; box-shadow:0 0 20px rgba(0,0,0,0.5);">
+    <h4 style="color:#eab308; margin-top:0; border-bottom:1px solid #444; padding-bottom:5px;">Asif AI Assistant</h4>
+    <div id="chat-display" style="height:200px; overflow-y:auto; color:#ccc; font-size:13px; margin-bottom:10px;">Hi! I am Asif's AI. How can I help you with MBA or Tech?</div>
+    <input type="text" id="chat-input" placeholder="Ask me anything..." style="width:85%; padding:8px; border-radius:5px; border:none; outline:none;">
+    <button onclick="sendMsg()" style="background:#3b82f6; color:white; border:none; padding:8px; border-radius:5px; cursor:pointer;">Go</button>
+</div>
+
+<script src="chatbot.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
