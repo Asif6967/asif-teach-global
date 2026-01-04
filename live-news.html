@@ -5,70 +5,61 @@
     <title>Business News Hub | Asif Teach Global</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .choice-container { margin: 30px 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .btn-news { padding: 15px 30px; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; font-size: 16px; transition: 0.4s; color: white; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-        .btn-hindi { background: linear-gradient(135deg, #f97316, #ea580c); } /* Orange for Hindi */
-        .btn-english { background: linear-gradient(135deg, #3b82f6, #1d4ed8); } /* Blue for English */
-        .btn-news:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(255,255,255,0.1); }
-        .video-wrapper { max-width: 900px; margin: 0 auto; border: 3px solid #333; border-radius: 20px; overflow: hidden; background: #000; position: relative; padding-bottom: 56.25%; height: 0; }
+        .choice-container { margin: 25px 0; display: flex; justify-content: center; gap: 15px; }
+        .btn-news { padding: 12px 25px; border: none; border-radius: 30px; cursor: pointer; font-weight: bold; color: white; transition: 0.3s; }
+        .btn-hindi { background: #f97316; } 
+        .btn-english { background: #3b82f6; }
+        .video-wrapper { max-width: 850px; margin: 0 auto; border: 2px solid #333; border-radius: 15px; overflow: hidden; position: relative; padding-bottom: 56.25%; height: 0; background: #000; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
     </style>
 </head>
-<body style="background: #020617; color: white; margin: 0; font-family: 'Poppins', sans-serif; text-align: center;">
+<body style="background: #020617; color: white; margin: 0; font-family: sans-serif; text-align: center;">
 
-    <div style="background: #ef4444; color: white; padding: 12px; font-weight: bold; border-bottom: 2px solid #eab308;">
-        <marquee behavior="scroll" direction="left" scrollamount="7">
-            🔥 LIVE: अपनी भाषा में बिजनेस न्यूज़ देखें | 💰 DEALS: Best Business Gadgets <a href="https://www.amazon.in/b?node=98175016031&tag=realasifunive-21" style="color: yellow;">(Shop Now)</a> | 📊 Premium Insights Available!
-        </marquee>
+    <div style="background: #ef4444; color: white; padding: 10px; font-weight: bold;">
+        <marquee> 🔥 LIVE: अपनी भाषा चुनें | 💰 DEALS: <a href="https://www.amazon.in/b?node=98175016031&tag=realasifunive-21" style="color: yellow;">Shop Now</a> </marquee>
     </div>
 
-    <div style="padding: 40px 20px;">
-        <h1 style="color: #3b82f6; font-size: 32px;">Global Business Live News Hub</h1>
-        <p style="color: #94a3b8;">अपनी पसंद की भाषा चुनें और लाइव न्यूज़ देखें</p>
-
+    <div style="padding: 30px 10px;">
+        <h1>Choose Your Live News</h1>
+        
         <div class="choice-container">
-            <button class="btn-news btn-hindi" onclick="changeNews('hindi')">🇮🇳 Watch Zee Business (Hindi)</button>
-            <button class="btn-news btn-english" onclick="changeNews('english')">🌎 Watch Bloomberg (English)</button>
+            <button class="btn-news btn-hindi" onclick="changeStream('hindi')">🇮🇳 Hindi (Zee Business)</button>
+            <button class="btn-news btn-english" onclick="changeStream('english')">🌎 English (Bloomberg)</button>
         </div>
 
         <div class="video-wrapper">
-            <iframe id="newsPlayer" 
+            <iframe id="mainPlayer" 
                     src="https://www.youtube.com/embed/live_stream?channel=UC4pD8U6i9v0v40g7655n63A&autoplay=1&mute=1" 
-                    allowfullscreen>
+                    allow="autoplay; encrypted-media" allowfullscreen>
             </iframe>
         </div>
+        
+        <h3 id="currentLabel" style="margin-top: 15px; color: #f97316;">Watching: Hindi News Live</h3>
 
-        <h3 id="nowPlaying" style="margin-top: 20px; color: #f97316;">Watching: Zee Business Live (Hindi)</h3>
-
-        <div style="margin-top: 40px; background: rgba(255,255,255,0.05); padding: 30px; border-radius: 25px; border: 1px solid #333; display: inline-block;">
-            <h4 style="color: #eab308; margin-top: 0;">🔥 Recommended Business Toolkit</h4>
-            <p style="font-size: 14px; color: #ccc;">Invest in yourself with top business resources.</p>
-            <a href="https://www.amazon.in/b?node=98175016031&tag=realasifunive-21" 
-               style="display: inline-block; background: #eab308; color: black; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; margin-top: 10px;">
-               View Deals on Amazon
-            </a>
-            <div style="margin-top: 15px;">
-                <a href="ai-tools-mba-2026.html" style="color: #3b82f6; text-decoration: none; font-weight: bold;">Unlock Premium Article (₹10) →</a>
-            </div>
+        <div style="margin-top: 30px; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 15px; display: inline-block;">
+            <a href="https://www.amazon.in/b?node=98175016031&tag=realasifunive-21" style="color: #ff9900; font-weight: bold; text-decoration: none;">🔥 Check Today's Business Deals</a>
+            <br><br>
+            <a href="ai-tools-mba-2026.html" style="color: #3b82f6; text-decoration: none;">Unlock Premium Strategy (₹10) →</a>
         </div>
     </div>
 
     <script>
-        function changeNews(type) {
-            const player = document.getElementById('newsPlayer');
-            const status = document.getElementById('nowPlaying');
+        function changeStream(lang) {
+            const player = document.getElementById('mainPlayer');
+            const label = document.getElementById('currentLabel');
             
-            if (type === 'hindi') {
+            if (lang === 'hindi') {
+                // Zee Business Hindi
                 player.src = "https://www.youtube.com/embed/live_stream?channel=UC4pD8U6i9v0v40g7655n63A&autoplay=1";
-                status.innerText = "Watching: Zee Business Live (Hindi)";
-                status.style.color = "#f97316";
-            } else if (type === 'english') {
+                label.innerText = "Watching: Hindi News Live";
+                label.style.color = "#f97316";
+            } else {
+                // Bloomberg English
                 player.src = "https://www.youtube.com/embed/live_stream?channel=UCIALMKvObZNtJ6AmdCLP7Lg&autoplay=1";
-                status.innerText = "Watching: Bloomberg Live (English)";
-                status.style.color = "#3b82f6";
+                label.innerText = "Watching: English News Live";
+                label.style.color = "#3b82f6";
             }
         }
     </script>
-
 </body>
 </html>
