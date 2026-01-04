@@ -200,8 +200,27 @@ nav {
     transition: 0.3s;
     box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
 }
+.marketing-card {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 20px;
+}
 
-.buy-now-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(255, 153, 0, 0.5);
+.marketing-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+    color: white !important;
+    padding: 14px 35px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s ease;
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+}
+
+.marketing-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+    filter: brightness(1.1);
 }
