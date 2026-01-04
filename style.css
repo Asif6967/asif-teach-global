@@ -146,27 +146,39 @@ nav {
 .read-more:hover {
   text-decoration: underline;
 }
-/* ========== INSIGHTS GRID LAYOUT ========== */
+/* ========== INSIGHTS HORIZONTAL SCROLL ========== */
 .glass-box {
   display: flex;
-  flex-wrap: wrap;
   gap: 25px;
-  justify-content: center;
-  align-items: stretch;
+  overflow-x: auto;
+  padding-bottom: 15px;
+  scroll-behavior: smooth;
+}
+
+.glass-box::-webkit-scrollbar {
+  height: 10px;
+}
+.glass-box::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #3b82f6, #ffae42);
+  border-radius: 10px;
+}
+.glass-box::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .article-card {
-  flex: 1 1 calc(45% - 20px); /* 2 cards per row */
+  flex: 0 0 350px;
   background: rgba(0, 0, 0, 0.55);
   padding: 25px;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 25px rgba(255, 174, 66, 0.15);
   transition: all 0.3s ease;
+  min-height: 230px;
 }
 
 .article-card:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-8px) scale(1.05);
   box-shadow: 0 0 25px rgba(255, 174, 66, 0.35);
 }
 
@@ -174,14 +186,16 @@ nav {
   color: #ffae42;
   font-size: 1.2rem;
 }
-
 .article-card p {
   opacity: 0.9;
   line-height: 1.5;
 }
 
-@media (max-width: 768px) {
-  .article-card {
-    flex: 1 1 100%; /* Mobile: single column */
-  }
+.read-more {
+  color: #3b82f6;
+  font-weight: 600;
+  text-decoration: none;
+}
+.read-more:hover {
+  text-decoration: underline;
 }
