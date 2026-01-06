@@ -84,51 +84,128 @@
 
 </section>
   <!-- Insights Section -->
-<div class="container" id="tools" style="margin: 60px auto; padding: 20px;">
-        <h2 style="color: #ffae42; text-align: center; margin-bottom: 30px;">🚀 Free Business Finance Tools</h2>
+<style>
+        .tools-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 40px;
+            padding: 20px;
+        }
+        .tool-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .tool-input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: #000; /* Black text so numbers show */
+            background: #fff;
+        }
+        .tool-select {
+            width: 98%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            color: #000;
+        }
+        .result-box {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #fff;
+            background: rgba(0,0,0,0.3);
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+
+    <div class="container" id="tools" style="margin: 50px auto;">
+        <h2 style="color: #ffae42; text-align: center; margin-bottom: 10px;">🚀 Free Business Finance Tools</h2>
         
-        <div class="split-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+        <div class="tools-container">
             
-            <div class="glass-box" style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); text-align: center;">
-                <h3 style="color: #58a6ff; margin-bottom: 15px;"><i class="fa-solid fa-file-invoice-dollar"></i> GST Calculator</h3>
-                <p style="font-size: 13px; color: #aaa; margin-bottom: 20px;">Calculate tax instantly for invoices.</p>
+            <div class="tool-card">
+                <h3 style="color: #58a6ff; margin-bottom: 10px;"><i class="fa-solid fa-file-invoice-dollar"></i> GST Calculator</h3>
+                <p style="font-size: 13px; color: #ccc; margin-bottom: 15px;">Calculate 18% GST instantly.</p>
                 
-                <input type="number" id="gstAmount" placeholder="Enter Amount (₹)" style="width: 80%; padding: 10px; border-radius: 5px; border: none; margin-bottom: 15px;">
+                <input type="number" id="gstAmount" placeholder="Enter Amount (₹)" class="tool-input">
                 
-                <select id="gstRate" style="width: 85%; padding: 10px; border-radius: 5px; border: none; margin-bottom: 20px; cursor: pointer;">
+                <select id="gstRate" class="tool-select">
+                    <option value="18">18% GST (Standard)</option>
                     <option value="5">5% GST</option>
                     <option value="12">12% GST</option>
-                    <option value="18" selected>18% GST (Standard)</option>
                     <option value="28">28% GST</option>
                 </select>
                 
-                <h4 id="gstResult" style="color: #fff; font-size: 18px; margin: 10px 0;">Total: ₹0</h4>
+                <div id="gstResult" class="result-box">Total: ₹0</div>
                 
-                <button onclick="calcGST()" style="background: #58a6ff; color: white; border: none; padding: 10px 25px; border-radius: 50px; cursor: pointer; font-weight: bold; margin-top: 10px;">Calculate Tax</button>
+                <button onclick="calcGST()" style="background: #58a6ff; color: white; border: none; padding: 12px 30px; border-radius: 50px; cursor: pointer; font-weight: bold; margin-top: 10px; width: 100%;">Calculate</button>
             </div>
 
-            <div class="glass-box" style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); text-align: center;">
-                <h3 style="color: #ffae42; margin-bottom: 15px;"><i class="fa-solid fa-chart-line"></i> Profit Margin</h3>
-                <p style="font-size: 13px; color: #aaa; margin-bottom: 20px;">Check your actual business profit %.</p>
+            <div class="tool-card">
+                <h3 style="color: #ffae42; margin-bottom: 10px;"><i class="fa-solid fa-chart-line"></i> Profit Margin</h3>
+                <p style="font-size: 13px; color: #ccc; margin-bottom: 15px;">Know your true profit percentage.</p>
                 
-                <input type="number" id="costPrice" placeholder="Cost Price (₹)" style="width: 40%; padding: 10px; border-radius: 5px; border: none; margin-bottom: 15px;">
-                <input type="number" id="sellPrice" placeholder="Selling Price (₹)" style="width: 40%; padding: 10px; border-radius: 5px; border: none; margin-bottom: 15px;">
+                <input type="number" id="costPrice" placeholder="Cost Price (₹)" class="tool-input">
+                <input type="number" id="sellPrice" placeholder="Selling Price (₹)" class="tool-input">
                 
-                <h4 id="marginResult" style="color: #fff; font-size: 18px; margin: 10px 0;">Margin: 0%</h4>
+                <div id="marginResult" class="result-box">Margin: 0%</div>
                 
-                <button onclick="calcMargin()" style="background: #ffae42; color: black; border: none; padding: 10px 25px; border-radius: 50px; cursor: pointer; font-weight: bold; margin-top: 10px;">Check Profit</button>
+                <button onclick="calcMargin()" style="background: #ffae42; color: black; border: none; padding: 12px 30px; border-radius: 50px; cursor: pointer; font-weight: bold; margin-top: 10px; width: 100%;">Check Profit</button>
             </div>
 
         </div>
 
-        <div style="text-align: center; margin-top: 40px;">
-            <p style="color: #aaa; font-size: 12px; margin-bottom: 10px;">Help other businesses grow!</p>
+        <div style="text-align: center; margin-top: 40px; margin-bottom: 50px;">
             <button onclick="shareBiz()" style="background: #25d366; color: white; border: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 16px; box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);">
                 <i class="fa-brands fa-whatsapp"></i> Share Tools on WhatsApp
             </button>
         </div>
     </div>
 
+    <script>
+        function calcGST() {
+            const amount = parseFloat(document.getElementById("gstAmount").value);
+            const rate = parseFloat(document.getElementById("gstRate").value);
+            if(amount) {
+                const tax = (amount * rate) / 100;
+                const total = amount + tax;
+                document.getElementById("gstResult").innerHTML = 
+                    `Tax: ₹${tax.toFixed(2)} <br> Total: ₹${total.toFixed(2)}`;
+            }
+        }
+
+        function calcMargin() {
+            const cost = parseFloat(document.getElementById("costPrice").value);
+            const sell = parseFloat(document.getElementById("sellPrice").value);
+            if(cost && sell) {
+                const profit = sell - cost;
+                const margin = (profit / sell) * 100;
+                const color = margin > 0 ? "#22c55e" : "#ef4444";
+                document.getElementById("marginResult").innerHTML = 
+                    `Profit: ₹${profit} <br> <span style="color:${color}">${margin.toFixed(2)}% Margin</span>`;
+            }
+        }
+
+        function shareBiz() {
+            const msg = "Use Asif Tech Global's Free Business Calculators here: https://asif6967.github.io/";
+            window.open("https://wa.me/?text=" + encodeURIComponent(msg), "_blank");
+        }
+    </script>
     <script>
         // GST Logic
         function calcGST() {
