@@ -7,156 +7,41 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* 🌑 DARK THEME SETTINGS */
-        body {
-            background-color: #0d1117; /* GitHub Dark Mode Background */
-            color: #c9d1d9;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* 🧭 NAVBAR (Navigation) */
-        nav {
-            background: #161b22;
-            padding: 15px 20px;
-            border-bottom: 1px solid #30363d;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo { font-size: 20px; font-weight: bold; color: #ffae42; }
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 14px;
-        }
-        .nav-links a:hover { color: #ffae42; }
+        /* 🌑 DARK THEME & LAYOUT */
+        body { background-color: #0d1117; color: #c9d1d9; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
+        
+        /* 🧭 NAVBAR */
+        nav { background: #161b22; padding: 15px 20px; border-bottom: 1px solid #30363d; display: flex; justify-content: space-between; align-items: center; }
+        .nav-links a { color: #fff; text-decoration: none; margin-left: 20px; font-size: 14px; }
+        
+        /* 🏃‍♂️ TICKER ANIMATION */
+        .ticker-container { overflow: hidden; background: #000; border-bottom: 2px solid #ffae42; padding: 8px 0; }
+        .ticker-track { display: flex; animation: scrollTicker 20s linear infinite; white-space: nowrap; }
+        .ticker-track:hover { animation-play-state: paused; }
+        
+        .deal-panel { display: inline-flex; align-items: center; background: #1f2937; border: 1px solid #ffae42; border-radius: 50px; padding: 5px 20px 5px 5px; margin-right: 50vw; text-decoration: none; }
+        .deal-panel img { height: 40px; border-radius: 50%; border: 2px solid #ffae42; margin-right: 15px; }
+        
+        @keyframes scrollTicker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
         /* 🛍️ MARKET GRID */
-        .container { max-width: 1000px; margin: 40px auto; padding: 20px; text-align: center; }
+        .container { max-width: 1100px; margin: 40px auto; padding: 20px; text-align: center; }
+        .market-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px; }
+
+        /* 📦 PRODUCT CARDS */
+        .product-card { background: #161b22; border: 1px solid #30363d; border-radius: 15px; padding: 20px; text-align: center; transition: 0.3s; position: relative; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .product-img { width: 100%; height: 200px; object-fit: contain; background: #fff; border-radius: 10px; padding: 10px; box-sizing: border-box; }
         
-        .market-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        /* 📦 PRODUCT CARD DESIGN */
-        .product-card {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            transition: 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-        .product-card:hover {
-            transform: translateY(-5px);
-            border-color: #ffae42; /* Hover par Orange Border */
-            box-shadow: 0 5px 15px rgba(255, 174, 66, 0.2);
-        }
+        .price-tag { font-size: 18px; color: #fff; font-weight: bold; margin: 10px 0; }
         
-        .product-img {
-            width: 100%;
-            height: 200px;
-            object-fit: contain; /* Photo katega nahi */
-            background: #fff;
-            border-radius: 10px;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-
-        .price-tag {
-            font-size: 18px;
-            color: #fff;
-            font-weight: bold;
-            margin: 10px 0;
-        }
-
-        /* BUTTON STYLE */
-        .buy-btn {
-            display: inline-block;
-            background: #ffae42;
-            color: #000;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            margin-top: 10px;
-            transition: 0.3s;
-            width: 80%;
-        }
-
-        .buy-btn:hover { background: #e69900; }
-
-/* 🏃‍♂️ RUNNING DEAL TICKER CSS 🏃‍♂️ */
-        .ticker-container {
-            width: 100%;
-            overflow: hidden; /* Jo screen se bahar jaye use chupao */
-            background: #0d1117;
-            border-bottom: 2px solid #ffae42;
-            padding: 10px 0;
-        }
-
-        .ticker-track {
-            display: flex;
-            white-space: nowrap; /* Sab ek line mein rahe */
-            /* Ye animation hai jo right se left le jayegi */
-            animation: scrollTicker 20s linear infinite; 
-        }
-        
-        /* Mouse le jaane par ruk jaye */
-        .ticker-track:hover { animation-play-state: paused; }
-
-        .deal-panel {
-            display: inline-flex;
-            align-items: center;
-            background: linear-gradient(45deg, #1f2937, #161b22);
-            border: 1px solid #ffae42;
-            border-radius: 50px; /* Golaakar Panel */
-            padding: 5px 20px 5px 5px;
-            margin-right: 50vw; /* Do baar aane ke beech ka gap */
-            text-decoration: none; /* Link ki underline hatao */
-            box-shadow: 0 0 10px rgba(255, 174, 66, 0.3);
-        }
-
-        .deal-panel img {
-            height: 50px;
-            border-radius: 50%; /* Gool Photo */
-            border: 2px solid #ffae42;
-            margin-right: 15px;
-        }
-
-        .deal-text {
-            color: #fff;
-            font-weight: bold;
-            margin-right: 15px;
-        }
-        
-        .deal-price-ticker {
-            color: #22c55e;
-            background: rgba(34, 197, 94, 0.1);
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 14px;
-        }
-
-        /* Animation ka Rasta */
-        @keyframes scrollTicker {
-            0% { transform: translateX(100%); } /* Screen ke right bahar se shuru */
-            100% { transform: translateX(-100%); } /* Screen ke left bahar tak */
-        }
+        .buy-btn { display: inline-block; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 10px; width: 80%; transition: 0.3s; }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo"><i class="fa-solid fa-store"></i> Asif Store</div>
+        <div style="font-size: 20px; font-weight: bold; color: #ffae42;"><i class="fa-solid fa-store"></i> Asif Store</div>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="portfolio.html" style="color: #ffae42;">Market Deals</a>
@@ -164,50 +49,51 @@
         </div>
     </nav>
 
+    <div class="ticker-container">
+        <div class="ticker-track">
+            <a href="https://www.amazon.in/dp/B09RXN8J2D?tag=realasifuni0f-21" target="_blank" class="deal-panel">
+                <img src="https://m.media-amazon.com/images/I/61MbLLagiVL._SX679_.jpg" alt="Alexa">
+                <div style="color: #fff; font-weight: bold; margin-right: 15px;">🔥 FLASH DEAL: Alexa Echo Dot</div>
+                <div style="color: #22c55e; background: rgba(34, 197, 94, 0.1); padding: 2px 10px; border-radius: 10px;">₹3,499</div>
+            </a>
+        </div>
+    </div>
+
     <div class="container">
-        <h1 style="color: #ffae42;">🔥 Exclusive Market Deals</h1>
-        <p style="color: #8b949e;">Best Tech & Lifestyle Products Handpicked by Asif</p>
+        <h1 style="color: #ffae42;">🔥 Exclusive Tech Deals</h1>
+        <p style="color: #8b949e;">Laptops, Gadgets & Gear Handpicked by Asif</p>
 
         <div class="market-grid">
-         <div class="ticker-container">
-        <div class="ticker-track">
-            <a href="https://www.amazon.in/Certified-Refurbished-Detection-Temperature-Bluetooth/dp/B09RXN8J2D?crid=2L0SQKLD3RMF&dib=eyJ2IjoiMSJ9.H75bGx4NvDWoLVAmp-SBBgQWn2tuLpp6E021g3TZQHErEdqM6wZf8l65X3HRe9DGSzz9UtbY_ngekgfXFFx347EmFLwJhjZyFULnPtjZUuF83_5UCb0oNR_fNgNduQBNoZ7smRT7vHioWb0IPQwGQ2WSKAr3p2efyOM7w8QYSB2YA69CKisNqWS61Ucn-vQ_e5Ka8JYU8qegxSssvqw3bmHNUqsgD36PUp_3zznmtEw.d-L0M-07FgeqC3NEZHcRO_putcQ6Bs3hTZ055XCA2Fs&dib_tag=se&keywords=alexa&qid=1767773135&sprefix=alexa%2Caps%2C454&sr=8-10&linkCode=ll1&tag=realasifuni0f-21&linkId=ffbd184dcea67f5e4299eacd9f64ec75&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="deal-panel">
-                <img src="https://m.media-amazon.com/images/I/61MbLLagiVL._SX679_.jpg" alt="Alexa">
-                <div class="deal-text">
-                    🔥 FLASH DEAL: Certified Refurbished Echo Dot (Alexa)
-                </div>
-                <div class="deal-price-ticker">
-                    Just ₹3,499!
-                </div>
-                 <i class="fa-solid fa-angles-right" style="color: #ffae42; margin-left: 10px;"></i>
-<div class="product-card" style="border: 1px solid #22c55e;"> <div style="position: absolute; top: 10px; right: 10px; background: #22c55e; color: white; padding: 2px 8px; font-size: 12px; border-radius: 4px; font-weight: bold;">BEST SELLER</div>
-                
-                <img src="https://m.media-amazon.com/images/I/71S+HC+-gGL._SX679_.jpg" alt="Primebook Laptop" class="product-img">
-                
-                <h3 style="color: #fff; margin-bottom: 5px;">Primebook 2 Pro 2025</h3>
-                <p style="color: #888; font-size: 13px;">4G SIM Support, Android 15, 14hr Battery</p>
-                
-                <div class="price-tag">₹18,990 <span style="font-size: 12px; text-decoration: line-through; color: #666;">₹29,990</span></div>
-                
-                <a href="https://www.amazon.in/Primebook-Storage-14-1-Inch-MediaTek-Keyboard/dp/B0FFM8M9B5?crid=2HQJW7S0TWA4C&dib=eyJ2IjoiMSJ9.wpv3Sxwn6H_w2V2-xjEER_aWhw5OF8J2CusGtrOuBkEuoFyaKM-rhD4XHXxOC4P1m8R7C3LoJPO0OvuFkUQXB-_WRW3_bspBq0OBAy8AB6uZcpwoN1muynEn9E1llCgsjvA-qEkiQB84XVnosreoY6vYdDC9kqPK4UicUrBT72LjgS7LH71mnQ61kZrBsyQB_t67Yi0S_eaPuF0GysVtK_b-zaJhm8QPqRBwY-cxzgQ.1_ok_3X321hsl1-peuAzF-TSjzITfruyMR8heln6R0E&dib_tag=se&keywords=surface%2Blaptop&qid=1767775036&sprefix=surface%2Blapto%2Caps%2C2035&sr=8-2-spons&aref=NLGjhb5MHj&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&linkCode=ll1&tag=realasifuni0f-21&linkId=5906a8a7939acab4cdefbf19f918b042&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="buy-btn" style="background: #22c55e; color: white;">
-                    <i class="fa-solid fa-laptop-code"></i> Check Deal
-                </a>
+            
+            <div class="product-card" style="border: 1px solid #00a4ef;"> 
+                <div style="position: absolute; top: 10px; right: 10px; background: #00a4ef; color: white; padding: 2px 8px; font-size: 12px; border-radius: 4px; font-weight: bold;">AI PC</div>
+                <img src="https://m.media-amazon.com/images/I/61UJGtNm+GL._SX679_.jpg" alt="Surface" class="product-img">
+                <h3 style="color: #fff; margin-bottom: 5px;">Microsoft Surface Laptop 7</h3>
+                <p style="color: #888; font-size: 13px;">Snapdragon X Plus, Copilot+ AI</p>
+                <div class="price-tag">₹1,08,990</div>
+                <a href="https://www.amazon.in/dp/B0G2C7YM7V?tag=realasifuni0f-21" target="_blank" class="buy-btn" style="background: #00a4ef; color: white;">Check Offer</a>
             </div>
-            </a>
-<div class="product-card" style="border: 1px solid #22c55e;"> <div style="position: absolute; top: 10px; right: 10px; background: #22c55e; color: white; padding: 2px 8px; font-size: 12px; border-radius: 4px; font-weight: bold;">BEST SELLER</div>
-                
-                <img src="https://m.media-amazon.com/images/I/71S+HC+-gGL._SX679_.jpg" alt="Primebook Laptop" class="product-img">
-                
+
+            <div class="product-card" style="border: 1px solid #22c55e;"> 
+                <div style="position: absolute; top: 10px; right: 10px; background: #22c55e; color: white; padding: 2px 8px; font-size: 12px; border-radius: 4px; font-weight: bold;">BUDGET</div>
+                <img src="https://m.media-amazon.com/images/I/71S+HC+-gGL._SX679_.jpg" alt="Primebook" class="product-img">
                 <h3 style="color: #fff; margin-bottom: 5px;">Primebook 2 Pro 2025</h3>
-                <p style="color: #888; font-size: 13px;">4G SIM Support, Android 15, 14hr Battery</p>
-                
-                <div class="price-tag">₹18,990 <span style="font-size: 12px; text-decoration: line-through; color: #666;">₹29,990</span></div>
-                
-                <a href="https://www.amazon.in/Primebook-Storage-14-1-Inch-MediaTek-Keyboard/dp/B0FFM8M9B5?crid=2HQJW7S0TWA4C&dib=eyJ2IjoiMSJ9.wpv3Sxwn6H_w2V2-xjEER_aWhw5OF8J2CusGtrOuBkEuoFyaKM-rhD4XHXxOC4P1m8R7C3LoJPO0OvuFkUQXB-_WRW3_bspBq0OBAy8AB6uZcpwoN1muynEn9E1llCgsjvA-qEkiQB84XVnosreoY6vYdDC9kqPK4UicUrBT72LjgS7LH71mnQ61kZrBsyQB_t67Yi0S_eaPuF0GysVtK_b-zaJhm8QPqRBwY-cxzgQ.1_ok_3X321hsl1-peuAzF-TSjzITfruyMR8heln6R0E&dib_tag=se&keywords=surface%2Blaptop&qid=1767775036&sprefix=surface%2Blapto%2Caps%2C2035&sr=8-2-spons&aref=NLGjhb5MHj&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&linkCode=ll1&tag=realasifuni0f-21&linkId=5906a8a7939acab4cdefbf19f918b042&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="buy-btn" style="background: #22c55e; color: white;">
-                    <i class="fa-solid fa-laptop-code"></i> Check Deal
-                </a>
+                <p style="color: #888; font-size: 13px;">4G SIM Support, Android 15</p>
+                <div class="price-tag">₹18,990</div>
+                <a href="https://www.amazon.in/dp/B0FFM8M9B5?tag=realasifuni0f-21" target="_blank" class="buy-btn" style="background: #22c55e; color: white;">Check Offer</a>
             </div>
+
+            <div class="product-card">
+                <div style="position: absolute; top: 10px; right: 10px; background: #ef4444; color: white; padding: 2px 8px; font-size: 12px; border-radius: 4px; font-weight: bold;">SALE</div>
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1000&auto=format&fit=crop" alt="Shoes" class="product-img">
+                <h3 style="color: #fff; margin-bottom: 5px;">Trend Setter Sneakers</h3>
+                <p style="color: #888; font-size: 13px;">Lightweight Running Shoes</p>
+                <div class="price-tag">₹499</div>
+                <a href="https://www.amazon.in/dp/B0F4KSHS9K?tag=realasifuni0f-21" target="_blank" class="buy-btn" style="background: #ffae42; color: black;">Buy Now</a>
+            </div>
+
         </div>
-    </div>   
+    </div>
+
 </body>
 </html>
