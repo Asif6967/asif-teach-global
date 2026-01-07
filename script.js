@@ -51,3 +51,10 @@ function updateNews() {
     feed.innerHTML = news.map(n => `<span>🔴 ${n}</span>`).join(' &nbsp;&nbsp;&nbsp; ');
 }
 updateNews();
+<script>
+  const bgVid = document.getElementById('bgVideo');
+  bgVid.addEventListener('loadeddata', () => {
+    bgVid.style.transition = 'opacity 0.5s ease';
+    bgVid.style.opacity = '1';
+  });
+</script>
