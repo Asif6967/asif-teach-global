@@ -1,7 +1,7 @@
 // 🧠 ASIF TECH AI BRAIN (FINAL VERSION)
 
 // 👇👇 APNI NAYI KEY YAHAN DALEIN (Quotes "" ke andar) 👇👇
-const MY_KEY = "YAHAN_NAYI_KEY_PASTE_KAREIN";
+const MY_KEY = "AIzaSyA4wDGOSRkKPCDWBqGEQcH7Nb-JSMJHQlg";
 
 // Chat Toggle
 function toggleChat() {
