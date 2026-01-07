@@ -2,57 +2,140 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Asif Tech | Global Archive</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asif Tech Market</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body { background: #000; color: white; font-family: sans-serif; margin: 0; }
-        /* Language Bar Style */
-        #google_translate_element { padding: 10px; text-align: right; background: rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.1); }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 40px; }
-        .card { 
-            background: rgba(255,255,255,0.05); 
-            border: 1px solid rgba(255,255,255,0.1); 
-            padding: 25px; border-radius: 15px; cursor: pointer; transition: 0.3s;
+        /* 🌑 DARK THEME SETTINGS */
+        body {
+            background-color: #0d1117; /* GitHub Dark Mode Background */
+            color: #c9d1d9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
         }
-        .card:hover { border-color: #ffae42; transform: translateY(-5px); }
-        .card h3 { color: #ffae42; margin: 10px 0; }
-        .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); }
-        .modal-content { background: #111; margin: 10% auto; padding: 30px; border: 1px solid #ffae42; width: 70%; border-radius: 15px; }
-        .close { color: #ffae42; float: right; font-size: 28px; cursor: pointer; }
+
+        /* 🧭 NAVBAR (Navigation) */
+        nav {
+            background: #161b22;
+            padding: 15px 20px;
+            border-bottom: 1px solid #30363d;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-size: 20px; font-weight: bold; color: #ffae42; }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+        .nav-links a:hover { color: #ffae42; }
+
+        /* 🛍️ MARKET GRID */
+        .container { max-width: 1000px; margin: 40px auto; padding: 20px; text-align: center; }
+        
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        /* 📦 PRODUCT CARD DESIGN */
+        .product-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffae42; /* Hover par Orange Border */
+            box-shadow: 0 5px 15px rgba(255, 174, 66, 0.2);
+        }
+        
+        .product-img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain; /* Photo katega nahi */
+            background: #fff;
+            border-radius: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .price-tag {
+            font-size: 18px;
+            color: #fff;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        /* BUTTON STYLE */
+        .buy-btn {
+            display: inline-block;
+            background: #ffae42;
+            color: #000;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: 0.3s;
+            width: 80%;
+        }
+        .buy-btn:hover { background: #e69900; }
     </style>
 </head>
 <body>
 
-    <div id="google_translate_element"></div>
+    <nav>
+        <div class="logo"><i class="fa-solid fa-store"></i> Asif Store</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="portfolio.html" style="color: #ffae42;">Market Deals</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
 
-    <h1 style="text-align:center; margin-top:40px; color:#ffae42;">PROJECT CASE STUDIES</h1>
+    <div class="container">
+        <h1 style="color: #ffae42;">🔥 Exclusive Market Deals</h1>
+        <p style="color: #8b949e;">Best Tech & Lifestyle Products Handpicked by Asif</p>
 
-    <div class="grid" id="mainGrid"></div>
+        <div class="market-grid">
+            
+            <div class="product-card">
+                <div style="position: absolute; top: 10px; right: 10px; background: #ef4444; color: white; padding: 2px 8px; font-size: 12px; border-radius: 4px; font-weight: bold;">SALE</div>
+                
+                <img src="https://m.media-amazon.com/images/I/61q7wGGBgAL._SY695_.jpg" alt="Bruton Shoes" class="product-img">
+                
+                <h3 style="color: #fff; margin-bottom: 5px;">BRUTON Sport Shoes</h3>
+                <p style="color: #888; font-size: 13px;">Running Shoes for Men (White & Black)</p>
+                
+                <div class="price-tag">₹499 <span style="font-size: 12px; text-decoration: line-through; color: #666;">₹1,299</span></div>
+                
+                <a href="https://www.amazon.in/BRUTON-Sport-Shoes-Running-White/dp/B0F4KSHS9K?crid=1C3AARPQMF4FL&dib=eyJ2IjoiMSJ9.m-NUll6nUrnUdmb_cLmRnfxYQyb6Lxr4zNWiVu5pNOPVgPCgv3p9Yz_MJyJ5_yG0YGgAhhHOquJ5JgExiodAakwvyZ4RIfjMg5amB_imASO7eADBoQ5-OETtIEUhRg_b3z0HsVIqETGgk6Y-Sfx1ZgK_7IucYlZTCVRzJr9rt9H1Os8adR41Wa4AxiCxA13lnIVvcVqna0HrH4-23iSxLmr6wEAnZF5_kn9fGha2fVtuXKeO8udLq6QMg1VO4saFdRdVBSLHawfskeNKz9B06f0wmB8VvZeca1pRD90d3B8.xcX3gMwOsyPX3GtL2shgaICJYbgv1NyaHSKDDNfUeQU&dib_tag=se&keywords=shoes&qid=1767770940&sprefix=shos%2Caps%2C480&sr=8-10&th=1&psc=1&linkCode=ll1&tag=realasifuni0f-21&linkId=41c7e522dcc29aa13c226fe5f6242048&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="buy-btn">
+                    <i class="fa-brands fa-amazon"></i> Buy Now
+                </a>
+            </div>
 
-    <div id="pModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeM()">&times;</span>
-            <div id="modalText"></div>
+            <div class="product-card">
+                <img src="https://m.media-amazon.com/images/I/61ZjlBOp+rL._SX679_.jpg" alt="Watch" class="product-img">
+                <h3 style="color: #fff; margin-bottom: 5px;">Noise Smart Watch</h3>
+                <p style="color: #888; font-size: 13px;">Bluetooth Calling & Fitness Tracker</p>
+                <div class="price-tag">₹1,499</div>
+                <a href="#" class="buy-btn" style="background: #30363d; color: #aaa;">Coming Soon</a>
+            </div>
+
         </div>
     </div>
 
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-        }
-    </script>
-<div class="project-card" style="background: #161b22; border: 1px solid #ffae42; padding: 25px; border-radius: 15px; text-align: left; box-shadow: 0 0 10px rgba(255, 174, 66, 0.2);">
-                <div style="color: #ffae42; font-size: 30px; margin-bottom: 15px;">
-                    <i class="fa-solid fa-chart-pie"></i>
-                </div>
-                
-                <h3 style="color: #fff; margin-bottom: 10px;">Business Automation Hub</h3>
-                <p style="color: #aaa; font-size: 14px; margin-bottom: 20px;">
-                    A live financial dashboard with GST Calculator, Profit Margin analysis, and Real-time Global Currency Converter (Python & JS).
-                </p>
-                
-                <a href="index.html" style="display: inline-block; text-decoration: none; background: #ffae42; color: #000; padding: 10px 20px; border-radius: 5px; font-weight: bold; font-size: 14px;">
-                    <i class="fa-solid fa-rocket"></i> Try Live Tools
-                </a>
-            </div>
+</body>
 </html>
