@@ -9,7 +9,6 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
   />
   <style>
-    /* 🌑 GLOBAL DARK THEME */
     body {
       background-color: #0d1117;
       color: #c9d1d9;
@@ -18,7 +17,6 @@
       padding: 0;
     }
 
-    /* 🧭 NAVBAR */
     nav {
       background: #161b22;
       padding: 15px 20px;
@@ -28,47 +26,47 @@
       align-items: center;
       flex-wrap: wrap;
     }
-
     nav .nav-links a {
       color: #fff;
       text-decoration: none;
       margin-left: 20px;
       font-size: 14px;
     }
-
     nav .nav-links a:hover {
       color: #ffae42;
     }
 
-    /* 🦸 HERO SECTION */
+    /* HERO */
     .hero {
       position: relative;
-      background: linear-gradient(135deg, #ffae42, #ff8c00, #161b22);
+      background: linear-gradient(135deg, #ffae42, #ff8c00);
       color: #fff;
       text-align: center;
-      padding: 100px 20px 120px;
+      padding: 100px 20px 80px;
       overflow: hidden;
     }
-
     .hero img {
-      width: 350px;
+      width: 380px;
       max-width: 90%;
       border-radius: 10px;
-      margin-top: 20px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      margin-top: 25px;
+      box-shadow: 0 8px 35px rgba(0, 0, 0, 0.6);
+      animation: float 3s ease-in-out infinite;
     }
-
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
+    }
     .hero h1 {
       font-size: 2.5rem;
       margin-bottom: 10px;
     }
-
     .hero p {
-      color: #fff8;
+      color: #fff9;
       font-size: 1.1rem;
       margin-bottom: 25px;
     }
-
     .hero a {
       background: #0d1117;
       color: #ffae42;
@@ -78,30 +76,24 @@
       border-radius: 8px;
       transition: 0.3s;
     }
-
     .hero a:hover {
       background: #ffae42;
       color: #0d1117;
     }
 
-    /* 🏃‍♂️ TICKER */
+    /* TICKER */
     .ticker-container {
       overflow: hidden;
       background: #000;
       border-bottom: 2px solid #ffae42;
       padding: 8px 0;
     }
-
     .ticker-track {
       display: flex;
       animation: scrollTicker 20s linear infinite;
       white-space: nowrap;
     }
-
-    .ticker-track:hover {
-      animation-play-state: paused;
-    }
-
+    .ticker-track:hover { animation-play-state: paused; }
     .deal-panel {
       display: inline-flex;
       align-items: center;
@@ -112,39 +104,30 @@
       margin-right: 50vw;
       text-decoration: none;
     }
-
     .deal-panel img {
       height: 40px;
       border-radius: 50%;
       border: 2px solid #ffae42;
       margin-right: 15px;
     }
-
     @keyframes scrollTicker {
-      0% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
     }
 
-    /* 🛍️ MARKET GRID */
+    /* PRODUCT GRID */
     .container {
       max-width: 1100px;
       margin: 40px auto;
       padding: 20px;
       text-align: center;
     }
-
     .market-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
       margin-top: 30px;
     }
-
-    /* 📦 PRODUCT CARD */
     .product-card {
       background: #161b22;
       border: 1px solid #30363d;
@@ -154,12 +137,10 @@
       transition: 0.3s;
       position: relative;
     }
-
     .product-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     }
-
     .product-img {
       width: 100%;
       height: 200px;
@@ -167,14 +148,12 @@
       border-radius: 10px;
       margin-bottom: 15px;
     }
-
     .price-tag {
       font-size: 18px;
       color: #fff;
       font-weight: bold;
       margin: 10px 0;
     }
-
     .buy-btn {
       display: inline-block;
       padding: 10px 20px;
@@ -186,23 +165,14 @@
       transition: 0.3s;
     }
 
-    /* 📱 RESPONSIVE */
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-      .hero img {
-        width: 280px;
-      }
-      nav .nav-links a {
-        margin-left: 10px;
-        font-size: 13px;
-      }
+      .hero h1 { font-size: 2rem; }
+      .hero img { width: 280px; }
     }
   </style>
 </head>
 <body>
-  <!-- 🧭 NAVBAR -->
+  <!-- NAV -->
   <nav>
     <div style="font-size: 20px; font-weight: bold; color: #ffae42;">
       <i class="fa-solid fa-store"></i> Asif Store
@@ -214,19 +184,19 @@
     </div>
   </nav>
 
-  <!-- 🦸 HERO SECTION -->
+  <!-- HERO -->
   <section class="hero">
     <h1>Welcome to Asif Tech Market</h1>
     <p>Explore exclusive tech deals & the latest gadgets</p>
     <a href="#deals">Shop Now</a>
     <br />
     <img
-      src="https://m.media-amazon.com/images/I/61aWbLqj8+L._SL1500_.jpg"
+      src="https://images.unsplash.com/photo-1602080858428-57174f9431b1?w=1200&q=80"
       alt="Surface Laptop"
     />
   </section>
 
-  <!-- 🏃‍♂️ TICKER -->
+  <!-- TICKER -->
   <div class="ticker-container">
     <div class="ticker-track">
       <a
@@ -255,122 +225,37 @@
     </div>
   </div>
 
-  <!-- 🛍️ PRODUCT GRID -->
+  <!-- PRODUCTS -->
   <div class="container" id="deals">
     <h1 style="color: #ffae42;">🔥 Exclusive Tech Deals</h1>
     <p style="color: #8b949e;">Laptops, Gadgets & Gear Handpicked by Asif</p>
 
     <div class="market-grid">
-      <!-- Product 1 -->
-      <div class="product-card" style="border: 1px solid #00a4ef">
-        <div
-          style="
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #00a4ef;
-            color: white;
-            padding: 2px 8px;
-            font-size: 12px;
-            border-radius: 4px;
-            font-weight: bold;
-          "
-        >
-          AI PC
-        </div>
-
-        <img
-          src="https://m.media-amazon.com/images/I/61aWbLqj8+L._SL1500_.jpg"
-          alt="Surface Laptop"
-          class="product-img"
-        />
-
-        <h3 style="color: #fff; margin-bottom: 5px">
-          Microsoft Surface Laptop 7
-        </h3>
-        <p style="color: #888; font-size: 13px">
-          Snapdragon X Plus, Copilot+ AI
-        </p>
+      <div class="product-card" style="border: 1px solid #00a4ef;">
+        <div style="position:absolute;top:10px;right:10px;background:#00a4ef;color:white;padding:2px 8px;font-size:12px;border-radius:4px;font-weight:bold;">AI PC</div>
+        <img src="https://images.unsplash.com/photo-1602080858428-57174f9431b1?w=800&q=80" alt="Surface Laptop" class="product-img" />
+        <h3 style="color:#fff;margin-bottom:5px;">Microsoft Surface Laptop 7</h3>
+        <p style="color:#888;font-size:13px;">Snapdragon X Plus, Copilot+ AI</p>
         <div class="price-tag">₹1,08,990</div>
-        <a
-          href="https://www.amazon.in/dp/B0G2C7YM7V?tag=realasifuni0f-21"
-          target="_blank"
-          class="buy-btn"
-          style="background: #00a4ef; color: white"
-          >Check Offer</a
-        >
+        <a href="https://www.amazon.in/dp/B0G2C7YM7V?tag=realasifuni0f-21" target="_blank" class="buy-btn" style="background:#00a4ef;color:white;">Check Offer</a>
       </div>
 
-      <!-- Product 2 -->
-      <div class="product-card" style="border: 1px solid #22c55e">
-        <div
-          style="
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #22c55e;
-            color: white;
-            padding: 2px 8px;
-            font-size: 12px;
-            border-radius: 4px;
-            font-weight: bold;
-          "
-        >
-          BUDGET
-        </div>
-
-        <img
-          src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500&q=80"
-          alt="Primebook"
-          class="product-img"
-        />
-
-        <h3 style="color: #fff; margin-bottom: 5px">Primebook 2 Pro 2025</h3>
-        <p style="color: #888; font-size: 13px">4G SIM Support, Android 15</p>
+      <div class="product-card" style="border:1px solid #22c55e;">
+        <div style="position:absolute;top:10px;right:10px;background:#22c55e;color:white;padding:2px 8px;font-size:12px;border-radius:4px;font-weight:bold;">BUDGET</div>
+        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80" alt="Primebook" class="product-img" />
+        <h3 style="color:#fff;margin-bottom:5px;">Primebook 2 Pro 2025</h3>
+        <p style="color:#888;font-size:13px;">4G SIM Support, Android 15</p>
         <div class="price-tag">₹18,990</div>
-        <a
-          href="https://www.amazon.in/dp/B0FFM8M9B5?tag=realasifuni0f-21"
-          target="_blank"
-          class="buy-btn"
-          style="background: #22c55e; color: white"
-          >Check Offer</a
-        >
+        <a href="https://www.amazon.in/dp/B0FFM8M9B5?tag=realasifuni0f-21" target="_blank" class="buy-btn" style="background:#22c55e;color:white;">Check Offer</a>
       </div>
 
-      <!-- Product 3 -->
       <div class="product-card">
-        <div
-          style="
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #ef4444;
-            color: white;
-            padding: 2px 8px;
-            font-size: 12px;
-            border-radius: 4px;
-            font-weight: bold;
-          "
-        >
-          SALE
-        </div>
-
-        <img
-          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80"
-          alt="Shoes"
-          class="product-img"
-        />
-
-        <h3 style="color: #fff; margin-bottom: 5px">Trend Setter Sneakers</h3>
-        <p style="color: #888; font-size: 13px">Lightweight Running Shoes</p>
+        <div style="position:absolute;top:10px;right:10px;background:#ef4444;color:white;padding:2px 8px;font-size:12px;border-radius:4px;font-weight:bold;">SALE</div>
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80" alt="Shoes" class="product-img" />
+        <h3 style="color:#fff;margin-bottom:5px;">Trend Setter Sneakers</h3>
+        <p style="color:#888;font-size:13px;">Lightweight Running Shoes</p>
         <div class="price-tag">₹499</div>
-        <a
-          href="https://www.amazon.in/dp/B0F4KSHS9K?tag=realasifuni0f-21"
-          target="_blank"
-          class="buy-btn"
-          style="background: #ffae42; color: black"
-          >Buy Now</a
-        >
+        <a href="https://www.amazon.in/dp/B0F4KSHS9K?tag=realasifuni0f-21" target="_blank" class="buy-btn" style="background:#ffae42;color:black;">Buy Now</a>
       </div>
     </div>
   </div>
