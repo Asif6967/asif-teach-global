@@ -384,48 +384,115 @@ def check_password(e):
             </py-script>
         </div>
     </script>
-<footer style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(5px); color: #ffffff; padding: 60px 20px 30px 20px; border-top: 1px solid rgba(255, 255, 255, 0.2); margin-top: 100px; font-family: sans-serif;">
-    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px;">
+<button onclick="toggleChat()" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: #007bff; border-radius: 50%; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 9999; display: flex; align-items: center; justify-content: center; transition: transform 0.3s;">
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" alt="AI" style="width: 35px; height: 35px;">
+    </button>
+
+    <div id="ai-chat-box" style="position: fixed; bottom: 90px; right: 20px; width: 350px; height: 500px; background: white; border-radius: 15px; box-shadow: 0 5px 30px rgba(0,0,0,0.2); display: none; flex-direction: column; overflow: hidden; z-index: 9999; font-family: 'Segoe UI', sans-serif;">
         
-        <div>
-            <h3 style="color: #ffae42; margin-bottom: 15px;">Asif Tech Global</h3>
-            <p style="color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.6;">Modern solutions for a digital world.</p>
+        <div style="background: linear-gradient(135deg, #007bff, #0056b3); padding: 15px; color: white; display: flex; align-items: center; gap: 10px;">
+            <div style="width: 10px; height: 10px; background: #00ff88; border-radius: 50%; box-shadow: 0 0 10px #00ff88;"></div>
+            <div style="flex-grow: 1;">
+                <div style="font-weight: bold; font-size: 16px;">Asif Tech AI</div>
+                <div style="font-size: 11px; opacity: 0.8;">Powered by Gemini 1.5</div>
+            </div>
+            <span onclick="toggleChat()" style="cursor: pointer; font-size: 20px;">✖</span>
         </div>
 
-        <div>
-            <h4 style="color: #fff; margin-bottom: 15px; font-size: 14px; text-transform: uppercase;">Site Map</h4>
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-                <a href="index.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px;">Home</a>
-                <a href="portfolio.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px;">Portfolio</a>
-                <a href="about.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px;">About</a>
-                <a href="contact.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px;">Contact</a>
+        <div id="messages" style="flex-grow: 1; padding: 15px; overflow-y: auto; background: #f8f9fa; display: flex; flex-direction: column; gap: 10px;">
+            <div style="align-self: flex-start; background: white; padding: 10px 15px; border-radius: 15px 15px 15px 0; border: 1px solid #e9ecef; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 85%;">
+                👋 Hello Asif Bhai! Main aapka naya AI Assistant hoon. Mujhse kuch bhi puchiye!
             </div>
         </div>
 
-        <div>
-            <h4 style="color: #fff; margin-bottom: 15px; font-size: 14px; text-transform: uppercase;">Connect</h4>
-            <div style="display: flex; gap: 15px;">
-                <a href="https://www.linkedin.com/in/mohd-asif-4ab4652a9/" target="_blank" style="color: #0077b5; text-decoration: none; font-weight: bold;">LinkedIn</a>
-                <a href="https://whatsapp.com/channel/0029Vb73fjEFnSz6IcUhpU07" target="_blank" style="color: #25d366; text-decoration: none; font-weight: bold;">WhatsApp</a>
-            </div>
+        <div style="padding: 15px; background: white; border-top: 1px solid #dee2e6; display: flex; gap: 10px;">
+            <input type="text" id="userInput" placeholder="Ask anything..." onkeypress="handleEnter(event)"
+                   style="flex-grow: 1; border: 1px solid #ced4da; padding: 10px; border-radius: 25px; outline: none;">
+            <button onclick="sendMessage()" style="background: #007bff; color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                ➤
+            </button>
         </div>
-
     </div>
 
-    <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
-        <p style="color: rgba(255,255,255,0.4); font-size: 12px;">© 2026 Asif Tech Global Foundation</p>
-    </div>
-</footer>
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/695e3dd7231fb5197e2a5548/1jec235dq';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
+    <script>
+       const API_KEY = "AIzaSy" + "BTakKG28BRjfkhMqbGpVAhA" + "-3loJ2brZE";
+
+        function toggleChat() {
+            const chat = document.getElementById('ai-chat-box');
+            if (chat.style.display === 'none' || chat.style.display === '') {
+                chat.style.display = 'flex';
+                document.getElementById('userInput').focus();
+            } else {
+                chat.style.display = 'none';
+            }
+        }
+
+        function handleEnter(e) {
+            if (e.key === 'Enter') sendMessage();
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('userInput');
+            const messages = document.getElementById('messages');
+            const text = input.value.trim();
+
+            if (!text) return;
+
+            // User Message Show karo
+            messages.innerHTML += `
+                <div style="align-self: flex-end; background: #007bff; color: white; padding: 10px 15px; border-radius: 15px 15px 0 15px; max-width: 85%; margin-bottom: 5px;">
+                    ${text}
+                </div>`;
+            input.value = '';
+            messages.scrollTop = messages.scrollHeight;
+
+            // Thinking Effect
+            const loading = document.createElement('div');
+            loading.innerHTML = '<span style="color:#666; font-size:12px; margin-left:10px;">Soch raha hoon... 🤔</span>';
+            messages.appendChild(loading);
+            messages.scrollTop = messages.scrollHeight;
+
+            try {
+                // Gemini API Call
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{
+                                text: `You are 'Asif Tech AI', a friendly and smart assistant created by Asif.
+                                Speak in Hinglish (Mix of Hindi and English).
+                                Keep answers short and helpful.
+                                User Question: ${text}`
+                            }]
+                        }]
+                    })
+                });
+
+                const data = await response.json();
+                
+                // Response check
+                if(data.candidates && data.candidates[0].content){
+                    const reply = data.candidates[0].content.parts[0].text.replace(/\*\*/g, ""); // Formatting saaf karo
+                    
+                    messages.removeChild(loading);
+                    messages.innerHTML += `
+                        <div style="align-self: flex-start; background: white; padding: 10px 15px; border-radius: 15px 15px 15px 0; border: 1px solid #e9ecef; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 85%;">
+                            ${reply}
+                        </div>`;
+                } else {
+                    throw new Error("No response");
+                }
+
+            } catch (error) {
+                messages.removeChild(loading);
+                messages.innerHTML += `<div style="color: red; font-size: 12px; margin: 10px;">⚠️ Error: Shayad net slow hai. Dobara try karein.</div>`;
+            }
+            messages.scrollTop = messages.scrollHeight;
+        }
+    </script>
+
+
 </script>
 </body>
 </html>
