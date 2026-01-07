@@ -2,7 +2,7 @@
 
 // 👇👇 APNI KEY YAHAN DALEIN 👇👇
 const part_A = "AIzaSy";  // Ye waisa hi rahega
-const part_B = "AIzaSyBe2VyIVaRNwqw4atWCdm_7l-BUZO6xABo"; // <-- SIRF YAHAN KEY DALEIN
+const part_B = "AIzaSyCiDabjU1TESXqtRUyKTeUGW8VE9qSSt_0"; // <-- SIRF YAHAN KEY DALEIN
 
 const FINAL_KEY = part_A + part_B;
 
