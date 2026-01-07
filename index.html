@@ -1,37 +1,274 @@
-# 1. Nginx Web Server Auto-Start (RECOMMENDED)
-sudo systemctl enable nginx
-sudo systemctl start nginx
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2165852461534798" crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2165852461534798">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="lQmX6fzrD22ySePMX50nKU4tR30UrdQo_sayAEJB4FQ" />
+  <title>Asif Tech Global | Business & Tech Insights</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
 
-# 2. Apache Web Server Auto-Start  
-sudo systemctl enable apache2
-sudo systemctl start apache2
+<body>
+  <div id="dynamic-bg"></div>
 
-# 3. GitHub Pages Auto-Deploy (TERA GST SITE KE LIYE BEST!)
-cd ~/asif6967.github.io/
-git add .
-git commit -m "GST site update"
-git push origin main
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Asif Tech<span> Global</span></div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#insights">Insights</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="live-news.html" style="color: #ef4444; font-weight: bold;">🔴 Live News</a>
+    </div>
 
-# 4. PM2 Chatbot Server Auto-Start (Node.js Chatbot ke liye)
-npm install -g pm2
-pm2 start chatbot.js --name "gst-chatbot"
-pm2 startup
-pm2 save
+    <div style="text-align: right; padding-right: 20px; margin-top: 10px; margin-bottom: -5px;">
+      <div id="google_translate_element"></div>
+    </div>
+  </nav>
 
-# 5. COMPLETE SERVER BOOT SCRIPT (TERE LIYE BEST!)
-cat > /usr/local/bin/boot-server.sh << 'EOF'
-#!/bin/bash
-echo "🚀 Starting GST Website Server..."
-sudo systemctl start nginx
-sudo systemctl start apache2
-cd ~/asif6967.github.io/ && git pull
-pm2 restart all
-echo "✅ Server ready! Visit: https://asif6967.github.io"
-EOF
+  <!-- Google Translate -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-chmod +x /usr/local/bin/boot-server.sh
-crontab -e
-# Add this line in crontab:
-# @reboot /usr/local/bin/boot-server.sh
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1>Asif Tech <span>Global</span></h1>
+    <p>Leading the Digital Transformation in Business Education.</p>
+    <a href="#insights" class="cta-btn">Explore Insights</a>
+  </section>
 
-echo "🎉 SERVER BOOT READY! Restart kar test kar!"
+  <!-- YouTube Videos Section -->
+  <section id="youtube-section" class="container">
+    <h2 class="section-title">Latest Videos</h2>
+    <div id="youtube-videos" style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center;"></div>
+  </section>
+
+  <!-- Tools Section -->
+  <style>
+    .tools-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 40px;
+      padding: 20px;
+    }
+    .tool-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    .tool-input {
+      width: 90%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      color: #000;
+      background: #fff;
+    }
+    .tool-select {
+      width: 98%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+      color: #000;
+    }
+    .result-box {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 15px 0;
+      color: #fff;
+      background: rgba(0,0,0,0.3);
+      padding: 10px;
+      border-radius: 10px;
+    }
+  </style>
+
+  <div class="container" id="tools" style="margin: 50px auto;">
+    <h2 style="color: #ffae42; text-align: center; margin-bottom: 10px;">🚀 Free Business Finance Tools</h2>
+
+    <div class="tools-container">
+
+      <div class="tool-card">
+        <h3 style="color: #58a6ff; margin-bottom: 10px;">GST Calculator</h3>
+        <p style="font-size: 13px; color: #ccc; margin-bottom: 15px;">Calculate GST instantly.</p>
+
+        <input type="number" id="gstAmount" placeholder="Enter Amount (₹)" class="tool-input">
+
+        <select id="gstRate" class="tool-select">
+          <option value="18">18% GST (Standard)</option>
+          <option value="5">5% GST</option>
+          <option value="12">12% GST</option>
+          <option value="28">28% GST</option>
+        </select>
+
+        <div id="gstResult" class="result-box">Total: ₹0</div>
+
+        <button onclick="calcGST()" style="background: #58a6ff; color: white; border: none; padding: 12px 30px; border-radius: 50px; cursor: pointer; font-weight: bold; margin-top: 10px; width: 100%;">Calculate</button>
+      </div>
+
+      <div class="tool-card">
+        <h3 style="color: #ffae42; margin-bottom: 10px;">Profit Margin</h3>
+        <p style="font-size: 13px; color: #ccc; margin-bottom: 15px;">Know your true profit percentage.</p>
+
+        <input type="number" id="costPrice" placeholder="Cost Price (₹)" class="tool-input">
+        <input type="number" id="sellPrice" placeholder="Selling Price (₹)" class="tool-input">
+
+        <div id="marginResult" class="result-box">Margin: 0%</div>
+
+        <button onclick="calcMargin()" style="background: #ffae42; color: black; border: none; padding: 12px 30px; border-radius: 50px; cursor: pointer; font-weight: bold; margin-top: 10px; width: 100%;">Check Profit</button>
+      </div>
+
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; margin-bottom: 50px;">
+      <button onclick="shareBiz()" style="background: #25d366; color: white; border: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 16px; box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);">
+        Share Tools on WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <!-- Insights Section -->
+  <div class="container" id="insights">
+    <h2 class="section-title">Latest Tech Insights</h2>
+    <div class="glass-box">
+      <!-- cards ... (tera content same rakha) -->
+    </div>
+  </div>
+
+  <!-- (Insights extra cards + marketing block + About section - ye sab tu jaisa likha hai waisa hi rehne de;
+       sirf closing tags ka dhyaan rakhna, koi extra </script> ya akela } na ho) -->
+
+  <!-- Background Script -->
+  <script>
+    const bg = document.getElementById('dynamic-bg');
+    const businessPhotos = [
+      "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1603791452906-c8d6c92a3c89?auto=format&fit=crop&w=1600&q=80"
+    ];
+
+    function preloadAndShow(imgUrl) {
+      const img = new Image();
+      img.onload = () => {
+        bg.style.backgroundImage = `url('${imgUrl}')`;
+        bg.classList.add('visible');
+      };
+      img.src = imgUrl;
+    }
+    function changeBackground() {
+      const randomIndex = Math.floor(Math.random() * businessPhotos.length);
+      const newImage = businessPhotos[randomIndex];
+      bg.classList.remove('visible');
+      setTimeout(() => preloadAndShow(newImage), 500);
+    }
+    changeBackground();
+    setInterval(changeBackground, 10000);
+  </script>
+
+  <!-- Clocks + Forex (tera last wala block) -->
+
+  <script>
+    // GST Logic
+    function calcGST() {
+      const amount = parseFloat(document.getElementById("gstAmount").value);
+      const rate = parseFloat(document.getElementById("gstRate").value);
+      if (amount) {
+        const tax = (amount * rate) / 100;
+        const total = amount + tax;
+        document.getElementById("gstResult").innerHTML =
+          `Tax: ₹${tax.toFixed(2)} | <span style="color:#58a6ff">Total: ₹${total.toFixed(2)}</span>`;
+      }
+    }
+
+    // Profit Margin Logic
+    function calcMargin() {
+      const cost = parseFloat(document.getElementById("costPrice").value);
+      const sell = parseFloat(document.getElementById("sellPrice").value);
+      if (cost && sell) {
+        const profit = sell - cost;
+        const margin = (profit / sell) * 100;
+        const color = margin > 0 ? "#22c55e" : "#ef4444";
+        document.getElementById("marginResult").innerHTML =
+          `Profit: ₹${profit} | <span style="color:${color}">${margin.toFixed(2)}% Margin</span>`;
+      }
+    }
+
+    // Business Share Logic
+    function shareBiz() {
+      const msg = "Calculate GST and Profit Margins instantly with Asif Tech Global's Free Business Tools! Check here: https://asif6967.github.io/";
+      window.open("https://wa.me/?text=" + encodeURIComponent(msg), "_blank");
+    }
+  </script>
+
+  <!-- YouTube API script – SINGLE, clean -->
+  <script>
+    const API_KEY = "YOUR_YOUTUBE_API_KEY_HERE";  // apni key daal, console se restrict kar [web:91]
+    const CHANNEL_ID = "UCRfvXfU4toossqCIbuXNblA";
+    const MAX_RESULTS = 4;
+
+    async function loadYouTubeVideos() {
+      const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}`;
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        const container = document.getElementById("youtube-videos");
+        container.innerHTML = "";
+
+        if (data.items && data.items.length > 0) {
+          data.items.forEach((item) => {
+            if (item.id.videoId) {
+              const videoCard = document.createElement("div");
+              videoCard.style.width = "300px";
+              videoCard.style.borderRadius = "10px";
+              videoCard.style.overflow = "hidden";
+              videoCard.style.boxShadow = "0 0 15px rgba(255,255,255,0.2)";
+              videoCard.style.background = "rgba(0,0,0,0.5)";
+              videoCard.innerHTML = `
+                <iframe width="100%" height="170"
+                  src="https://www.youtube.com/embed/${item.id.videoId}"
+                  frameborder="0" allowfullscreen></iframe>
+                <h4 style="padding:10px; color:#ffae42; font-size:1rem;">${item.snippet.title}</h4>
+              `;
+              container.appendChild(videoCard);
+            }
+          });
+        } else {
+          container.innerHTML = "<p>⚠️ No videos found — check API key or restrictions.</p>";
+        }
+      } catch (error) {
+        document.getElementById("youtube-videos").innerHTML = `<p>⚠️ ${error.message}</p>`;
+      }
+    }
+
+    loadYouTubeVideos();
+  </script>
+
+  <!-- Footer same as tera code -->
+  <!-- ... -->
+</body>
+</html>
