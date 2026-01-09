@@ -1,14 +1,23 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Asif Tech Global</title>
 
-  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline id="bgVideo">
+    <source src="https://cdn.pixabay.com/vimeo/244516711/technology-11347.mp4?width=1280&hash=5d9a4b4f17c0a2c1c8e6a0e4e663e2aa1b2f2c4b" type="video/mp4" />
+    Your browser does not support HTML5 video.
+  </video>
+
+  <!-- Overlay -->
+  <div class="overlay"></div>
 
   <!-- Navbar -->
   <header>
@@ -24,54 +33,15 @@
   <!-- Hero Section -->
   <section id="home" class="hero">
     <div class="hero-content">
-      <h1>Transforming Ideas into <span>Innovation</span></h1>
-      <p>We provide cutting-edge software and digital transformation solutions for businesses worldwide.</p>
+      <h1>Building the <span>Future</span> of Technology</h1>
+      <p>We deliver AI-powered, cloud-driven, and scalable digital solutions that empower businesses globally.</p>
       <a href="#contact" class="btn">Get Started →</a>
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section id="services" class="services">
-    <h2>Our Services</h2>
-    <div class="service-container">
-      <div class="service-card">
-        <h3>Web Development</h3>
-        <p>Custom websites, eCommerce, and web apps using latest technologies.</p>
-      </div>
-      <div class="service-card">
-        <h3>Cloud Solutions</h3>
-        <p>Seamless cloud migration, storage, and scalable server setups.</p>
-      </div>
-      <div class="service-card">
-        <h3>AI & Automation</h3>
-        <p>Smart business automation using Artificial Intelligence & ML models.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="about">
-    <h2>About Us</h2>
-    <p>
-      Asif Tech Global is a full-service technology company delivering innovative IT, AI, and Cloud solutions.
-      We empower enterprises with tools that drive growth, efficiency, and success in the digital era.
-    </p>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" rows="4" required></textarea>
-      <button type="submit" class="btn">Send Message</button>
-    </form>
-  </section>
-
   <!-- Footer -->
   <footer>
-    <p>© 2026 Asif Tech Global | Empowering Digital Innovation 🌍</p>
+    © 2026 Asif Tech Global | Empowering Digital Innovation 🌍
   </footer>
 
 </body>
