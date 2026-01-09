@@ -9,11 +9,30 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
- <!-- Background Video -->
+  <!-- Dynamic Business Background Video -->
 <video autoplay muted loop playsinline id="bgVideo">
-  <source src="https://cdn.coverr.co/videos/coverr-business-meeting-people-7585/1080p.mp4" type="video/mp4">
+  <source id="videoSource" type="video/mp4">
   Your browser does not support HTML5 video.
 </video>
+
+<script>
+  // 🔹 Random Business Videos
+  const videos = [
+    "https://cdn.coverr.co/videos/coverr-business-meeting-people-7585/1080p.mp4",
+    "https://cdn.coverr.co/videos/coverr-office-team-collaboration-9963/1080p.mp4",
+    "https://cdn.coverr.co/videos/coverr-modern-office-setup-6510/1080p.mp4",
+    "https://cdn.coverr.co/videos/coverr-business-meeting-at-office-5047/1080p.mp4",
+    "https://cdn.coverr.co/videos/coverr-team-discussing-project-5833/1080p.mp4"
+  ];
+
+  // 🔹 Select a random one
+  const randomVideo = videos[Math.floor(Math.random() * videos.length)];
+
+  // 🔹 Set the source dynamically
+  document.getElementById("videoSource").src = randomVideo;
+  document.getElementById("bgVideo").load();
+</script>
+
 
 
   <!-- Transparent Overlay -->
