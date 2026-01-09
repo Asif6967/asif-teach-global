@@ -3,281 +3,335 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asif Tech Global | Premium Parallax Site</title>
+    <title>Asif Tech Global | Enterprise Solutions</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* --- GLOBAL SETTINGS --- */
+        /* --- GLOBAL CORPORATE SETTINGS --- */
+        :root {
+            --primary: #003366; /* Royal Blue - Trust */
+            --secondary: #00509e; /* Lighter Blue */
+            --accent: #f39c12; /* Gold - Action */
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f4f7f6;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: #000;
-            color: white;
-            overflow-x: hidden;
+            background-color: white;
+            color: var(--text-dark);
+            line-height: 1.6;
         }
 
-        /* --- NAVIGATION --- */
+        /* --- NAVIGATION (Sticky White) --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 50px;
-            background: rgba(0, 0, 0, 0.8); /* Thoda transparent */
+            padding: 15px 5%;
+            background: white;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0, 229, 255, 0.2);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .logo {
             font-size: 1.5rem;
-            font-weight: bold;
-            color: #00e5ff;
+            font-weight: 800;
+            color: var(--primary);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
+        .logo span { color: var(--accent); }
 
         .nav-links a {
-            margin-left: 20px;
-            color: white;
+            margin-left: 30px;
+            color: var(--text-dark);
             text-decoration: none;
-            font-weight: 500;
-            transition: 0.3s;
+            font-weight: 600;
             font-size: 0.9rem;
-            text-transform: uppercase;
+            transition: 0.3s;
         }
-        .nav-links a:hover { color: #00e5ff; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-btn {
+            padding: 10px 25px;
+            background: var(--primary);
+            color: white !important;
+            border-radius: 5px;
+        }
 
-        /* --- SECTION COMMON STYLES (The Magic) --- */
-        section {
-            min-height: 100vh; /* Full screen height */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 80px 20px;
+        /* --- HERO SECTION (Video Business) --- */
+        header {
+            height: 100vh;
             position: relative;
-            z-index: 1;
-            /* Parallax Effect Settings */
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        /* Dark Overlay on all sections so text is readable */
-        section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7); /* 70% Black Overlay */
-            z-index: -1;
-        }
-
-        /* --- SPECIFIC BACKGROUND IMAGES FOR EACH SECTION --- */
-        
-        /* 1. HOME - Cyber Network Image */
-        #home { background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop'); }
-        
-        /* 2. ABOUT - Matrix/Hacker Code Image */
-        #about { background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop'); }
-        
-        /* 3. SERVICES - Server Room/Data Center Image */
-        #services { background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop'); }
-        
-        /* 4. PORTFOLIO - Circuit Board Image */
-        #portfolio { background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop'); }
-        
-        /* 5. CONTACT - Global Connection Image */
-        #contact { background-image: url('https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?q=80&w=2070&auto=format&fit=crop'); }
-
-
-        /* --- CONTENT STYLING --- */
-        h2 {
-            font-size: 3rem;
-            margin-bottom: 50px;
-            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             color: white;
-            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
         }
 
-        /* Hero Specific */
-        .hero h1 {
-            font-size: 5rem;
-            text-shadow: 0 0 30px #00e5ff;
+        #bg-video {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(0.5); /* Thoda dark taaki text dikhe */
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
             margin-bottom: 20px;
             line-height: 1.1;
         }
-        .hero p { font-size: 1.5rem; color: #ddd; margin-bottom: 40px; }
-        
-        .btn {
-            padding: 15px 50px;
-            background: linear-gradient(90deg, #00e5ff, #0072ff);
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            padding: 15px 40px;
+            background: var(--accent);
             color: white;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
             text-decoration: none;
-            transition: 0.3s;
-            box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
-        }
-        .btn:hover { transform: scale(1.05); box-shadow: 0 0 40px rgba(0, 229, 255, 0.8); }
-
-        /* About Specific */
-        .about p { max-width: 800px; font-size: 1.3rem; color: #ccc; line-height: 1.8; }
-
-        /* Cards Specific */
-        .cards-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
-        .card {
-            background: rgba(255, 255, 255, 0.05); /* Glass effect */
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            width: 300px;
-            border-radius: 15px;
-            border: 1px solid rgba(0, 229, 255, 0.1);
-            transition: 0.3s;
-        }
-        .card:hover { transform: translateY(-10px); border-color: #00e5ff; background: rgba(255, 255, 255, 0.1); }
-        .card i { font-size: 3.5rem; color: #00e5ff; margin-bottom: 25px; }
-        .card h3 { color: white; margin-bottom: 15px; }
-        .card p { color: #aaa; }
-
-        /* Gallery Specific */
-        .gallery { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
-        .project-box {
-            width: 300px; height: 200px;
-            background: rgba(0, 0, 0, 0.5);
-            border: 2px solid #333;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 10px; font-size: 1.5rem; color: #00e5ff;
-            transition: 0.3s;
-        }
-        .project-box:hover { background: rgba(0, 229, 255, 0.1); border-color: #00e5ff; }
-
-        /* Contact Form Specific */
-        .contact form { display: flex; flex-direction: column; width: 100%; max-width: 600px; gap: 20px; }
-        input, textarea {
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid #333;
-            color: white;
+            font-weight: bold;
             border-radius: 5px;
             font-size: 1.1rem;
-            outline: none;
-        }
-        input:focus, textarea:focus { border-color: #00e5ff; }
-        button.submit-btn {
-            padding: 20px;
-            background: #00e5ff;
-            border: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            cursor: pointer;
             transition: 0.3s;
         }
-        button.submit-btn:hover { background: #00bcd4; box-shadow: 0 0 20px #00e5ff; }
+        .cta-btn:hover { background: #d35400; }
+
+        /* --- STATS SECTION (Trust Building) --- */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 50px 5%;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+        .stat-box h3 { font-size: 2.5rem; margin-bottom: 5px; }
+        .stat-box p { font-size: 1rem; opacity: 0.8; }
+
+        /* --- SERVICES SECTION --- */
+        .section-padding { padding: 80px 5%; }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        .section-title p { color: var(--text-light); }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: left;
+            transition: 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-bottom: 4px solid var(--accent);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        .service-card h3 { margin-bottom: 15px; color: var(--text-dark); }
+        .service-card p { color: var(--text-light); font-size: 0.95rem; }
+
+        /* --- GLOBAL PRESENCE (Map) --- */
+        .global-section {
+            background: white;
+            text-align: center;
+        }
+        .map-container {
+            margin-top: 40px;
+            width: 100%;
+            height: 400px;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.1; /* Map halka dikhega background me */
+            position: absolute;
+            z-index: 0;
+        }
+        .global-content {
+            position: relative;
+            z-index: 1;
+        }
 
         /* --- FOOTER --- */
         footer {
-            padding: 30px;
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 5% 20px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-col h4 { margin-bottom: 20px; color: var(--accent); }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: #aaa; text-decoration: none; }
+        .footer-col ul li a:hover { color: white; }
+
+        .copyright {
             text-align: center;
-            background: #050505;
-            color: #666;
-            border-top: 1px solid #222;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            color: #777;
         }
 
-        /* Mobile Fixes */
+        /* Mobile Fix */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; }
+            .hero-content h1 { font-size: 2.5rem; }
             .nav-links { display: none; }
+            .stats { flex-direction: column; gap: 30px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">Asif Tech Global</div>
+        <div class="logo">ASIF TECH <span>GLOBAL</span></div>
         <div class="nav-links">
             <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#portfolio">Work</a>
-            <a href="#contact">Contact</a>
+            <a href="#services">Solutions</a>
+            <a href="#global">Global Reach</a>
+            <a href="#contact" class="nav-btn">Contact Us</a>
         </div>
     </nav>
 
-    <section id="home" class="hero">
-        <h1>WELCOME TO THE FUTURE</h1>
-        <p>Elite Cyber Security & Web Solutions Agency.</p>
-        <a href="#contact" class="btn">START PROJECT 🚀</a>
+    <header id="home">
+        <video autoplay muted loop id="bg-video">
+            <source src="https://videos.pexels.com/video-files/855564/855564-hd_1920_1080_24fps.mp4" type="video/mp4">
+        </video>
+        
+        <div class="hero-content">
+            <h1>Empowering Global Business.</h1>
+            <p>Leading provider of IT Infrastructure, Cloud Security, and Enterprise Software Solutions worldwide.</p>
+            <a href="#contact" class="cta-btn">Get Started</a>
+        </div>
+    </header>
+
+    <section class="stats">
+        <div class="stat-box">
+            <h3>500+</h3>
+            <p>Projects Delivered</p>
+        </div>
+        <div class="stat-box">
+            <h3>12+</h3>
+            <p>Countries Served</p>
+        </div>
+        <div class="stat-box">
+            <h3>24/7</h3>
+            <p>Global Support</p>
+        </div>
+        <div class="stat-box">
+            <h3>100%</h3>
+            <p>Client Satisfaction</p>
+        </div>
     </section>
 
-    <section id="about" class="about">
-        <h2>About Us</h2>
-        <p>
-            Asif Tech Global is a revolution in the digital space. 
-            Hum latest AI, Kali Linux Security protocols, aur High-Performance Cloud Servers use karke 
-            aapke business ko hack-proof aur superfast banate hain.
-            <br><br>
-            Driven by passion. Secured by Asif Bhai.
-        </p>
-    </section>
+    <section class="section-padding" id="services">
+        <div class="section-title">
+            <h2>Our Expertise</h2>
+            <p>We deliver scalable solutions for modern enterprises.</p>
+        </div>
 
-    <section id="services">
-        <h2>Our Services</h2>
-        <div class="cards-container">
-            <div class="card">
-                <i class="fas fa-code"></i>
-                <h3>Web Design</h3>
-                <p>Futuristic UI/UX designs jo client ko impress karein.</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-globe-americas"></i>
+                <h3>Global IT Strategy</h3>
+                <p>Helping businesses expand across borders with robust digital infrastructure.</p>
             </div>
-            <div class="card">
+
+            <div class="service-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Business Growth</h3>
+                <p>Data-driven analytics and AI tools to maximize your revenue.</p>
+            </div>
+
+            <div class="service-card">
                 <i class="fas fa-shield-alt"></i>
-                <h3>Ethical Hacking</h3>
-                <p>VAPT & Security Audit. Aapki site ko koi hack nahi kar sakta.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-server"></i>
-                <h3>Server Management</h3>
-                <p>Linux, Cloud, & AWS Experts ready to manage your traffic.</p>
+                <h3>Enterprise Security</h3>
+                <p>Bank-grade security protocols to protect your corporate data.</p>
             </div>
         </div>
     </section>
 
-    <section id="portfolio">
-        <h2>Recent Work</h2>
-        <div class="gallery">
-            <div class="project-box">AI Chatbot</div>
-            <div class="project-box">Secure E-com</div>
-            <div class="project-box">Kali Tools</div>
+    <section class="section-padding global-section" id="global">
+        <div class="section-title global-content">
+            <h2>Global Presence</h2>
+            <p>Headquartered in India, operating Worldwide.</p>
+        </div>
+        <div class="map-container"></div> <div class="global-content" style="margin-top: 50px;">
+            <p style="font-size: 1.5rem; font-weight: bold; color: #003366;">
+                USA • UK • DUBAI • INDIA • SINGAPORE
+            </p>
         </div>
     </section>
 
-    <section id="contact" class="contact">
-        <h2>Get In Touch</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea rows="5" placeholder="Your Message..."></textarea>
-            <button type="submit" class="submit-btn">SEND MESSAGE</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Asif Tech Global. All Rights Reserved.</p>
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Asif Tech Global</h4>
+                <p style="color: #aaa;">Making businesses digital, secure, and profitable since 2024.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> contact@asiftechglobal.com</li>
+                    <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Mumbai, India</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Asif Tech Global. All Rights Reserved.</p>
+        </div>
     </footer>
 
 </body>
