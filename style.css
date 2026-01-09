@@ -54,3 +54,54 @@ nav {
 footer { text-align: center; padding: 40px; margin-top: 50px; border-top: 1px solid #ddd; opacity: 0.7; }
 .socials i { margin: 0 10px; font-size: 1.5rem; cursor: pointer; }
 .socials i:hover { color: var(--primary); }
+/* --- GALLERY SECTION STYLES --- */
+.gallery-section {
+    padding: 80px 5%;
+    background: white;
+}
+
+.gallery-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.gallery-item {
+    position: relative;
+    width: 350px;
+    height: 250px;
+    overflow: hidden; /* Photo bahar nahi niklegi */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease; /* Smooth Zoom */
+}
+
+/* Hover Effect: Mouse upar jaane par zoom hoga */
+.gallery-item:hover img {
+    transform: scale(1.1); /* Photo badi ho jayegi */
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 20px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .gallery-item {
+        width: 100%; /* Mobile par full width */
+    }
+}
