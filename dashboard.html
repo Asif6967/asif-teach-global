@@ -1,12 +1,84 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dashboard - Asif Tech Global</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Asif Tech Global</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0072ff, #00c6ff);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+      color: white;
+      width: 350px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .login-card h2 {
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    button {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background-color: white;
+      color: #0072ff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #00c6ff;
+      color: white;
+    }
+
+    .google-btn {
+      background-color: #db4437;
+      color: white;
+    }
+
+    .google-btn:hover {
+      background-color: #c23321;
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome to your Dashboard 🎉</h1>
-  <button onclick="logout()">Logout</button>
+
+  <div class="login-card">
+    <h2>Login to Your Account</h2>
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <button onclick="signup()">Sign Up</button>
+    <button class="google-btn" onclick="googleLogin()">Login with Google</button>
+  </div>
+
   <script type="module" src="script.js"></script>
 </body>
 </html>
