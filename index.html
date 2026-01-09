@@ -1,220 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2165852461534798" crossorigin="anonymous"></script>
-  <meta name="google-adsense-account" content="ca-pub-2165852461534798">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-site-verification" content="lQmX6fzrD22ySePMX50nKU4tR30UrdQo_sayAEJB4FQ" />
-  <title>Asif Tech Global | Business & Tech Insights</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asif Tech Global | Future of Tech</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* --- GLOBAL SETTINGS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+        body {
+            background-color: #0a0a0a; /* Almost Black */
+            color: white;
+            line-height: 1.6;
+        }
 
-    body {
-      color: #fff;
-      background: #000;
-      overflow-x: hidden;
-      position: relative;
-    }
+        a { text-decoration: none; color: white; }
 
-    /* 🔹 Background Video Styling */
-    video#bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
 
-    nav {
-      width: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 40px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 10;
-      backdrop-filter: blur(8px);
-    }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00e5ff; /* Cyan Color */
+            letter-spacing: 2px;
+        }
 
-    .logo {
-      color: #ffae42;
-      font-weight: 700;
-      font-size: 1.3rem;
-    }
+        .nav-links a {
+            margin-left: 20px;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
 
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 12px;
-      transition: 0.3s;
-    }
+        .nav-links a:hover { color: #00e5ff; }
 
-    .nav-links a:hover {
-      color: #ffae42;
-    }
+        /* --- HERO SECTION (INTRO) --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle, #1a1a1a 0%, #000000 100%);
+            padding: 20px;
+        }
 
-    .hero {
-      text-align: center;
-      padding: 180px 20px 120px;
-      background: rgba(0, 0, 0, 0.5);
-    }
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #00e5ff, #0072ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    .hero h1 {
-      font-size: 3rem;
-      color: #fff;
-    }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
 
-    .hero span {
-      color: #ffae42;
-    }
+        .btn {
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #00e5ff, #0072ff);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-    .hero p {
-      font-size: 1.1rem;
-      color: #ddd;
-      margin: 15px 0 30px;
-    }
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+        }
 
-    .cta-btn {
-      background: #ffae42;
-      color: #000;
-      padding: 12px 30px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
+        /* --- SERVICES SECTION --- */
+        .services {
+            padding: 80px 50px;
+            background-color: #0f0f0f;
+            text-align: center;
+        }
 
-    .cta-btn:hover {
-      background: #fff;
-      color: #000;
-    }
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            border-bottom: 2px solid #00e5ff;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
 
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
 
-    .section-title {
-      text-align: center;
-      color: #ffae42;
-      margin-bottom: 30px;
-    }
+        .card {
+            background: #1a1a1a;
+            padding: 30px;
+            width: 300px;
+            border-radius: 15px;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
 
-    .glass-box {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 30px;
-      border-radius: 15px;
-      margin-bottom: 40px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    }
+        .card:hover {
+            border-color: #00e5ff;
+            transform: translateY(-10px);
+        }
 
-    .article-card {
-      background: rgba(255,255,255,0.05);
-      border-left: 4px solid #ffae42;
-      padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-    }
+        .card i {
+            font-size: 3rem;
+            color: #00e5ff;
+            margin-bottom: 20px;
+        }
 
-    footer {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(5px);
-      color: #fff;
-      padding: 60px 20px 30px 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      text-align: center;
-      margin-top: 100px;
-    }
-  </style>
+        .card h3 { margin-bottom: 15px; }
+        .card p { color: #aaa; font-size: 0.9rem; }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 20px;
+            text-align: center;
+            background: black;
+            color: gray;
+            border-top: 1px solid #333;
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav { padding: 15px; }
+            .nav-links { display: none; } /* Mobile me menu chupa diya simple rakhne ke liye */
+        }
+    </style>
 </head>
-
 <body>
 
-  <!-- 🔹 Background Business Video -->
-  <video autoplay muted loop id="bg-video">
-    <source src="https://cdn.coverr.co/videos/coverr-business-meeting-5178/1080p.mp4" type="video/mp4">
-  </video>
+    <nav>
+        <div class="logo">ASIF TECH GLOBAL</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
 
-  <!-- 🔹 Navigation -->
-  <nav>
-    <div class="logo">Asif Tech <span>Global</span></div>
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#insights">Insights</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="#about">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="live-news.html" style="color: #ef4444; font-weight: bold;">🔴 Live News</a>
-    </div>
-    <div id="google_translate_element"></div>
-  </nav>
+    <section class="hero" id="home">
+        <h1>We Build The Future.</h1>
+        <p>Expert Solutions in Web Development, Cyber Security & AI Automation. <br> Aapka Vision, Hamari Technology.</p>
+        <a href="https://wa.me/910000000000" target="_blank">
+            <button class="btn">Hire Us Now 🚀</button>
+        </a>
+    </section>
 
-  <!-- 🔹 Hero Section -->
-  <section class="hero" id="home">
-    <h1>Asif Tech <span>Global</span></h1>
-    <p>Leading the Digital Transformation in Business Education.</p>
-    <a href="#insights" class="cta-btn">Explore Insights</a>
-  </section>
+    
 
-  <!-- 🔹 Insights Section -->
-  <div class="container" id="insights">
-    <h2 class="section-title">Latest Tech Insights</h2>
-    <div class="glass-box">
-      <div class="article-card">
-        <h3>Impact of AI on MBA Careers</h3>
-        <p>Artificial intelligence is redefining organizational structures and leadership frameworks in 2026.</p>
-        <a href="mba-ai-impact.html" class="cta-btn">Read Full Insight →</a>
-      </div>
+    <section class="services" id="services">
+        <h2 class="section-title">Our Services</h2>
+        
+        <div class="cards-container">
+            <div class="card">
+                <i class="fas fa-code"></i>
+                <h3>Web Development</h3>
+                <p>High-speed, SEO optimized business websites jo aapke brand ko next level par le jayein.</p>
+            </div>
 
-      <div class="article-card">
-        <h3>Digital Marketing 2026: Beyond Automation</h3>
-        <p>Discover how AI-powered marketing strategies are shaping the future of customer engagement.</p>
-        <a href="marketing.html" class="cta-btn">Read Full Insight →</a>
-      </div>
-    </div>
-  </div>
+            <div class="card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Cyber Security</h3>
+                <p>Hum aapke data ko secure karte hain. VAPT, Penetration Testing & Network Safety.</p>
+            </div>
 
-  <!-- 🔹 About Section -->
-  <div class="container" id="about">
-    <div class="glass-box">
-      <h2 class="section-title">About Asif Tech Global</h2>
-      <p>We are committed to bridging business education with emerging technologies. Our mission is to empower future leaders through practical AI, data, and digital transformation insights.</p>
-    </div>
-  </div>
+            <div class="card">
+                <i class="fas fa-robot"></i>
+                <h3>AI & Automation</h3>
+                <p>Custom Chatbots aur AI tools jo aapke business ko automate karein.</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- 🔹 Footer -->
-  <footer>
-    <h3 style="color: #ffae42;">Asif Tech Global</h3>
-    <p>Modern solutions for a digital world.</p>
-    <p style="color: rgba(255,255,255,0.5); margin-top: 20px;">© 2026 Asif Tech Global Foundation</p>
-  </footer>
-
-  <!-- 🔹 Google Translate Script -->
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-      }, 'google_translate_element');
-    }
-  </script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <footer id="contact">
+        <p>&copy; 2024 Asif Tech Global. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px;">Designed by Asif Bhai</p>
+    </footer>
 
 </body>
 </html>
