@@ -1,76 +1,91 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asif Tech Global | Financial Intelligence</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Asif Business Group | Strategic Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <video autoplay muted loop playsinline id="bgVideo">
-        <source src="https://cdn.coverr.co/videos/coverr-analyzing-financial-data-on-laptop-5186/1080p.mp4" type="video/mp4">
+        <source src="https://cdn.coverr.co/videos/coverr-people-working-in-office-4447/1080p.mp4" type="video/mp4">
     </video>
     <div class="overlay"></div>
 
     <nav>
-        <div class="logo">Asif <span>Tech Global</span></div>
+        <div class="logo">Asif <span>Business Group</span></div>
         <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         <ul class="nav-links" id="navLinks">
             <li><a href="#home">Home</a></li>
-            <li><a href="#calculator">Smart Tools</a></li>
-            <li><a href="#services">Services</a></li>
+            <li><a href="#calculator">Finance Tool</a></li>
+            <li><a href="#services">Consulting</a></li>
             <li><a href="#contact" class="btn-nav">Contact</a></li>
         </ul>
     </nav>
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <span class="badge">📊 FinTech Solutions</span>
-            <h1>Data Driven <br><span>Decisions</span></h1>
-            <p>Combining Financial Management with Python Automation to optimize business growth and reduce operational costs.</p>
+            <span class="badge">EST. 2026</span>
+            <h1>Strategic Growth & <br><span>Financial Excellence</span></h1>
+            <p>Empowering organizations with data-driven audits, market analysis, and sustainable business strategies.</p>
             <div class="buttons">
-                <a href="#calculator" class="btn primary">Try EMI Calculator</a>
-                <a href="#contact" class="btn secondary">Consultation</a>
+                <a href="#services" class="btn primary">Our Expertise</a>
+                <a href="#calculator" class="btn secondary">Plan Investment</a>
             </div>
         </div>
     </section>
 
+    <section class="stats-bar">
+        <div class="stat">
+            <h3>50+</h3>
+            <p>Corporate Clients</p>
+        </div>
+        <div class="stat">
+            <h3>₹10Cr+</h3>
+            <p>Assets Managed</p>
+        </div>
+        <div class="stat">
+            <h3>100%</h3>
+            <p>Compliance Rate</p>
+        </div>
+    </section>
+
     <section id="calculator" class="calculator-section">
-        <h2>Business Loan <span>Calculator</span></h2>
-        <p>Powered by Python Backend</p>
+        <h2>Business Capital <span>Planner</span></h2>
+        <p>Calculate your Business Loan EMI instantly with our Python Engine.</p>
         
         <div class="calc-container">
             <form method="POST" action="/#calculator">
                 <div class="input-group">
-                    <label>Loan Amount (₹)</label>
-                    <input type="number" name="amount" placeholder="e.g. 500000" required>
+                    <label>Required Capital (₹)</label>
+                    <input type="number" name="amount" placeholder="Ex: 10,00,000" required>
                 </div>
                 <div class="input-group">
                     <label>Interest Rate (% p.a)</label>
-                    <input type="number" name="rate" step="0.1" placeholder="e.g. 10.5" required>
+                    <input type="number" name="rate" step="0.1" placeholder="Ex: 9.5" required>
                 </div>
                 <div class="input-group">
-                    <label>Tenure (Years)</label>
-                    <input type="number" name="years" placeholder="e.g. 5" required>
+                    <label>Duration (Years)</label>
+                    <input type="number" name="years" placeholder="Ex: 5" required>
                 </div>
-                <button type="submit" class="btn primary full-width">Calculate Now</button>
+                <button type="submit" class="btn primary full-width">Analyze Repayment</button>
             </form>
 
             {% if result %}
             <div class="result-box">
                 <div class="res-item">
-                    <span>Monthly EMI:</span>
+                    <span>Monthly Installment:</span>
                     <h3>₹ {{ result.emi }}</h3>
                 </div>
                 <div class="res-item">
-                    <span>Total Interest:</span>
+                    <span>Total Interest Payable:</span>
                     <p>₹ {{ result.total_interest }}</p>
                 </div>
                 <div class="res-item">
-                    <span>Total Payment:</span>
+                    <span>Total Cost of Capital:</span>
                     <p>₹ {{ result.total_payment }}</p>
                 </div>
             </div>
@@ -79,28 +94,28 @@
     </section>
 
     <section id="services" class="services">
-        <h2>Our <span>Expertise</span></h2>
+        <h2>Core <span>Competencies</span></h2>
         <div class="service-container">
             <div class="card">
-                <i class="fas fa-chart-pie"></i>
-                <h3>Financial Modeling</h3>
-                <p>Creating automated balance sheets and ratio analysis reports.</p>
+                <i class="fas fa-file-invoice-dollar"></i>
+                <h3>Accounting & Tax</h3>
+                <p>Balance sheet management, GST filing, and financial auditing services.</p>
             </div>
             <div class="card">
-                <i class="fas fa-laptop-code"></i>
-                <h3>Process Automation</h3>
-                <p>Using Python to automate Excel reporting and data entry.</p>
+                <i class="fas fa-chart-line"></i>
+                <h3>Market Research</h3>
+                <p>In-depth competitor analysis and consumer behavior studies.</p>
             </div>
             <div class="card">
-                <i class="fas fa-briefcase"></i>
-                <h3>Business Strategy</h3>
-                <p>Data-backed strategies for market expansion and cost reduction.</p>
+                <i class="fas fa-users-cog"></i>
+                <h3>HR Management</h3>
+                <p>Organizational structure planning and talent acquisition strategies.</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2026 Asif Tech Global. Built with Python & Flask.</p>
+        <p>© 2026 Asif Business Group. All Rights Reserved.</p>
     </footer>
 
     <script>
