@@ -1,9 +1,9 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asif Tech Global | Future of AI</title>
+    <title>Asif Tech Global | Financial Intelligence</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -11,49 +11,70 @@
 <body>
 
     <video autoplay muted loop playsinline id="bgVideo">
-        <source src="https://cdn.coverr.co/videos/coverr-typing-on-computer-keyboard-5182/1080p.mp4" type="video/mp4">
+        <source src="https://cdn.coverr.co/videos/coverr-analyzing-financial-data-on-laptop-5186/1080p.mp4" type="video/mp4">
     </video>
     <div class="overlay"></div>
 
     <nav>
         <div class="logo">Asif <span>Tech Global</span></div>
-        
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
-        </div>
-
+        <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         <ul class="nav-links" id="navLinks">
-            <li><a href="#home" onclick="toggleMenu()">Home</a></li>
-            <li><a href="#services" onclick="toggleMenu()">Solutions</a></li>
-            <li><a href="#stats" onclick="toggleMenu()">Impact</a></li>
-            <li><a href="#contact" class="btn-nav" onclick="toggleMenu()">Contact Us</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#calculator">Smart Tools</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact" class="btn-nav">Contact</a></li>
         </ul>
     </nav>
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <span class="badge">🚀 Powering Next-Gen Business</span>
-            <h1>Intelligence Meets <br><span>Innovation</span></h1>
-            <p>We build enterprise-grade AI solutions and financial analytics dashboards for the modern world.</p>
+            <span class="badge">📊 FinTech Solutions</span>
+            <h1>Data Driven <br><span>Decisions</span></h1>
+            <p>Combining Financial Management with Python Automation to optimize business growth and reduce operational costs.</p>
             <div class="buttons">
-                <a href="#services" class="btn primary">Explore Services</a>
-                <a href="#contact" class="btn secondary">Get a Quote</a>
+                <a href="#calculator" class="btn primary">Try EMI Calculator</a>
+                <a href="#contact" class="btn secondary">Consultation</a>
             </div>
         </div>
     </section>
 
-    <section id="stats" class="stats-section">
-        <div class="stat-box">
-            <h3>98%</h3>
-            <p>Client Satisfaction</p>
-        </div>
-        <div class="stat-box">
-            <h3>500+</h3>
-            <p>Projects Delivered</p>
-        </div>
-        <div class="stat-box">
-            <h3>24/7</h3>
-            <p>AI Support</p>
+    <section id="calculator" class="calculator-section">
+        <h2>Business Loan <span>Calculator</span></h2>
+        <p>Powered by Python Backend</p>
+        
+        <div class="calc-container">
+            <form method="POST" action="/#calculator">
+                <div class="input-group">
+                    <label>Loan Amount (₹)</label>
+                    <input type="number" name="amount" placeholder="e.g. 500000" required>
+                </div>
+                <div class="input-group">
+                    <label>Interest Rate (% p.a)</label>
+                    <input type="number" name="rate" step="0.1" placeholder="e.g. 10.5" required>
+                </div>
+                <div class="input-group">
+                    <label>Tenure (Years)</label>
+                    <input type="number" name="years" placeholder="e.g. 5" required>
+                </div>
+                <button type="submit" class="btn primary full-width">Calculate Now</button>
+            </form>
+
+            {% if result %}
+            <div class="result-box">
+                <div class="res-item">
+                    <span>Monthly EMI:</span>
+                    <h3>₹ {{ result.emi }}</h3>
+                </div>
+                <div class="res-item">
+                    <span>Total Interest:</span>
+                    <p>₹ {{ result.total_interest }}</p>
+                </div>
+                <div class="res-item">
+                    <span>Total Payment:</span>
+                    <p>₹ {{ result.total_payment }}</p>
+                </div>
+            </div>
+            {% endif %}
         </div>
     </section>
 
@@ -61,43 +82,31 @@
         <h2>Our <span>Expertise</span></h2>
         <div class="service-container">
             <div class="card">
-                <i class="fas fa-chart-line"></i>
-                <h3>Business Analytics</h3>
-                <p>Data-driven dashboards to track your ROI and growth.</p>
+                <i class="fas fa-chart-pie"></i>
+                <h3>Financial Modeling</h3>
+                <p>Creating automated balance sheets and ratio analysis reports.</p>
             </div>
             <div class="card">
-                <i class="fas fa-robot"></i>
-                <h3>AI Automation</h3>
-                <p>Chatbots and automated workflows to save time.</p>
+                <i class="fas fa-laptop-code"></i>
+                <h3>Process Automation</h3>
+                <p>Using Python to automate Excel reporting and data entry.</p>
             </div>
             <div class="card">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Cyber Security</h3>
-                <p>Secure infrastructure protecting your digital assets.</p>
+                <i class="fas fa-briefcase"></i>
+                <h3>Business Strategy</h3>
+                <p>Data-backed strategies for market expansion and cost reduction.</p>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
-        <h2>Let's Build <span>Together</span></h2>
-        <form class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Business Email" required>
-            <textarea rows="5" placeholder="Project Details"></textarea>
-            <button type="submit" class="btn primary">Send Message</button>
-        </form>
-    </section>
-
     <footer>
-        <p>© 2026 Asif Tech Global. All Rights Reserved.</p>
+        <p>© 2026 Asif Tech Global. Built with Python & Flask.</p>
     </footer>
 
     <script>
         function toggleMenu() {
-            const nav = document.getElementById('navLinks');
-            nav.classList.toggle('active');
+            document.getElementById('navLinks').classList.toggle('active');
         }
     </script>
-
 </body>
 </html>
