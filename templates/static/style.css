@@ -1,0 +1,128 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body, html {
+    height: 100%;
+    overflow-x: hidden;
+    color: white;
+}
+
+/* Background Video Styling */
+#bgVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -2; /* Sabse peeche */
+    object-fit: cover;
+}
+
+/* Overlay Styling (Video ke upar dark layer) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* 60% Black Tint */
+    z-index: -1;
+}
+
+/* Navbar */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.3); /* Glass effect */
+    backdrop-filter: blur(5px);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #4facfe; /* Tech Blue color */
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    margin-left: 30px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #4facfe;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-content span {
+    color: #4facfe;
+    text-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ddd;
+}
+
+/* Button Styling */
+.btn {
+    text-decoration: none;
+    padding: 12px 30px;
+    background: #4facfe;
+    color: white;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+}
+
+.btn:hover {
+    background: #00f2fe;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
