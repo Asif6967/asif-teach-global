@@ -17,11 +17,16 @@
 
     <nav>
         <div class="logo">Asif <span>Tech Global</span></div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#services">Solutions</a></li>
-            <li><a href="#stats">Impact</a></li>
-            <li><a href="#contact" class="btn-nav">Contact Us</a></li>
+        
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+            <li><a href="#services" onclick="toggleMenu()">Solutions</a></li>
+            <li><a href="#stats" onclick="toggleMenu()">Impact</a></li>
+            <li><a href="#contact" class="btn-nav" onclick="toggleMenu()">Contact Us</a></li>
         </ul>
     </nav>
 
@@ -86,6 +91,13 @@
     <footer>
         <p>© 2026 Asif Tech Global. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+        }
+    </script>
 
 </body>
 </html>
