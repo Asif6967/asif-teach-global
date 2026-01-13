@@ -3,81 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asif Tech Global | Strategic Intelligence</title>
+    <title>Asif Tech Global | Responsive Intelligence</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-[#0a0a0c] text-white antialiased">
 
-    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-black/60 backdrop-blur-xl p-6">
+    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-black/80 backdrop-blur-xl p-5">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="text-2xl font-black italic tracking-tighter text-indigo-500">ASIF TECH GLOBAL</div>
-            <div class="hidden md:flex gap-12 text-[10px] font-black uppercase tracking-[0.2em] opacity-60">
+            <div class="text-xl font-black italic tracking-tighter text-indigo-500">ASIF TECH GLOBAL</div>
+            
+            <div class="hidden md:flex gap-10 text-[10px] font-black uppercase tracking-[0.2em] opacity-60">
                 <a href="#analytics" class="hover:text-indigo-400 transition">Intelligence</a>
                 <a href="#projects" class="hover:text-indigo-400 transition">Roadmap</a>
                 <a href="#contact" class="hover:text-indigo-400 transition">Contact</a>
             </div>
-            <button class="btn-premium px-6 py-2 text-[10px]">Access Vault</button>
+
+            <button onclick="toggleMobileMenu()" class="md:hidden text-indigo-500 text-2xl">
+                <i class="fa-solid fa-bars-staggered" id="menu-icon"></i>
+            </button>
+
+            <button class="hidden md:block btn-premium px-6 py-2 text-[10px]">Access Vault</button>
+        </div>
+
+        <div id="mobile-menu" class="hidden flex-col gap-6 p-6 mt-4 border-t border-white/5 md:hidden bg-black/90 rounded-2xl">
+            <a href="#analytics" class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-indigo-500" onclick="toggleMobileMenu()">Intelligence</a>
+            <a href="#projects" class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-indigo-500" onclick="toggleMobileMenu()">Roadmap</a>
+            <button class="btn-premium w-full py-3 text-[10px]">Access Vault</button>
         </div>
     </nav>
 
-    <header class="pt-48 pb-20 text-center px-6">
-        <div class="inline-block px-4 py-1.5 mb-8 rounded-full border border-indigo-500/20 bg-indigo-500/5 text-indigo-400 text-[10px] font-black tracking-widest uppercase">Intelligence v3.0</div>
-        <h1 class="text-7xl font-extrabold tracking-tighter mb-8 leading-none">Global <span class="gradient-text">E-Commerce</span> <br>Logic Systems</h1>
-        <p class="text-gray-500 max-w-2xl mx-auto text-lg mb-12">Fusing MBA strategic oversight with high-concurrency engineering architectures.</p>
-    </header>
-
-    <section id="analytics" class="max-w-7xl mx-auto px-6 mb-32">
-        <div class="glass-card p-12 grid grid-cols-1 md:grid-cols-4 gap-12 text-center">
-            <div>
-                <div class="text-4xl font-black text-indigo-500 mb-2">99.9%</div>
-                <div class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">System Uptime</div>
-            </div>
-            <div>
-                <div class="text-4xl font-black text-cyan-400 mb-2">45M+</div>
-                <div class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Data Clusters</div>
-            </div>
-            <div>
-                <div class="text-4xl font-black text-emerald-400 mb-2">12ms</div>
-                <div class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Global Latency</div>
-            </div>
-            <div>
-                <div class="text-4xl font-black text-purple-400 mb-2">24/7</div>
-                <div class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">AI Monitoring</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="max-w-7xl mx-auto px-6 pb-40">
-        <h2 class="text-3xl font-bold mb-16 text-center tracking-tight">Strategic <span class="text-indigo-500">Roadmap</span></h2>
-        <div class="space-y-6">
-            <div class="glass-card p-8 flex items-center justify-between group cursor-pointer hover:bg-white/5">
-                <div class="flex items-center gap-8">
-                    <span class="text-indigo-500 font-black">01</span>
-                    <div>
-                        <h4 class="font-bold">Market Penetration Engine</h4>
-                        <p class="text-xs text-gray-500">Automated E-commerce expansion algorithms.</p>
-                    </div>
-                </div>
-                <div class="px-4 py-1 rounded-full border border-emerald-500/30 text-emerald-400 text-[8px] font-black">COMPLETED</div>
-            </div>
-            <div class="glass-card p-8 flex items-center justify-between group cursor-pointer hover:bg-white/5">
-                <div class="flex items-center gap-8">
-                    <span class="text-indigo-500 font-black">02</span>
-                    <div>
-                        <h4 class="font-bold">Neural Supply Chain</h4>
-                        <p class="text-xs text-gray-500">Predictive logistics using engineering-grade AI.</p>
-                    </div>
-                </div>
-                <div class="px-4 py-1 rounded-full border border-indigo-500/30 text-indigo-400 text-[8px] font-black">IN PROGRESS</div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="p-12 text-center border-t border-white/5 opacity-40">
-        <p class="text-[10px] font-black tracking-[0.3em] uppercase">Security Level: Class-A Executive</p>
-    </footer>
-
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+                icon.classList.replace('fa-bars-staggered', 'fa-xmark');
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+                icon.classList.replace('fa-xmark', 'fa-bars-staggered');
+            }
+        }
+    </script>
 </body>
 </html>
