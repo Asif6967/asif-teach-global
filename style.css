@@ -13,6 +13,9 @@ body {
   color: #222;
   padding-top: 64px; /* 🔴 header height ke barabar */
 }
+body {
+  padding-bottom: 120px;
+}
 
 /* ================= HEADER ================= */
 .top-bar {
@@ -179,4 +182,15 @@ footer {
 
 .metric p {
   font-size: 15px;
+}
+.cta-bottom {
+  margin-top: 60px;
+}
+.cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  padding: 20px;
 }
