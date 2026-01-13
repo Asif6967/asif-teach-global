@@ -1,71 +1,140 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asif Tech | Multi-Theme Portal</title>
+    <title>Asif Tech | Premium Systems</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* Custom Theme Classes */
-        .theme-dark { --bg: #111827; --text: #f3f4f6; --card: #1f2937; --border: #374151; }
-        .theme-light { --bg: #ffffff; --text: #111827; --card: #f3f4f6; --border: #e5e7eb; }
-        .theme-blue { --bg: #1e3a8a; --text: #ffffff; --card: #1e40af; --border: #3b82f6; }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        
+        :root {
+            --primary: #6366f1;
+            --accent: #06b6d4;
+            --bg-glow: radial-gradient(circle at 50% -20%, #312e81, #0f172a);
+        }
 
-        body { background-color: var(--bg); color: var(--text); transition: all 0.3s ease; }
-        .card { background-color: var(--card); border: 1px solid var(--border); }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #0f172a;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(99, 102, 241, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 100%; height: 600px;
+            background: var(--bg-glow);
+            filter: blur(100px);
+            z-index: -1;
+        }
+
+        .theme-btn {
+            width: 35px; height: 35px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* Light Mode Overrides */
+        body.light-theme { background: #f8fafc; color: #1e293b; --bg-glow: radial-gradient(circle at 50% -20%, #e2e8f0, #f8fafc); }
+        body.light-theme .glass { background: rgba(255, 255, 255, 0.8); border: 1px solid #e2e8f0; color: #1e293b; }
+        body.light-theme .text-gray-400 { color: #64748b; }
     </style>
 </head>
-<body class="theme-dark font-sans tracking-tight" id="body-tag">
+<body class="dark-theme">
+    <div class="hero-glow"></div>
 
-    <nav class="border-b border-gray-800/20 backdrop-blur-md sticky top-0 z-50 p-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-                ASIF TECH <span class="text-xs font-mono opacity-50 uppercase">v2.1</span>
-            </h1>
-            
-            <div class="flex items-center space-x-4">
-                <span class="text-xs font-semibold uppercase tracking-widest opacity-70">Switch Theme:</span>
-                <button onclick="setTheme('theme-light')" class="w-6 h-6 rounded-full bg-white border border-gray-300 shadow-sm" title="Light Mode"></button>
-                <button onclick="setTheme('theme-dark')" class="w-6 h-6 rounded-full bg-gray-900 border border-gray-700 shadow-sm" title="Dark Mode"></button>
-                <button onclick="setTheme('theme-blue')" class="w-6 h-6 rounded-full bg-blue-700 border border-blue-500 shadow-sm" title="Blue Mode"></button>
+    <nav class="max-w-7xl mx-auto px-6 py-8 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/50">
+                <i class="fa-solid fa-microchip text-xl"></i>
             </div>
+            <span class="text-xl font-extrabold tracking-tighter">ASIF TECH <span class="text-indigo-500 text-sm">GLOBAL</span></span>
+        </div>
+
+        <div class="flex items-center gap-6">
+            <div class="flex gap-2 p-1 bg-white/5 rounded-2xl border border-white/10">
+                <div onclick="changeTheme('dark')" class="theme-btn bg-slate-900 border border-white/20 flex items-center justify-center"><i class="fa-solid fa-moon text-xs text-white"></i></div>
+                <div onclick="changeTheme('light')" class="theme-btn bg-white border border-black/10 flex items-center justify-center"><i class="fa-solid fa-sun text-xs text-orange-500"></i></div>
+                <div onclick="changeTheme('gold')" class="theme-btn bg-yellow-600 border border-yellow-400 flex items-center justify-center"><i class="fa-solid fa-crown text-xs text-white"></i></div>
+            </div>
+            <button class="bg-indigo-600 hover:bg-indigo-500 px-6 py-2.5 rounded-full text-sm font-bold transition shadow-xl shadow-indigo-500/20">Launch Console</button>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-4 py-16">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl font-extrabold mb-4">Senior Level <span class="text-blue-500">Dashboard</span></h2>
-            <p class="opacity-70 max-w-xl mx-auto">Choose your preferred environment using the theme switcher above. Seamlessly transition between modes.</p>
+    <header class="max-w-5xl mx-auto px-6 pt-20 pb-32 text-center">
+        <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-400 text-xs font-bold tracking-widest uppercase">
+            Next-Gen Infrastructure 2026
+        </div>
+        <h1 class="text-6xl md:text-8xl font-extrabold mb-8 tracking-tighter leading-tight">
+            Engineering the <span class="bg-gradient-to-r from-indigo-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent">Future of Tech</span>
+        </h1>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed">
+            High-performance cloud solutions, military-grade security vault, and automated CI/CD pipelines. Experience the premium edge.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <button class="px-8 py-4 bg-white text-black rounded-2xl font-bold hover:bg-gray-200 transition">Get Started</button>
+            <button class="px-8 py-4 glass rounded-2xl font-bold">Documentation</button>
+        </div>
+    </header>
+
+    <section class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 pb-40">
+        <div class="glass p-10 rounded-[32px]">
+            <div class="w-14 h-14 bg-indigo-500/20 rounded-2xl flex items-center justify-center mb-6">
+                <i class="fa-solid fa-vault text-2xl text-indigo-400"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Secure Vault</h3>
+            <p class="text-gray-400 leading-relaxed">End-to-end encrypted storage for high-priority assets and sensitive database clusters.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="card p-8 rounded-2xl shadow-xl transition-transform hover:scale-105">
-                <i class="fa-solid fa-layer-group text-3xl text-blue-500 mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">Dynamic UI Engine</h3>
-                <p class="text-sm opacity-80">Advanced CSS variables used to change the entire portal's look in real-time without reloading.</p>
+        <div class="glass p-10 rounded-[32px] border-indigo-500/30">
+            <div class="w-14 h-14 bg-cyan-500/20 rounded-2xl flex items-center justify-center mb-6">
+                <i class="fa-solid fa-terminal text-2xl text-cyan-400"></i>
             </div>
-
-            <div class="card p-8 rounded-2xl shadow-xl transition-transform hover:scale-105">
-                <i class="fa-solid fa-bolt text-3xl text-yellow-500 mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">Asif Tech Performance</h3>
-                <p class="text-sm opacity-80">Optimized for Vercel deployment with zero latency theme switching.</p>
-            </div>
+            <h3 class="text-2xl font-bold mb-4">Global Network</h3>
+            <p class="text-gray-400 leading-relaxed">Low-latency content delivery edge nodes deployed across 40+ global regions.</p>
         </div>
-    </main>
+
+        <div class="glass p-10 rounded-[32px]">
+            <div class="w-14 h-14 bg-purple-500/20 rounded-2xl flex items-center justify-center mb-6">
+                <i class="fa-solid fa-code text-2xl text-purple-400"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Smart Logic</h3>
+            <p class="text-gray-400 leading-relaxed">AI-driven code analysis and automated scaling for peak traffic management.</p>
+        </div>
+    </section>
 
     <script>
-        function setTheme(themeName) {
-            document.getElementById('body-tag').className = themeName + ' font-sans tracking-tight';
-            // Save preference to local storage
-            localStorage.setItem('user-theme', themeName);
+        function changeTheme(type) {
+            const body = document.body;
+            body.className = ''; // Reset
+            if(type === 'light') body.classList.add('light-theme');
+            if(type === 'gold') {
+                body.style.background = '#1a1a1a';
+                document.documentElement.style.setProperty('--bg-glow', 'radial-gradient(circle at 50% -20%, #78350f, #000)');
+            } else {
+                body.style.background = '';
+                document.documentElement.style.setProperty('--bg-glow', 'radial-gradient(circle at 50% -20%, #312e81, #0f172a)');
+            }
         }
-
-        // Load saved theme on startup
-        window.onload = () => {
-            const savedTheme = localStorage.getItem('user-theme');
-            if (savedTheme) setTheme(savedTheme);
-        };
     </script>
 </body>
 </html>
