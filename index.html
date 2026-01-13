@@ -1,57 +1,71 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asif Tech | Senior Systems Portal</title>
+    <title>Asif Tech | Multi-Theme Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-900 text-gray-100 font-sans tracking-tight">
+    <style>
+        /* Custom Theme Classes */
+        .theme-dark { --bg: #111827; --text: #f3f4f6; --card: #1f2937; --border: #374151; }
+        .theme-light { --bg: #ffffff; --text: #111827; --card: #f3f4f6; --border: #e5e7eb; }
+        .theme-blue { --bg: #1e3a8a; --text: #ffffff; --card: #1e40af; --border: #3b82f6; }
 
-    <nav class="border-b border-gray-800 bg-gray-900/50 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        body { background-color: var(--bg); color: var(--text); transition: all 0.3s ease; }
+        .card { background-color: var(--card); border: 1px solid var(--border); }
+    </style>
+</head>
+<body class="theme-dark font-sans tracking-tight" id="body-tag">
+
+    <nav class="border-b border-gray-800/20 backdrop-blur-md sticky top-0 z-50 p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-                ASIF TECH <span class="text-xs font-mono text-gray-500 uppercase tracking-widest">v2.0</span>
+                ASIF TECH <span class="text-xs font-mono opacity-50 uppercase">v2.1</span>
             </h1>
-            <div class="space-x-8 hidden md:flex text-sm font-medium text-gray-400">
-                <a href="#" class="hover:text-blue-400 transition">Systems</a>
-                <a href="#" class="hover:text-blue-400 transition">Vault</a>
-                <a href="#" class="hover:text-blue-400 transition">Network</a>
-                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition shadow-lg shadow-blue-900/20">Admin Access</button>
+            
+            <div class="flex items-center space-x-4">
+                <span class="text-xs font-semibold uppercase tracking-widest opacity-70">Switch Theme:</span>
+                <button onclick="setTheme('theme-light')" class="w-6 h-6 rounded-full bg-white border border-gray-300 shadow-sm" title="Light Mode"></button>
+                <button onclick="setTheme('theme-dark')" class="w-6 h-6 rounded-full bg-gray-900 border border-gray-700 shadow-sm" title="Dark Mode"></button>
+                <button onclick="setTheme('theme-blue')" class="w-6 h-6 rounded-full bg-blue-700 border border-blue-500 shadow-sm" title="Blue Mode"></button>
             </div>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-4 py-20">
-        <div class="text-center mb-16">
-            <h2 class="text-5xl font-extrabold mb-6 tracking-tight">Advanced Tech <span class="text-blue-500">Infrastructure</span></h2>
-            <p class="text-gray-400 max-w-2xl mx-auto text-lg">Senior level cloud architecture and secure data management systems for Asif Tech Global operations.</p>
+    <main class="max-w-7xl mx-auto px-4 py-16">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-extrabold mb-4">Senior Level <span class="text-blue-500">Dashboard</span></h2>
+            <p class="opacity-70 max-w-xl mx-auto">Choose your preferred environment using the theme switcher above. Seamlessly transition between modes.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="p-8 rounded-2xl bg-gray-800/50 border border-gray-700 hover:border-blue-500/50 transition-all group">
-                <i class="fa-solid fa-server text-3xl text-blue-500 mb-4"></i>
-                <h3 class="text-xl font-semibold mb-2">Mainframe Core</h3>
-                <p class="text-sm text-gray-400">High-availability server clusters with 99.9% uptime for global tech services.</p>
-            </div>
-            
-            <div class="p-8 rounded-2xl bg-gray-800/50 border border-gray-700 hover:border-cyan-500/50 transition-all group">
-                <i class="fa-solid fa-shield-halved text-3xl text-cyan-500 mb-4"></i>
-                <h3 class="text-xl font-semibold mb-2">Vault Security</h3>
-                <p class="text-sm text-gray-400">Military-grade encryption for all Asif Tech internal assets and vault data.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="card p-8 rounded-2xl shadow-xl transition-transform hover:scale-105">
+                <i class="fa-solid fa-layer-group text-3xl text-blue-500 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Dynamic UI Engine</h3>
+                <p class="text-sm opacity-80">Advanced CSS variables used to change the entire portal's look in real-time without reloading.</p>
             </div>
 
-            <div class="p-8 rounded-2xl bg-gray-800/50 border border-gray-700 hover:border-purple-500/50 transition-all group">
-                <i class="fa-solid fa-code-branch text-3xl text-purple-500 mb-4"></i>
-                <h3 class="text-xl font-semibold mb-2">Git Pipeline</h3>
-                <p class="text-sm text-gray-400">Automated deployment sync between VS Code and Vercel infrastructure.</p>
+            <div class="card p-8 rounded-2xl shadow-xl transition-transform hover:scale-105">
+                <i class="fa-solid fa-bolt text-3xl text-yellow-500 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Asif Tech Performance</h3>
+                <p class="text-sm opacity-80">Optimized for Vercel deployment with zero latency theme switching.</p>
             </div>
         </div>
     </main>
 
-    <footer class="mt-20 border-t border-gray-800 py-10 text-center text-gray-500 text-xs">
-        &copy; 2026 ASIF TECH GLOBAL | DEPLOYED VIA VERCEL SYSTEMS
-    </footer>
+    <script>
+        function setTheme(themeName) {
+            document.getElementById('body-tag').className = themeName + ' font-sans tracking-tight';
+            // Save preference to local storage
+            localStorage.setItem('user-theme', themeName);
+        }
+
+        // Load saved theme on startup
+        window.onload = () => {
+            const savedTheme = localStorage.getItem('user-theme');
+            if (savedTheme) setTheme(savedTheme);
+        };
+    </script>
 </body>
 </html>
