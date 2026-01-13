@@ -1,43 +1,60 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Asif Tech Global</title>
-  <link rel="stylesheet" href="style.css" />
+    <title>Asif Tech | Admin Control Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .admin-table { width: 90%; margin: 100px auto; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .admin-table th, .admin-table td { padding: 15px; text-align: left; border-bottom: 1px solid #ddd; }
+        .admin-table th { background-color: #1e3a8a; color: white; }
+        .status-badge { padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; background: #dcfce7; color: #166534; }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="overlay"></div>
-    <div class="header-content">
-      <h1>Welcome to <span>Asif Tech Global</span></h1>
-      <p>All-purpose business & technology platform</p>
-      <a href="#services" class="btn">Explore Now</a>
-    </div>
-  </header>
+    <nav class="navbar"><div class="logo">ASIF<span>.</span>ADMIN</div></nav>
+    
+    <h2 style="text-align:center; margin-top:120px;">Strategic Inquiry <span>Logs</span></h2>
+    
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Client Email</th>
+                <th>Service Requested</th>
+                <th>C++ Analysis Rate</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="admin-data">
+            </tbody>
+    </table>
 
-  <section id="services">
-    <h2>Our Services</h2>
-    <div class="services-container">
-      <div class="card">
-        <h3>Business Solutions</h3>
-        <p>We provide innovative business and MBA-level management solutions.</p>
-      </div>
-      <div class="card">
-        <h3>Technology</h3>
-        <p>All types of modern technologies — from web to AI — under one roof.</p>
-      </div>
-      <div class="card">
-        <h3>Consulting</h3>
-        <p>Expert guidance for startups and global companies.</p>
-      </div>
-    </div>
-  </section>
+    <script>
+        async function loadInquiries() {
+            const response = await fetch('http://127.0.0.1:5000/admin/all');
+            const data = await response.json();
+            const tableBody = document.getElementById('admin-data');
+            tableBody.innerHTML = '';
+            
+            data.forEach(row => {
+                tableBody.innerHTML += `
+                    <tr>
+                        <td>#${row[0]}</td>
+                        <td>${row[1]}</td>
+                        <td>${row[2]}</td>
+                        <td><strong>${row[3]}%</strong></td>
+                        <td><span class="status-badge">Active</span></td>
+                    </tr>`;
+            });
+        }
+        window.onload = loadInquiries;
+    </script>
+    <footer>
+        <p>© 2026 Asif Tech Global. All Rights Reserved.</p>
+        <a href="admin.html" style="color: #666; text-decoration: none; font-size: 0.8rem; margin-top: 10px; display: block;">Dashboard Access</a>
+    </footer>
 
-  <footer>
-    <p>© 2026 Asif Tech Global. All rights reserved.</p>
-  </footer>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script> </body>
+</html>
 </body>
 </html>

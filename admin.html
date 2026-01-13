@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asif Tech | Admin Control Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { padding-top: 100px; background: #f0f4f8; }
+        .admin-container { max-width: 1000px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .admin-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .admin-table th, .admin-table td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
+        .admin-table th { background: #1e3a8a; color: white; border-radius: 5px 5px 0 0; }
+        .status-pill { background: #dcfce7; color: #166534; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
+        .refresh-btn { background: #2563eb; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; float: right; }
+    </style>
+</head>
+<body>
+    <nav class="navbar"><div class="logo">ASIF<span>.</span>ADMIN</div></nav>
+
+    <div class="admin-container">
+        <button class="refresh-btn" onclick="loadInquiries()">🔄 Refresh Data</button>
+        <h2>Client <span>Inquiry</span> Logs</h2>
+        <p>Real-time data from SQL Database via Python Flask</p>
+
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email Address</th>
+                    <th>Service Type</th>
+                    <th>C++ Logic Score</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="admin-table-body">
+                </tbody>
+        </table>
+    </div>
+
+    <script>
+        async function loadInquiries() {
+            try {
+                // Ye Python server se saara data maang raha hai
+                const response = await fetch('http://127.0.0.1:5000/admin/all');
+                const data = await response.json();
+                const tableBody = document.getElementById('admin-table-body');
+                
+                tableBody.innerHTML = ''; // Purana data saaf karo
+                
+                data.forEach(row => {
+                    tableBody.innerHTML += `
+                        <tr>
+                            <td>#${row[0]}</td>
+                            <td>${row[1]}</td>
+                            <td>${row[2].toUpperCase()}</td>
+                            <td><strong>${row[3]}%</strong></td>
+                            <td><span class="status-pill">VERIFIED</span></td>
+                        </tr>`;
+                });
+            } catch (error) {
+                console.error("Server connection failed!");
+                document.getElementById('admin-table-body').innerHTML = '<tr><td colspan="5" style="text-align:center; color:red;">Server Offline: Run main.py first</td></tr>';
+            }
+        }
+
+        // Har 5 second mein auto-refresh
+        setInterval(loadInquiries, 5000);
+        window.onload = loadInquiries;
+    </script>
+</body>
+</html>
