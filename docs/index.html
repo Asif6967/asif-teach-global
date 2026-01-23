@@ -1,190 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASIF TECH GLOBAL | The Future of Tech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- 1. GLOBAL VARIABLES (Theme Settings) --- */
+        :root {
+            --primary: #ff9900; /* Amazon Gold */
+            --dark: #0f172a;    /* Deep Blue/Black */
+            --card-bg: #1e293b; /* Slightly lighter dark */
+            --text-gray: #94a3b8;
+            --white: #ffffff;
+        }
 
-  <!-- SEO META -->
-  <title>ASIF TECH GLOBAL | Business & Technology Solutions</title>
-  <meta name="description" content="ASIF TECH GLOBAL provides IT consulting, digital transformation, and scalable business technology solutions.">
-  <meta name="keywords" content="IT Consulting, Digital Transformation, Business Technology, Software Company">
-  <meta name="author" content="ASIF TECH GLOBAL">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        /* --- 2. CORE STYLES --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--dark); color: var(--white); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; transition: 0.3s; }
+        ul { list-style: none; }
 
-  <!-- OPEN GRAPH (Social Sharing) -->
-  <meta property="og:title" content="ASIF TECH GLOBAL">
-  <meta property="og:description" content="Driving Business Growth Through Technology">
-  <meta property="og:type" content="website">
+        /* --- 3. NAVBAR (Glass Effect) --- */
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 5%; position: sticky; top: 0; z-index: 1000;
+            background: rgba(15, 23, 42, 0.9); /* Transparent Dark */
+            backdrop-filter: blur(10px); /* Blur Effect */
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .logo { font-size: 24px; font-weight: 900; letter-spacing: 1px; color: white; text-transform: uppercase; }
+        .logo span { color: var(--primary); }
 
-  <link rel="stylesheet" href="style.css">
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { color: var(--white); font-weight: 600; font-size: 15px; }
+        .nav-links a:hover { color: var(--primary); transform: translateY(-2px); display: inline-block; }
+
+        .btn-glow {
+            padding: 10px 25px; background: var(--primary); color: #000; border-radius: 50px;
+            font-weight: bold; box-shadow: 0 0 15px rgba(255, 153, 0, 0.4); transition: 0.3s;
+        }
+        .btn-glow:hover { background: #fff; box-shadow: 0 0 25px rgba(255, 255, 255, 0.6); }
+
+        /* --- 4. HERO SECTION (Big Banner) --- */
+        .hero {
+            height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+            position: relative; padding: 0 20px;
+        }
+        .hero h1 { font-size: 60px; margin-bottom: 20px; line-height: 1.1; background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 20px; color: var(--text-gray); max-width: 700px; margin: 0 auto 40px; }
+        
+        .hero-btns { display: flex; gap: 20px; justify-content: center; }
+        .btn-outline { border: 2px solid var(--white); color: var(--white); padding: 12px 30px; border-radius: 50px; font-weight: bold; }
+        .btn-outline:hover { background: var(--white); color: var(--dark); }
+
+        /* --- 5. CARDS SECTION (The Hub) --- */
+        .section { padding: 80px 5%; text-align: center; }
+        .section-title { font-size: 36px; margin-bottom: 10px; color: var(--white); }
+        .section-subtitle { color: var(--primary); font-weight: bold; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 50px; display: block; }
+
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        
+        .card {
+            background: var(--card-bg); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.4s; position: relative; overflow: hidden;
+        }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .card i { font-size: 50px; color: var(--primary); margin-bottom: 20px; }
+        .card h3 { font-size: 24px; margin-bottom: 15px; }
+        .card p { color: var(--text-gray); margin-bottom: 25px; }
+        .link-arrow { color: var(--primary); font-weight: bold; font-size: 14px; text-transform: uppercase; }
+
+        /* --- 6. METRICS --- */
+        .metrics { background: var(--primary); color: #000; padding: 60px 5%; display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center; }
+        .metric-item h2 { font-size: 48px; font-weight: 900; margin: 0; }
+        .metric-item p { font-size: 18px; font-weight: 600; opacity: 0.8; }
+
+        /* --- 7. FOOTER --- */
+        footer { background: #000; padding: 50px 5%; text-align: center; border-top: 1px solid #333; color: var(--text-gray); }
+        .social-icons { margin-bottom: 20px; }
+        .social-icons a { color: var(--white); font-size: 24px; margin: 0 15px; transition: 0.3s; }
+        .social-icons a:hover { color: var(--primary); }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 36px; }
+            .navbar { flex-direction: column; gap: 20px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; }
+            .metrics { gap: 30px; }
+        }
+    </style>
 </head>
 <body>
 
-<div id="top"></div>
-
-<!-- HEADER -->
- <header class="top-bar">
-    <div class="logo">ASIF TECH GLOBAL</div>
-    <div class="menu-toggle" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <nav id="nav-links">
-        <a href="index.html">Home</a>
-        <a href="platform.html">Platform</a>
-        <a href="dashboard 1.html">Dashboard</a>
-        <a href="architecture.html">Architecture</a>
-        <a href="jobs.html">Job Alerts</a>
-        <a href="portfolio.html">👨‍💻 My Portfolio</a>
-        <a href="contact.html">Contact</a>
+    <nav class="navbar">
+        <div class="logo">ASIF TECH <span>GLOBAL</span></div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="jobs.html">Job Portal</a>
+            <a href="jobs.html#store">Store</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="architecture.html">Services</a>
+        </div>
+        <a href="dashboard.html" class="btn-glow">Pro Dashboard</a>
     </nav>
-</header>
-  
- 
- <section class="hero">
-  <h1>Technology Solutions That Scale Your Business</h1>
-  <p>
-    We help startups & enterprises grow faster with strategy-driven technology, automation, and digital solutions.
-  </p>
-  <div class="hero-btns">
-    <a href="dashboard.html" class="btn">Open Pro Dashboard</a>
-    <a href="https://whatsapp.com/channel/0029Vb73fjEFnSz6IcUhpU07" class="btn btn-alt" target="_blank">Consultation</a>
-  </div>
-</section>
-<section class="section dark">
-  <h2>Trusted by Growing Businesses</h2>
-  <p>
-    ASIF TECH GLOBAL partners with companies to deliver reliable,
-    scalable, and future-ready technology solutions.
-  </p>
 
-  <div class="cards">
-    <div class="card">
-      <h3>✔ Business Strategy</h3>
-      <p>Technology aligned with real business goals.</p>
-    </div>
-    <div class="card">
-      <h3>✔ Scalable Systems</h3>
-      <p>Solutions that grow with your company.</p>
-    </div>
-    <div class="card">
-      <h3>✔ Long-Term Support</h3>
-      <p>Not just delivery, but continuous improvement.</p>
-    </div>
-  </div>
-</section>
+    <section class="hero">
+        <div>
+            <h1>Scale Your Business With <br> <span style="color:var(--primary);">Future-Ready Tech</span></h1>
+            <p>We build high-performance Job Portals, Automated E-commerce Stores, and Business Intelligence Dashboards.</p>
+            <div class="hero-btns">
+                <a href="portfolio.html" class="btn-glow">View Our Work</a>
+                <a href="https://whatsapp.com/channel/0029Vb73fjEFnSz6IcUhpU07" class="btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </section>
 
-<!-- ABOUT -->
-<section id="about" class="section">
-  <h2>Why ASIF TECH GLOBAL</h2>
-  <p>
-    ASIF TECH GLOBAL is a technology-driven business consulting firm focused on
-    delivering measurable growth, operational efficiency, and long-term value.
-    We bridge the gap between business strategy and modern technology.
-  </p>
-</section>
+    <section class="section">
+        <span class="section-subtitle">Our Platforms</span>
+        <h2 class="section-title">Explore Our Digital Ecosystem</h2>
+        
+        <div class="cards-grid">
+            
+            <div class="card">
+                <i class="fas fa-briefcase"></i>
+                <h3>Sarkari Job Station</h3>
+                <p>India's fastest growing Government Job Alert portal with live updates and result notifications.</p>
+                <a href="jobs.html" class="link-arrow">Visit Portal <i class="fas fa-arrow-right"></i></a>
+            </div>
 
-<!-- SERVICES -->
-<section id="services" class="section dark">
-  <h2>Our Services</h2>
+            <div class="card">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>Student Mega Store</h3>
+                <p>An automated affiliate store featuring 1 Lakh+ Books and Study Materials powered by Amazon.</p>
+                <a href="jobs.html#store" class="link-arrow">Start Shopping <i class="fas fa-arrow-right"></i></a>
+            </div>
 
-  <div class="cards">
-    <div class="card">
-      <h3>IT Consulting</h3>
-      <p>Technology strategy, audits, risk assessment, and enterprise planning.</p>
-    </div>
+            <div class="card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Business Intelligence</h3>
+                <p>Advanced Admin Dashboards to track traffic, sales, and user growth in real-time.</p>
+                <a href="dashboard.html" class="link-arrow">Login to Panel <i class="fas fa-arrow-right"></i></a>
+            </div>
 
-    <div class="card">
-      <h3>Digital Transformation</h3>
-      <p>Automation, cloud adoption, system modernization, and scalability.</p>
-    </div>
+        </div>
+    </section>
 
-    <div class="card">
-      <h3>Web & Software Solutions</h3>
-      <p>Corporate websites, dashboards, and custom business software.</p>
-    </div>
-  </div>
-</section>
+    <section class="metrics">
+        <div class="metric-item">
+            <h2>50+</h2>
+            <p>Projects Delivered</p>
+        </div>
+        <div class="metric-item">
+            <h2>1.5K+</h2>
+            <p>Active Users</p>
+        </div>
+        <div class="metric-item">
+            <h2>24/7</h2>
+            <p>Tech Support</p>
+        </div>
+        <div class="metric-item">
+            <h2>₹10L+</h2>
+            <p>Client Revenue</p>
+        </div>
+    </section>
 
-<section class="section dark">
-  <h2>Trusted by Growing Businesses</h2>
+    <section class="section" style="background:#161f2e;">
+        <span class="section-subtitle">What We Do</span>
+        <h2 class="section-title">Professional Services</h2>
+        <div class="cards-grid">
+            <div class="card" style="height:auto; padding:25px;">
+                <h4><i class="fas fa-code" style="font-size:20px;"></i> Web Development</h4>
+                <p style="font-size:14px; margin:0;">Custom HTML/CSS & Python Web Apps.</p>
+            </div>
+            <div class="card" style="height:auto; padding:25px;">
+                <h4><i class="fas fa-bullhorn" style="font-size:20px;"></i> Digital Marketing</h4>
+                <p style="font-size:14px; margin:0;">SEO & Affiliate Growth Strategies.</p>
+            </div>
+            <div class="card" style="height:auto; padding:25px;">
+                <h4><i class="fas fa-database" style="font-size:20px;"></i> Cloud Solutions</h4>
+                <p style="font-size:14px; margin:0;">Scalable Hosting & Database Mgmt.</p>
+            </div>
+        </div>
+    </section>
 
-  <div class="cards">
-    <div class="card">
-      <p>"ASIF TECH GLOBAL helped us scale with the right technology strategy."</p>
-      <strong>— Business Owner</strong>
-    </div>
+    <footer>
+        <div class="logo" style="margin-bottom:20px;">ASIF TECH <span>GLOBAL</span></div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>© 2026 Asif Tech Global. All Rights Reserved.</p>
+        <p style="font-size:12px; margin-top:10px; opacity:0.5;">Designed with ❤️ by Asif</p>
+    </footer>
 
-    <div class="card">
-      <p>"Professional approach and clear execution."</p>
-      <strong>— Startup Founder</strong>
-    </div>
-
-    <div class="card">
-      <p>"Reliable tech partner for long-term growth."</p>
-      <strong>— Operations Manager</strong>
-    </div>
-  </div>
-</section>
-
-<!-- EXECUTIVE MESSAGE -->
-<section class="section executive">
-  <h2>Message from Leadership</h2>
-  <p class="exec-text">
-    At ASIF TECH GLOBAL, we believe technology is not an expense —
-    it is a strategic investment. Our mission is to help organizations
-    make informed, data-driven decisions that drive sustainable growth
-    and long-term value.
-  </p>
-  <p class="exec-sign">— Executive Leadership, ASIF TECH GLOBAL</p>
-</section>
-
-<!-- BUSINESS METRICS -->
-<section class="section dark metrics">
-  <div class="metric">
-    <h3>10+</h3>
-    <p>Business Domains Served</p>
-  </div>
-  <div class="metric">
-    <h3>50+</h3>
-    <p>Technology Solutions Delivered</p>
-  </div>
-  <div class="metric">
-    <h3>99%</h3>
-    <p>Client Satisfaction Focus</p>
-  </div>
-</section>
-
-<!-- GOVERNANCE -->
-<section class="section">
-  <h2>Governance & Professional Standards</h2>
-  <p style="max-width:900px; margin:0 auto;">
-    We operate with strong governance principles, ethical practices,
-    and a commitment to transparency. Our delivery models align with
-    global best practices in technology consulting, risk management,
-    and operational excellence.
-  </p>
-</section>
-  
-
- 
-
-<!-- FOOTER -->
- <footer>
-  <p>© 2026 ASIF TECH GLOBAL</p>
-  <p>Business & Technology Consulting</p>
-</footer>
-
-
-<!-- GOOGLE ANALYTICS (READY) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
-
-<script src="script.js"></script>
 </body>
 </html>
