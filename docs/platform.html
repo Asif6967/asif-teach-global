@@ -1,82 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Platform | ASIF TECH GLOBAL</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asif Tech Global | Mega Book Store</title>
+    <style>
+        /* --- CORE CSS --- */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #f0f2f5; }
+        
+        /* Navigation */
+        .header { background: #232f3e; color: white; text-align: center; padding: 15px; } /* Amazon Dark Blue */
+        .navbar { background-color: #131921; overflow: hidden; }
+        .navbar a { float: left; display: block; color: white; text-align: center; padding: 14px 20px; text-decoration: none; font-weight: bold; }
+        .navbar a:hover { background-color: #ff9900; color: black; }
+
+        /* MAGIC SEARCH BAR */
+        .search-container {
+            background: linear-gradient(to right, #232f3e, #146eb4);
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+        .search-box {
+            width: 80%;
+            max-width: 500px;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+        .search-btn {
+            padding: 12px 20px;
+            font-size: 16px;
+            background: #ff9900;
+            border: none;
+            cursor: pointer;
+            border-radius: 0 5px 5px 0;
+            font-weight: bold;
+        }
+        .search-btn:hover { background: #e68a00; }
+
+        /* Categories Chips */
+        .category-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 20px; }
+        .chip { background: white; padding: 8px 15px; border-radius: 20px; cursor: pointer; border: 1px solid #ddd; font-weight: bold; font-size: 14px; transition: 0.3s; }
+        .chip:hover { background: #ff9900; color: white; border-color: #ff9900; }
+
+        /* GRID */
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 15px; padding: 15px; max-width: 1400px; margin: 0 auto; }
+        .box { background: #fff; border: 1px solid #ddd; min-height: 300px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; }
+        
+        .head-common { color: white; padding: 10px; text-align: center; font-weight: bold; font-size: 18px; text-transform: uppercase; }
+        .bg-result { background: #FF007F; } .bg-admit { background: #000088; } .bg-job { background: #8B0000; }
+        .bg-store { background: #232f3e; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; }
+
+        /* Links List */
+        ul { list-style: none; padding: 0; margin: 0; }
+        li { border-bottom: 1px solid #eee; padding: 12px 10px; font-size: 14px; }
+        li:hover { background: #f9f9f9; }
+        li a { text-decoration: none; color: #0066c0; font-weight: bold; display: block; }
+        
+        /* BOOK STORE GRID */
+        .book-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; padding: 15px; }
+        .book-item { background: white; border: 1px solid #eee; padding: 10px; text-align: center; border-radius: 5px; transition: 0.3s; }
+        .book-item:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.15); transform: translateY(-3px); }
+        .book-icon { font-size: 30px; display: block; margin-bottom: 5px; }
+        .book-title { font-size: 13px; font-weight: bold; color: #333; margin-bottom: 5px; height: 35px; overflow: hidden; }
+        .amazon-btn { background: #ff9900; color: black; padding: 5px 10px; text-decoration: none; font-size: 12px; border-radius: 3px; display: block; font-weight: bold; }
+
+        .footer { background: #131921; color: #aaa; text-align: center; padding: 30px; margin-top: 20px; }
+    </style>
 </head>
 <body>
 
-<header class="top-bar">
-  <div class="logo">ASIF TECH GLOBAL</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="platform.html">Platform</a>
-    <a href="architecture.html">Architecture</a>
-    <a href="dashboard.html">Admin Panel</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <h1>Enterprise Technology Platform</h1>
-  <p>
-    A scalable, performance-focused platform designed to align
-    business strategy with high-performance systems.
-  </p>
-  <a href="#how" class="btn">How It Works</a>
-</section>
-
-<section id="how" class="section">
-  <div class="container">
-    <h2>How the Platform Works</h2>
-    <p>
-      ASIF TECH GLOBAL platform is built with a layered architecture
-      that separates presentation, orchestration, and computation.
-    </p>
-
-    <div class="features">
-      <div class="feature">
-        <h3>Frontend Layer</h3>
-        <p>Lightweight, fast, and optimized for user experience.</p>
-      </div>
-      <div class="feature">
-        <h3>Backend Interface</h3>
-        <p>API-driven orchestration between UI and core logic.</p>
-      </div>
-      <div class="feature">
-        <h3>C++ Core Engine</h3>
-        <p>High-performance computation and business rules.</p>
-      </div>
+    <div class="header">
+        <h1>ASIF TECH GLOBAL STORE</h1>
+        <p>India's Biggest Student Book Mall</p>
     </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <h2>Designed for Scale</h2>
-
-    <div class="metrics">
-      <div class="metric">
-        <h3 data-count="99">0</h3>
-        <p>System Reliability %</p>
-      </div>
-      <div class="metric">
-        <h3 data-count="10">0</h3>
-        <p>Years Architecture Vision</p>
-      </div>
-      <div class="metric">
-        <h3 data-count="3">0</h3>
-        <p>Core Technology Layers</p>
-      </div>
+    <div class="navbar">
+        <a href="#">🏠 Home</a>
+        <a href="portfolio.html">👨‍💻 My Portfolio</a>
+        <a href="#store">📚 Mega Store</a>
+        <a href="https://whatsapp.com/channel/0029Vb73fjEFnSz6IcUhpU07" target="_blank">🚀 WhatsApp</a>
     </div>
-  </div>
-</section>
 
-<footer>
-  © 2026 ASIF TECH GLOBAL — Enterprise Platform
-</footer>
+    <div class="search-container">
+        <h2>🔎 Search Any Book in India</h2>
+        <p>Example: "Class 10 Math", "UP Police Guide", "Trading Books"</p>
+        <div style="display:flex; justify-content:center;">
+            <input type="text" id="searchInput" class="search-box" placeholder="Type book name here...">
+            <button onclick="searchAmazon()" class="search-btn">Search on Amazon</button>
+        </div>
+    </div>
 
-<script src="script.js"></script>
+    <div class="category-chips">
+        <div class="chip" onclick="filterBooks('Govt')">👮 Govt Jobs</div>
+        <div class="chip" onclick="filterBooks('School')">🎒 School (10th-12th)</div>
+        <div class="chip" onclick="filterBooks('College')">🎓 Engineering/MBA</div>
+        <div class="chip" onclick="filterBooks('Tech')">💻 Coding & Tech</div>
+        <div class="chip" onclick="filterBooks('Business')">📈 Business & Money</div>
+        <div class="chip" onclick="filterBooks('Fiction')">📖 Novels & Story</div>
+    </div>
+
+    <div class="grid-container">
+        <div class="box"><div class="head-common bg-result">Result</div><ul id="list-result"></ul></div>
+        <div class="box"><div class="head-common bg-admit">Admit Card</div><ul id="list-admit"></ul></div>
+        <div class="box"><div class="head-common bg-job">Latest Jobs</div><ul id="list-jobs"><li>Loading...</li></ul></div>
+    </div>
+
+    <div class="grid-container" id="store">
+        <div class="box" style="grid-column: span 3; border-top: 5px solid #ff9900;">
+            <div class="head-common bg-store">
+                <span>📚 Recommended Books</span>
+                <span style="font-size:12px; background:#ff9900; color:black; padding:3px 8px; border-radius:10px;">Ads by Amazon</span>
+            </div>
+            <div class="book-grid" id="mega-book-container">
+                </div>
+            <div style="text-align:center; padding:15px;">
+                <button onclick="loadMoreBooks()" style="background:#232f3e; color:white; padding:10px 20px; border:none; cursor:pointer;">Load More Books...</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2026 Asif Tech Global. Disclaimer: As an Amazon Associate, I earn from qualifying purchases.
+    </div>
+
+    <script>
+        // YOUR AMAZON ID
+        const AFFILIATE_ID = "realasifuni0f-21";
+
+        // 1. JOBS DATA
+        const jobData = {
+            results: [
+                { title: "UP Police Result 2025", link: "https://uppbpb.gov.in" },
+                { title: "SSC GD Final Result", link: "https://ssc.gov.in" },
+                { title: "CTET Result Declared", link: "https://ctet.nic.in" }
+            ],
+            admitCards: [
+                { title: "SBI PO Admit Card", link: "https://sbi.co.in" },
+                { title: "JEE Main Hall Ticket", link: "https://jeemain.nta.nic.in" },
+                { title: "UPSSSC PET Admit Card", link: "https://upsssc.gov.in" }
+            ]
+        };
+
+        // 2. MEGA KEYWORD LIST (This generates infinite links)
+        const bookKeywords = {
+            'Govt': ["UP Police Constable", "SSC CGL Guide", "Railway NTPC", "Lucent GK", "Reasoning Arihant", "Maths R.S. Aggarwal", "UPSC IAS Disha", "Banking Awareness", "CTET Guide", "Army GD Book"],
+            'School': ["Class 10 Maths RD Sharma", "Class 12 Physics HC Verma", "NCERT Books Set", "Oswaal Question Bank", "English Grammar Wren Martin", "Hindi Vyakaran", "Science Olympiad", "DK Goel Accountancy"],
+            'College': ["B.Tech First Year Books", "MBA Case Studies", "Medical MBBS Books", "GATE Mechanical", "CAT Exam Preparation", "Law CLAT Books", "Hotel Management Guide"],
+            'Tech': ["Python Programming", "Java for Beginners", "Web Development HTML CSS", "Artificial Intelligence", "Hacking Kali Linux", "Data Science", "Computer Hardware"],
+            'Business': ["Rich Dad Poor Dad", "Psychology of Money", "Stock Market Trading", "Zero to One", "Atomic Habits", "Think and Grow Rich", "Marketing Management"],
+            'Fiction': ["Harry Potter", "Chetan Bhagat", "Sherlock Holmes", "Marvel Comics", "Manga Anime", "Horror Stories", "Self Help Books"]
+        };
+
+        // 3. SEARCH FUNCTION (Connects ANY search to your ID)
+        function searchAmazon() {
+            const query = document.getElementById('searchInput').value;
+            if(query) {
+                // Redirect to Amazon Search with YOUR TAG
+                const url = `https://www.amazon.in/s?k=${encodeURIComponent(query)}&tag=${AFFILIATE_ID}`;
+                window.open(url, '_blank');
+            } else {
+                alert("Please type a book name!");
+            }
+        }
+
+        // 4. RENDER BOOK GRID
+        function renderBooks(category = 'All') {
+            const container = document.getElementById('mega-book-container');
+            container.innerHTML = ""; // Clear current
+
+            let keywordsToShow = [];
+            
+            if (category === 'All') {
+                // Combine all keywords for "All" view
+                Object.values(bookKeywords).forEach(arr => keywordsToShow.push(...arr));
+            } else {
+                keywordsToShow = bookKeywords[category];
+            }
+
+            // Shuffle and pick random 20 items to show
+            keywordsToShow.sort(() => 0.5 - Math.random());
+            
+            keywordsToShow.forEach(keyword => {
+                const searchLink = `https://www.amazon.in/s?k=${encodeURIComponent(keyword)}&tag=${AFFILIATE_ID}`;
+                // Dummy Image logic (Using placeholders based on category or random)
+                const html = `
+                    <div class="book-item">
+                        <span class="book-icon">📖</span>
+                        <div class="book-title">${keyword}</div>
+                        <a href="${searchLink}" target="_blank" class="amazon-btn">Check Price</a>
+                    </div>
+                `;
+                container.innerHTML += html;
+            });
+        }
+
+        // Filter Function
+        function filterBooks(cat) {
+            renderBooks(cat);
+        }
+
+        // Load More (Just shuffles again to show variety)
+        function loadMoreBooks() {
+            renderBooks('All');
+        }
+
+        // EXECUTE ON LOAD
+        window.onload = function() {
+            // Render Jobs
+            document.getElementById('list-result').innerHTML = jobData.results.map(i => `<li><a href="${i.link}" target="_blank">➤ ${i.title}</a></li>`).join('');
+            document.getElementById('list-admit').innerHTML = jobData.admitCards.map(i => `<li><a href="${i.link}" target="_blank">➤ ${i.title}</a></li>`).join('');
+            
+            // Render Books
+            renderBooks('All');
+        };
+    </script>
 </body>
 </html>
