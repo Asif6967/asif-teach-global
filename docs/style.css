@@ -209,3 +209,11 @@ nav#nav-links { display: flex; gap: 20px; }
     }
     nav#nav-links.active { display: flex; } /* Click par wapas aayega */
 }
+.cyber-panel {
+    background: #000;
+    color: #0f0; /* Matrix Green */
+    font-family: 'Courier New', monospace;
+    padding: 15px;
+    border: 1px solid #0f0;
+    box-shadow: 0 0 10px #0f0;
+}

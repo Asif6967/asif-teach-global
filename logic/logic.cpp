@@ -17,3 +17,8 @@ int main() {
     return 0;
 }
 logic.cpp
+string encryptData(string data) {
+    for(int i = 0; i < data.length(); i++)
+        data[i] = data[i] + 5; // Simple Caesar Cipher for security
+    return data;
+}

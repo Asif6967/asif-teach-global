@@ -29,3 +29,10 @@ if __name__ == '__main__':
     init_db()
     print("Server running on http://127.0.0.1:5000")
     app.run(debug=True)
+    def predict_sales(last_three_months):
+    # Simple AI Logic: Moving Average + Growth Factor
+    prediction = sum(last_three_months) / len(last_three_months) * 1.10 
+    return round(prediction, 2)
+
+# Example use for your dashboard
+print(f"Next Month Predicted Sales: ₹{predict_sales([12000, 15000, 20000])}")
