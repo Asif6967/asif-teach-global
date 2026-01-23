@@ -115,6 +115,17 @@
         // Yahan sirf Dashboard ke special calculators dalrein
         function toggleMenu() { ... } 
         function calcRatios() { ... }
+        function inventoryValue() {
+    let qty = parseFloat(document.getElementById('stockQty').value) || 0;
+    let rate = parseFloat(document.getElementById('stockRate').value) || 0;
+    let valuation = qty * rate;
+    
+    document.getElementById('stockResult').innerHTML = `
+        <div style="background:#1e293b; border-left:4px solid #4ade80; padding:10px; margin-top:10px;">
+            <b style="color:#4ade80">Inventory Value: ₹${valuation.toLocaleString()}</b><br>
+            <small>Method: Standard Costing / FIFO Logic</small>
+        </div>`;
+}
     </script>
 </body>
 </html>
