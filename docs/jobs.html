@@ -1,0 +1,33 @@
+<section class="section dark">
+    <h2>Real-Time Job Alerts (Verified)</h2>
+    <div id="job-container" class="cards">
+        <p>Fetching latest updates from official sources...</p>
+    </div>
+</section>
+
+<script>
+async function fetchJobs() {
+    // Hum ek official RSS-to-JSON API use kar rahe hain takki updates auto-fix rahein
+    const RSS_URL = `https://api.rss2json.com/v1/api.json?rss_url=https://www.sarkariresult.com/rss.xml`;
+    
+    try {
+        const response = await fetch(RSS_URL);
+        const data = await response.json();
+        const container = document.getElementById('job-container');
+        container.innerHTML = ''; // Loading text hatao
+
+        data.items.slice(0, 6).forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <h3 style="font-size:1.1rem">${item.title}</h3>
+                <a href="${item.link}" target="_blank" class="btn" style="padding:5px 10px; font-size:0.8rem">View Details</a>
+            `;
+            container.appendChild(card);
+        });
+    } catch (error) {
+        console.error("Jobs fetch nahi ho payi:", error);
+    }
+}
+fetchJobs();
+</script>
