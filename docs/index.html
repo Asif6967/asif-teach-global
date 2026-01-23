@@ -3,351 +3,396 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Pro Panel | Asif Tech Global</title>
+    <title>ASIF TECH GLOBAL | World's Leading Digital Solutions</title>
     
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
-        /* --- THEME VARIABLES --- */
+        /* --- 1. CORE VARIABLES --- */
         :root {
-            --bg-dark: #0f172a;       /* Deep Navy */
-            --bg-card: #1e293b;       /* Lighter Navy */
-            --accent-blue: #38bdf8;   /* Neon Blue */
-            --accent-gold: #ff9900;   /* Amazon Gold */
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
+            --gold: #FFD700;
+            --gold-dark: #B8860B;
+            --black: #000000;
+            --dark-gray: #111111;
+            --light-gray: #f4f4f4;
+            --text-light: #e0e0e0;
+            --text-muted: #a0a0a0;
         }
 
-        /* --- GLOBAL STYLES --- */
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--bg-dark); color: var(--text-main); overflow-x: hidden; }
-        * { box-sizing: border-box; }
-
-        /* --- LOGIN OVERLAY --- */
-        #login-screen {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(15, 23, 42, 0.98); display: flex; justify-content: center; align-items: center; z-index: 9999;
-        }
-        .login-box { 
-            background: var(--bg-card); padding: 40px; border-radius: 15px; text-align: center; width: 320px; 
-            border: 1px solid var(--accent-blue); box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
-        }
-        .login-box h2 { color: var(--accent-gold); margin-bottom: 20px; }
-        .login-box input { 
-            width: 100%; padding: 12px; margin: 10px 0; border-radius: 5px; border: 1px solid #334155; 
-            background: #0f172a; color: white; outline: none;
-        }
-        .login-box button { 
-            width: 100%; padding: 12px; background: var(--accent-blue); color: #000; font-weight: bold; 
-            border: none; border-radius: 5px; cursor: pointer; margin-top: 10px; transition: 0.3s;
-        }
-        .login-box button:hover { background: #fff; }
-
-        /* --- SIDEBAR --- */
-        .sidebar {
-            width: 260px; height: 100vh; background: #0b1120; position: fixed; top: 0; left: 0;
-            border-right: 1px solid #334155; padding-top: 20px; display: flex; flex-direction: column;
-        }
-        .brand { text-align: center; font-size: 22px; font-weight: bold; color: white; margin-bottom: 40px; }
-        .brand span { color: var(--accent-gold); }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         
-        .nav-btn {
-            background: none; border: none; color: var(--text-muted); padding: 15px 25px; text-align: left;
-            font-size: 16px; cursor: pointer; transition: 0.3s; width: 100%; display: flex; align-items: center; gap: 15px;
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: var(--black); 
+            color: var(--text-light); 
+            line-height: 1.8;
+            overflow-x: hidden;
         }
-        .nav-btn:hover, .nav-btn.active { background: var(--bg-card); color: var(--accent-blue); border-left: 4px solid var(--accent-blue); }
-        .nav-btn i { width: 20px; }
 
-        /* --- MAIN CONTENT --- */
-        .main-content { margin-left: 260px; padding: 30px; }
-        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
-        .section-header h2 { margin: 0; color: var(--accent-blue); }
+        a { text-decoration: none; transition: 0.3s; }
+        ul { list-style: none; }
 
-        /* --- CARDS & GRID --- */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        /* --- 2. FLOATING WHATSAPP BUTTON --- */
+        .whatsapp-float {
+            position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px;
+            background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px;
+            box-shadow: 2px 2px 3px #999; z-index: 10000; display: flex; align-items: center; justify-content: center;
+            animation: pulse 2s infinite;
+        }
+        .whatsapp-float:hover { background-color: #128C7E; transform: scale(1.1); }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+
+        /* --- 3. HERO SECTION (VIDEO) --- */
+        .hero {
+            position: relative; height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center;
+            text-align: center; overflow: hidden;
+        }
+        .hero video {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; opacity: 0.4;
+        }
+        .hero-content { z-index: 2; padding: 20px; animation: fadeInUp 1.5s ease; }
+        .hero h1 { 
+            font-size: 70px; font-weight: 900; margin-bottom: 20px; line-height: 1.1; text-transform: uppercase;
+            background: linear-gradient(to bottom, #fff, #999); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero p { font-size: 22px; color: var(--gold); margin-bottom: 40px; font-weight: 600; letter-spacing: 2px; }
         
-        .card {
-            background: var(--bg-card); padding: 25px; border-radius: 12px; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3); border-top: 4px solid var(--accent-gold);
+        .btn-gold {
+            background: linear-gradient(45deg, var(--gold), var(--gold-dark)); color: black; padding: 15px 40px;
+            font-weight: 800; text-transform: uppercase; letter-spacing: 1px; border-radius: 50px; display: inline-block;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); border: none; cursor: pointer;
         }
-        .card h3 { margin: 0 0 15px 0; font-size: 16px; color: var(--text-muted); }
-        .card .big-num { font-size: 32px; font-weight: bold; color: white; margin: 0; }
+        .btn-gold:hover { transform: translateY(-5px); box-shadow: 0 0 40px rgba(255, 215, 0, 0.6); }
+
+        /* --- 4. NAVIGATION --- */
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center; padding: 20px 50px;
+            position: fixed; top: 0; width: 100%; z-index: 999; background: rgba(0,0,0,0.9); border-bottom: 1px solid #333;
+        }
+        .logo { font-family: 'Playfair Display', serif; font-size: 28px; color: white; font-weight: 700; }
+        .logo span { color: var(--gold); }
+        .nav-links a { color: #fff; margin-left: 30px; font-size: 13px; font-weight: 600; text-transform: uppercase; }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* --- 5. SECTIONS GENERAL --- */
+        .section { padding: 100px 8%; border-bottom: 1px solid #222; }
+        .bg-dark { background: var(--dark-gray); }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 45px; margin-bottom: 10px; color: white; }
+        .section-title span { color: var(--gold); font-weight: bold; letter-spacing: 3px; text-transform: uppercase; }
         
-        .card-blue { border-top-color: var(--accent-blue); }
-        .card-green { border-top-color: #4ade80; }
-        .card-red { border-top-color: #f87171; }
-
-        /* --- FORMS & INPUTS --- */
-        .input-group { margin-bottom: 15px; }
-        input[type="number"], input[type="text"] {
-            width: 100%; padding: 10px; background: #0f172a; border: 1px solid #334155; 
-            color: white; border-radius: 5px; outline: none;
+        /* --- 6. GRID LAYOUTS --- */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        
+        /* --- 7. CARDS --- */
+        .service-card {
+            background: #050505; padding: 40px; border: 1px solid #333; transition: 0.4s; position: relative;
         }
-        .btn-action {
-            padding: 10px 20px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s;
+        .service-card:hover { border-color: var(--gold); transform: translateY(-10px); }
+        .service-card i { font-size: 50px; color: var(--gold); margin-bottom: 20px; }
+        .service-card h3 { font-size: 24px; margin-bottom: 15px; color: white; }
+        .service-card p { color: var(--text-muted); font-size: 15px; margin-bottom: 20px; }
+
+        /* --- 8. TIMELINE PROCESS --- */
+        .process-step { text-align: center; position: relative; padding: 20px; }
+        .step-num { 
+            background: var(--gold); color: black; width: 60px; height: 60px; border-radius: 50%; 
+            font-size: 24px; font-weight: bold; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;
         }
-        .btn-blue { background: var(--accent-blue); color: #000; }
-        .btn-gold { background: var(--accent-gold); color: #000; }
-        .btn-outline { border: 1px solid var(--text-muted); background: transparent; color: white; }
-        .btn-action:hover { opacity: 0.8; transform: translateY(-2px); }
+        
+        /* --- 9. PRICING --- */
+        .pricing-card {
+            background: #1a1a1a; padding: 50px 30px; text-align: center; border-radius: 10px; border: 1px solid #333;
+        }
+        .pricing-card.highlight { border: 2px solid var(--gold); transform: scale(1.05); background: #000; }
+        .price { font-size: 50px; font-weight: bold; color: white; margin: 20px 0; }
+        .price span { font-size: 18px; color: #666; }
+        .features-list li { margin: 15px 0; color: #ccc; border-bottom: 1px solid #333; padding-bottom: 10px; }
 
-        /* --- TABLES --- */
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #0f172a; border-radius: 8px; overflow: hidden; }
-        th { background: #334155; color: var(--accent-blue); padding: 12px; text-align: left; }
-        td { padding: 12px; border-bottom: 1px solid #1e293b; font-size: 14px; }
+        /* --- 10. STATS --- */
+        .stats-section { background: url('https://source.unsplash.com/1600x600/?technology,server') fixed; position: relative; text-align: center; }
+        .stats-overlay { background: rgba(0,0,0,0.85); width: 100%; height: 100%; padding: 100px 0; }
+        .stat-number { font-size: 60px; font-weight: 900; color: var(--gold); }
+        
+        /* --- 11. FOOTER --- */
+        footer { background: #000; padding: 80px 8% 20px; border-top: 5px solid var(--gold); }
+        .footer-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; margin-bottom: 50px; }
+        .footer-cols h3 { color: white; margin-bottom: 25px; font-size: 18px; }
+        .footer-cols ul li { margin-bottom: 12px; }
+        .footer-cols a { color: #888; }
+        .footer-cols a:hover { color: var(--gold); }
 
-        /* --- UTILS --- */
-        .hidden-section { display: none; }
-        .chart-box { height: 300px; position: relative; }
-
-        @media (max-width: 768px) {
-            .sidebar { width: 70px; }
-            .sidebar .brand, .sidebar span, .nav-btn span { display: none; }
-            .nav-btn { justify-content: center; padding: 20px 0; }
-            .main-content { margin-left: 70px; padding: 15px; }
-            .login-box { width: 90%; }
+        /* ANIMATIONS */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* MOBILE */
+        @media(max-width: 768px) {
+            .hero h1 { font-size: 40px; }
+            .navbar { flex-direction: column; gap: 20px; padding: 15px; position: relative; }
+            .grid-3, .grid-4 { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <div id="login-screen">
-        <div class="login-box">
-            <h2><i class="fas fa-shield-alt"></i> SYSTEM LOCKED</h2>
-            <p style="color:#aaa; font-size:14px;">Enter Authorized Key to Access</p>
-            <input type="password" id="password" placeholder="Passkey (asif786)">
-            <button onclick="checkLogin()">UNLOCK PANEL</button>
-            <p id="error-msg" style="color:#f87171; font-size:12px; margin-top:10px; display:none;">ACCESS DENIED</p>
+    <a href="https://whatsapp.com/channel/0029Vb73fjEFnSz6IcUhpU07" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <nav class="navbar">
+        <div class="logo">ASIF TECH <span>GLOBAL</span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="platform.html">Platform</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="jobs.html">Job Alerts</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="contact.html">Contact</a>
         </div>
-    </div>
+    </nav>
 
-    <div id="app-interface" style="display:none;">
-        
-        <div class="sidebar">
-            <div class="brand">ASIF <span>TECH</span></div>
-            <button class="nav-btn active" onclick="showSection('overview', this)">
-                <i class="fas fa-chart-line"></i> <span>Overview</span>
-            </button>
-            <button class="nav-btn" onclick="showSection('finance', this)">
-                <i class="fas fa-calculator"></i> <span>Finance Tools</span>
-            </button>
-            <button class="nav-btn" onclick="showSection('assets', this)">
-                <i class="fas fa-building"></i> <span>Asset Manager</span>
-            </button>
-            <div style="flex-grow:1;"></div>
-            <button class="nav-btn" onclick="location.reload()">
-                <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
-            </button>
+    <header class="hero">
+        <video autoplay muted loop playsinline>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-city-997-large.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <p>EST. 2026 • INDIA'S #1 TECH FIRM</p>
+            <h1>Building The <br> Digital Future</h1>
+            <div style="margin-top: 30px;">
+                <a href="dashboard.html" class="btn-gold">Access Dashboard</a>
+                <a href="jobs.html" style="margin-left:20px; border:2px solid white; padding:15px 40px; border-radius:50px; font-weight:bold; color:white;">View Jobs</a>
+            </div>
         </div>
+    </header>
 
-        <div class="main-content">
-            
-            <div id="overview" class="content-section">
-                <div class="section-header">
-                    <h2>Dashboard Overview</h2>
-                    <span style="color:#aaa;">Real-time Business Metrics</span>
-                </div>
-                
-                <div class="grid">
-                    <div class="card card-blue">
-                        <h3><i class="fas fa-users"></i> Total Visitors</h3>
-                        <p class="big-num">1,250</p>
-                    </div>
-                    <div class="card card-gold">
-                        <h3><i class="fab fa-amazon"></i> Amazon Clicks</h3>
-                        <p class="big-num">85</p>
-                    </div>
-                    <div class="card card-green">
-                        <h3><i class="fas fa-rupee-sign"></i> Est. Commission</h3>
-                        <p class="big-num">₹450.00</p>
-                    </div>
-                    <div class="card card-red">
-                        <h3><i class="fas fa-book"></i> Books Sold</h3>
-                        <p class="big-num">12</p>
-                    </div>
-                </div>
+    <section class="section bg-dark">
+        <div class="section-title">
+            <span>Our Vision</span>
+            <h2>Why We Exist</h2>
+            <p style="max-width: 700px; margin: 0 auto; color: #aaa;">We bridge the gap between complex technology and everyday users. From automating government job alerts to creating seamless e-commerce experiences.</p>
+        </div>
+        <div class="grid-4">
+            <div style="text-align:center;">
+                <i class="fas fa-bolt" style="font-size:40px; color:var(--gold); margin-bottom:15px;"></i>
+                <h3>Speed</h3>
+                <p style="color:#777;">Fastest updates in India.</p>
+            </div>
+            <div style="text-align:center;">
+                <i class="fas fa-shield-alt" style="font-size:40px; color:var(--gold); margin-bottom:15px;"></i>
+                <h3>Security</h3>
+                <p style="color:#777;">Enterprise-grade protection.</p>
+            </div>
+            <div style="text-align:center;">
+                <i class="fas fa-globe" style="font-size:40px; color:var(--gold); margin-bottom:15px;"></i>
+                <h3>Scale</h3>
+                <p style="color:#777;">Serving millions daily.</p>
+            </div>
+            <div style="text-align:center;">
+                <i class="fas fa-code" style="font-size:40px; color:var(--gold); margin-bottom:15px;"></i>
+                <h3>Innovation</h3>
+                <p style="color:#777;">Always one step ahead.</p>
+            </div>
+        </div>
+    </section>
 
-                <div class="grid" style="margin-top:25px; grid-template-columns: 2fr 1fr;">
-                    <div class="card">
-                        <h3>Traffic Analysis</h3>
-                        <div class="chart-box"><canvas id="trafficChart"></canvas></div>
-                    </div>
-                    <div class="card">
-                        <h3>Sales Distribution</h3>
-                        <div class="chart-box"><canvas id="salesChart"></canvas></div>
-                    </div>
+    <section class="section">
+        <div class="section-title">
+            <span>What We Do</span>
+            <h2>Our Core Ecosystem</h2>
+        </div>
+        <div class="grid-3">
+            <div class="service-card">
+                <i class="fas fa-briefcase"></i>
+                <h3>Sarkari Job Station</h3>
+                <p>Advanced scraping algorithms that fetch Government Job notifications 24 hours before competitors. Real-time Admit Card and Result updates.</p>
+                <a href="jobs.html" style="color:var(--gold); font-weight:bold;">Visit Portal →</a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>Affiliate Mega Store</h3>
+                <p>An API-driven e-commerce engine hosting 100,000+ products. Features dynamic pricing, auto-rotation, and smart category filtering.</p>
+                <a href="jobs.html#store" style="color:var(--gold); font-weight:bold;">Start Shopping →</a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-chart-pie"></i>
+                <h3>Business Intelligence</h3>
+                <p>Proprietary Admin Dashboards that provide deep insights into user behavior, traffic sources, and revenue streams.</p>
+                <a href="dashboard.html" style="color:var(--gold); font-weight:bold;">Login Panel →</a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Custom Web Dev</h3>
+                <p>We build high-performance websites for startups and enterprises using HTML5, Python, React, and Node.js.</p>
+                <a href="portfolio.html" style="color:var(--gold); font-weight:bold;">View Portfolio →</a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-cloud"></i>
+                <h3>Cloud Architecture</h3>
+                <p>Scalable hosting solutions on AWS and Google Cloud ensuring 99.99% uptime for your business applications.</p>
+                <a href="architecture.html" style="color:var(--gold); font-weight:bold;">Learn More →</a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Digital Growth</h3>
+                <p>Data-driven SEO and Affiliate Marketing strategies to maximize ROI and organic traffic growth.</p>
+                <a href="#" style="color:var(--gold); font-weight:bold;">Get Strategy →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-overlay">
+            <div class="grid-4" style="max-width:1200px; margin:0 auto;">
+                <div>
+                    <div class="stat-number">50+</div>
+                    <p style="color:white; letter-spacing:1px;">Global Clients</p>
+                </div>
+                <div>
+                    <div class="stat-number">1.2M</div>
+                    <p style="color:white; letter-spacing:1px;">Lines of Code</p>
+                </div>
+                <div>
+                    <div class="stat-number">150K</div>
+                    <p style="color:white; letter-spacing:1px;">Active Users</p>
+                </div>
+                <div>
+                    <div class="stat-number">24/7</div>
+                    <p style="color:white; letter-spacing:1px;">Support Team</p>
                 </div>
             </div>
-
-            <div id="finance" class="content-section hidden-section">
-                <div class="section-header">
-                    <h2>Financial Tools</h2>
-                    <span style="color:#aaa;">Profit & Loss Calculator</span>
-                </div>
-
-                <div class="grid">
-                    <div class="card">
-                        <h3>Profit Margin Calculator</h3>
-                        <div class="input-group">
-                            <label style="font-size:12px; color:#aaa;">Total Monthly Revenue (₹)</label>
-                            <input type="number" id="rev" placeholder="e.g. 50000">
-                        </div>
-                        <div class="input-group">
-                            <label style="font-size:12px; color:#aaa;">Total Expenses (₹)</label>
-                            <input type="number" id="exp" placeholder="e.g. 20000">
-                        </div>
-                        <button class="btn-action btn-gold" style="width:100%;" onclick="calcProfit()">Calculate Health</button>
-                        <div id="profitResult" style="margin-top:15px;"></div>
-                    </div>
-
-                    <div class="card" style="grid-column: span 2;">
-                        <h3>Revenue Trend Analysis</h3>
-                        <div class="chart-box"><canvas id="revChart"></canvas></div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="assets" class="content-section hidden-section">
-                <div class="section-header">
-                    <h2>Asset Management</h2>
-                    <span style="color:#aaa;">Depreciation Scheduler (SLM/WDV)</span>
-                </div>
-
-                <div class="card">
-                    <div class="grid" style="grid-template-columns: repeat(3, 1fr); gap:10px;">
-                        <input type="number" id="aC" placeholder="Asset Cost (₹)">
-                        <input type="number" id="sV" placeholder="Scrap Value (₹)">
-                        <input type="number" id="dR" placeholder="Depreciation Rate (%)">
-                    </div>
-                    <div style="margin-top:15px; display:flex; gap:10px;">
-                        <button class="btn-action btn-blue" onclick="doDep('SLM')">Calculate SLM</button>
-                        <button class="btn-action btn-outline" onclick="doDep('WDV')">Calculate WDV</button>
-                        <button class="btn-action btn-gold" onclick="window.print()"><i class="fas fa-print"></i> Report</button>
-                    </div>
-                    <div id="dTab" style="margin-top:20px;"></div>
-                </div>
-            </div>
-
         </div>
-    </div>
+    </section>
 
-    <script>
-        // 1. LOGIN SYSTEM
-        function checkLogin() {
-            const p = document.getElementById('password').value;
-            if(p === 'asif786') {
-                document.getElementById('login-screen').style.display = 'none';
-                document.getElementById('app-interface').style.display = 'block';
-                initCharts(); // Charts load only after login
-            } else {
-                document.getElementById('error-msg').style.display = 'block';
-            }
-        }
+    <section class="section bg-dark">
+        <div class="section-title">
+            <span>How We Work</span>
+            <h2>The Process</h2>
+        </div>
+        <div class="grid-4">
+            <div class="process-step">
+                <div class="step-num">1</div>
+                <h3>Strategy</h3>
+                <p style="color:#777;">We analyze your business needs and market gaps.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">2</div>
+                <h3>Design</h3>
+                <p style="color:#777;">Creating intuitive UIs and robust architectures.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">3</div>
+                <h3>Develop</h3>
+                <p style="color:#777;">Coding with clean, scalable, and secure practices.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">4</div>
+                <h3>Deploy</h3>
+                <p style="color:#777;">Launching to the cloud with continuous monitoring.</p>
+            </div>
+        </div>
+    </section>
 
-        // 2. NAVIGATION
-        function showSection(id, btn) {
-            // Hide all sections
-            document.querySelectorAll('.content-section').forEach(el => el.classList.add('hidden-section'));
-            // Show selected
-            document.getElementById(id).classList.remove('hidden-section');
-            
-            // Update Active Button state
-            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-        }
+    <section class="section">
+        <div class="section-title">
+            <span>Invest In Growth</span>
+            <h2>Pricing Plans</h2>
+        </div>
+        <div class="grid-3">
+            <div class="pricing-card">
+                <h3>Starter</h3>
+                <div class="price">₹15k <span>/project</span></div>
+                <ul class="features-list">
+                    <li>Basic Website</li>
+                    <li>SEO Setup</li>
+                    <li>1 Month Support</li>
+                </ul>
+                <a href="#" class="btn-gold" style="font-size:12px; padding:10px 30px;">Choose Plan</a>
+            </div>
+            <div class="pricing-card highlight">
+                <div style="background:var(--gold); color:black; display:inline-block; padding:5px 10px; font-weight:bold; margin-bottom:10px; border-radius:5px;">BEST VALUE</div>
+                <h3>Business</h3>
+                <div class="price">₹45k <span>/project</span></div>
+                <ul class="features-list">
+                    <li>Dynamic Web App</li>
+                    <li>Admin Dashboard</li>
+                    <li>Payment Gateway</li>
+                    <li>6 Months Support</li>
+                </ul>
+                <a href="#" class="btn-gold">Choose Plan</a>
+            </div>
+            <div class="pricing-card">
+                <h3>Enterprise</h3>
+                <div class="price">₹1L+ <span>/project</span></div>
+                <ul class="features-list">
+                    <li>Full Scale Solution</li>
+                    <li>Custom AI Integration</li>
+                    <li>Cloud Architecture</li>
+                    <li>24/7 Priority Support</li>
+                </ul>
+                <a href="#" class="btn-gold" style="font-size:12px; padding:10px 30px;">Contact Us</a>
+            </div>
+        </div>
+    </section>
 
-        // 3. CHARTS INITIALIZATION
-        let revChartInstance = null;
+    <section class="section bg-dark">
+        <div class="section-title">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div style="max-width:800px; margin:0 auto;">
+            <div style="border-bottom:1px solid #333; padding:20px 0;">
+                <h3 style="color:white; cursor:pointer;">How do I start a project?</h3>
+                <p style="color:#888; margin-top:10px;">Simply click the WhatsApp button or fill out the contact form. Our team will get back to you within 2 hours.</p>
+            </div>
+            <div style="border-bottom:1px solid #333; padding:20px 0;">
+                <h3 style="color:white; cursor:pointer;">Do you provide Hosting?</h3>
+                <p style="color:#888; margin-top:10px;">Yes, we offer managed cloud hosting on AWS and Google Cloud for all our clients.</p>
+            </div>
+            <div style="border-bottom:1px solid #333; padding:20px 0;">
+                <h3 style="color:white; cursor:pointer;">Is the Job Portal data accurate?</h3>
+                <p style="color:#888; margin-top:10px;">Absolutely. We source data directly from official government notifications using automated scripts.</p>
+            </div>
+        </div>
+    </section>
 
-        function initCharts() {
-            // Traffic Chart (Overview)
-            new Chart(document.getElementById('trafficChart'), {
-                type: 'line',
-                data: {
-                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                    datasets: [{
-                        label: 'Visitors', data: [120, 190, 300, 500, 200, 300, 450],
-                        borderColor: '#38bdf8', backgroundColor: 'rgba(56, 189, 248, 0.1)', fill: true, tension: 0.4
-                    }]
-                },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
-            });
+    <footer>
+        <div class="footer-cols">
+            <div>
+                <div class="logo" style="margin-bottom:20px;">ASIF TECH <span>GLOBAL</span></div>
+                <p style="color:#888; font-size:14px;">Asif Tech Global is India's premier technology consultancy. We transform businesses through digital innovation.</p>
+            </div>
+            <div>
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="portfolio.html">Careers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="jobs.html">Job Alerts</a></li>
+                    <li><a href="jobs.html#store">E-Commerce</a></li>
+                    <li><a href="dashboard.html">Analytics</a></li>
+                    <li><a href="architecture.html">Cloud Hosting</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Security</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align:center; border-top:1px solid #333; padding-top:20px; color:#666; font-size:12px;">
+            &copy; 2026 Asif Tech Global Inc. All Rights Reserved. Built with ❤️ in India.
+        </div>
+    </footer>
 
-            // Sales Chart (Overview)
-            new Chart(document.getElementById('salesChart'), {
-                type: 'doughnut',
-                data: {
-                    labels: ['Books', 'Electronics', 'Courses'],
-                    datasets: [{
-                        data: [70, 20, 10], backgroundColor: ['#ff9900', '#38bdf8', '#94a3b8'], borderWidth: 0
-                    }]
-                },
-                options: { responsive: true, maintainAspectRatio: false }
-            });
-
-            // Revenue Chart (Finance - Empty Initially)
-            const ctxRev = document.getElementById('revChart').getContext('2d');
-            revChartInstance = new Chart(ctxRev, {
-                type: 'bar',
-                data: { labels: [], datasets: [] },
-                options: { responsive: true, maintainAspectRatio: false }
-            });
-        }
-
-        // 4. FINANCIAL CALCULATORS
-        function calcProfit() {
-            let r = parseFloat(document.getElementById('rev').value) || 0;
-            let e = parseFloat(document.getElementById('exp').value) || 0;
-            let p = r - e;
-            let m = r > 0 ? (p / r) * 100 : 0;
-
-            // Update Result HTML
-            let color = p >= 0 ? '#4ade80' : '#f87171';
-            document.getElementById('profitResult').innerHTML = `
-                <div style="background:#0f172a; padding:15px; border-left:4px solid ${color}; border-radius:5px;">
-                    <div style="font-size:18px; color:${color}; font-weight:bold;">Net Profit: ₹${p.toLocaleString()}</div>
-                    <div style="font-size:14px; color:#aaa;">Margin: ${m.toFixed(2)}%</div>
-                </div>`;
-
-            // Update Finance Chart
-            revChartInstance.data.labels = ['Revenue', 'Expenses', 'Profit'];
-            revChartInstance.data.datasets = [{
-                label: 'Financial Flow',
-                data: [r, e, p],
-                backgroundColor: ['#38bdf8', '#ef4444', '#22c55e']
-            }];
-            revChartInstance.update();
-        }
-
-        // 5. DEPRECIATION CALCULATOR
-        function doDep(method) {
-            let c = parseFloat(document.getElementById('aC').value) || 0;
-            let s = parseFloat(document.getElementById('sV').value) || 0;
-            let r = (parseFloat(document.getElementById('dR').value) || 0) / 100;
-
-            if (c <= 0) { alert("Please enter valid Asset Cost"); return; }
-
-            let html = `<table><tr><th>Year</th><th>Opening Value</th><th>Depreciation</th><th>Closing Value</th></tr>`;
-            let val = c;
-
-            for(let i=1; i<=5; i++) {
-                let dep = (method === 'SLM') ? ((c-s)*r) : (val*r);
-                let close = val - dep;
-                if(close < s) close = s; // Don't go below scrap value
-
-                html += `<tr>
-                            <td>Year ${i}</td>
-                            <td>₹${val.toFixed(0)}</td>
-                            <td style="color:#f87171">- ₹${dep.toFixed(0)}</td>
-                            <td style="color:#4ade80">₹${close.toFixed(0)}</td>
-                         </tr>`;
-                
-                val = close;
-                if(val <= s) break;
-            }
-            html += `</table>`;
-            document.getElementById('dTab').innerHTML = html;
-        }
-    </script>
 </body>
 </html>
