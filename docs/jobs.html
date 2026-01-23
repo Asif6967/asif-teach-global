@@ -34,6 +34,8 @@
         .bg-result { background: #FF007F; } .bg-admit { background: #000088; } .bg-job { background: #8B0000; }
         .bg-key { background: #FF4500; } .bg-syll { background: #2E8B57; } .bg-adm { background: #6A0DAD; }
         .bg-tools { background: #333; }
+        .bg-state { background: #008080; } 
+        .bg-notes { background: #FF5733; } 
 
         /* LINKS */
         ul { list-style: none; padding: 0; margin: 0; }
@@ -45,9 +47,7 @@
         .new-blink { color: red; font-size: 10px; font-weight: bold; vertical-align: super; animation: blink 0.8s infinite; }
         @keyframes blink { 50% { opacity: 0; } }
 
-        /* --- NEW ADDITIONS CSS --- */
-        
-        /* Social Media Bar */
+        /* --- SOCIAL BAR --- */
         .social-bar {
             text-align: center; padding: 20px; background: #fff; margin: 20px auto; max-width: 1270px; border: 2px solid #000;
         }
@@ -59,11 +59,13 @@
         .btn-yt { background: #FF0000; border: 2px solid #cc0000; }
         .btn-social:hover { transform: scale(1.05); opacity: 0.9; }
 
-        /* Tools Grid */
-        .tool-item {
-            text-align: center; padding: 15px; border-bottom: 1px dashed #ccc;
+        /* --- STATE BUTTONS CSS --- */
+        .state-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 15px; }
+        .btn-state {
+            background: #fff; border: 2px solid #008080; color: #008080; padding: 10px 20px;
+            font-weight: bold; text-decoration: none; border-radius: 5px; transition: 0.3s;
         }
-        .tool-icon { font-size: 24px; margin-bottom: 5px; display: block; }
+        .btn-state:hover { background: #008080; color: white; }
 
         /* App Banner */
         .app-banner {
@@ -73,7 +75,6 @@
 
         /* Footer */
         .footer { background: #222; color: #aaa; text-align: center; padding: 20px; margin-top: 20px; font-size: 12px; }
-        .footer a { color: #fff; text-decoration: none; margin: 0 10px; }
     </style>
 </head>
 <body>
@@ -91,13 +92,15 @@
 
     <div class="social-bar">
         <h3 style="margin-top:0;">🚀 Join Our Communities for Instant Alerts</h3>
-        <a href="https://web.whatsapp.com/" target="_blank" class="btn-social btn-wa">Join WhatsApp Group</a>
+        
+        <a href="https://whatsapp.com/channel/0029Vb73fjEFnSz6IcUhpU07" target="_blank" class="btn-social btn-wa">Join WhatsApp Channel</a>
+        
         <a href="https://telegram.org/" target="_blank" class="btn-social btn-tele">Join Telegram Channel</a>
-        <a href="https://youtube.com/" target="_blank" class="btn-social btn-yt">Subscribe YouTube</a>
+        
+        <a href="https://www.youtube.com/channel/UCRfvXfU4toossqCIbuXNblA" target="_blank" class="btn-social btn-yt">Subscribe YouTube</a>
     </div>
 
     <div class="grid-container">
-        
         <div class="box">
             <div class="head-common bg-result">Result</div>
             <ul>
@@ -106,8 +109,6 @@
                 <li><a href="https://ctet.nic.in" target="_blank">CTET January 2026 Result</a></li>
                 <li><a href="https://bssc.bihar.gov.in" target="_blank">Bihar BSSC CGL 3 Result</a></li>
                 <li><a href="https://ibps.in" target="_blank">IBPS PO Mains Result 2025</a></li>
-                <li><a href="https://upsc.gov.in" target="_blank">UPSC IAS Pre 2025 Result</a></li>
-                <li><a href="https://indianrailways.gov.in" target="_blank">Railway Group D Result</a></li>
             </ul>
         </div>
 
@@ -119,7 +120,6 @@
                 <li><a href="https://gate2025.iitr.ac.in" target="_blank">GATE 2026 Admit Card</a></li>
                 <li><a href="https://upsssc.gov.in" target="_blank">UPSSSC PET 2025 Admit Card</a></li>
                 <li><a href="https://rectt.bsf.gov.in" target="_blank">BSF Tradesman Admit Card</a></li>
-                <li><a href="https://rsmssb.rajasthan.gov.in" target="_blank">Rajasthan CET Admit Card</a></li>
             </ul>
         </div>
 
@@ -130,22 +130,18 @@
                 <li><a href="https://ssc.gov.in" target="_blank">SSC CGL 2026 Apply Online</a></li>
                 <li><a href="https://indianrailways.gov.in" target="_blank">Railway RRB NTPC Recruitment</a></li>
                 <li><a href="https://upsc.gov.in" target="_blank">UPSC IAS / IFS Online Form</a></li>
-                <li><a href="https://csbc.bih.nic.in" target="_blank">Bihar Police Constable Vacancy</a></li>
-                <li><a href="https://joinindiannavy.gov.in" target="_blank">Indian Navy SSR / MR Form</a></li>
                 <li style="text-align:center; background:#eee;"><a href="https://www.google.com/search?q=latest+govt+jobs" target="_blank">View All Jobs...</a></li>
             </ul>
         </div>
     </div>
 
     <div class="grid-container">
-        
         <div class="box">
             <div class="head-common bg-key">Answer Key</div>
             <ul>
                 <li><a href="https://ugcnet.nta.nic.in" target="_blank">UGC NET Dec 2025 Answer Key</a></li>
                 <li><a href="https://ssc.gov.in" target="_blank">SSC CPO SI Paper I Key</a></li>
                 <li><a href="https://uppsc.up.nic.in" target="_blank">UPPSC RO / ARO Answer Key</a></li>
-                <li><a href="https://ctet.nic.in" target="_blank">CTET Official Answer Key</a></li>
             </ul>
         </div>
 
@@ -155,7 +151,6 @@
                 <li><a href="https://uppbpb.gov.in" target="_blank">UP Police Constable Syllabus PDF</a></li>
                 <li><a href="https://ssc.gov.in" target="_blank">SSC CGL New Exam Pattern</a></li>
                 <li><a href="https://upsc.gov.in" target="_blank">UPSC IAS Syllabus Hindi/Eng</a></li>
-                <li><a href="https://indianrailways.gov.in" target="_blank">Railway NTPC Syllabus</a></li>
             </ul>
         </div>
 
@@ -165,39 +160,45 @@
                 <li><a href="https://neet.nta.nic.in" target="_blank">NTA NEET UG 2026 Form</a> <span class="new-blink">New</span></li>
                 <li><a href="https://jeecup.admissions.nic.in" target="_blank">UP Polytechnic JEECUP 2026</a></li>
                 <li><a href="https://bhuonline.in" target="_blank">BHU UET / PET Admission</a></li>
-                <li><a href="https://bucjhansi.ac.in" target="_blank">UP B.Ed JEE 2026 Form</a></li>
             </ul>
         </div>
     </div>
 
     <div class="grid-container">
         <div class="box">
-            <div class="head-common bg-tools">Important Tools</div>
+            <div class="head-common bg-tools">Tools & Certificates</div>
             <ul>
-                <li><a href="https://www.google.com/search?q=image+resizer+kb" target="_blank">✂️ Image Resizer (Jpg to PDF)</a></li>
+                <li><a href="https://www.google.com/search?q=image+resizer+kb" target="_blank">✂️ Image Resizer</a></li>
                 <li><a href="https://www.google.com/search?q=age+calculator" target="_blank">📅 Age Calculator</a></li>
-                <li><a href="https://www.google.com/search?q=resume+maker+online+free" target="_blank">📄 Resume / CV Maker</a></li>
-                <li><a href="https://www.google.com/search?q=typing+test+online" target="_blank">⌨️ Hindi/English Typing Test</a></li>
-            </ul>
-        </div>
-        
-        <div class="box">
-            <div class="head-common bg-tools">Certificate Verification</div>
-            <ul>
                 <li><a href="https://myaadhaar.uidai.gov.in/" target="_blank">🆔 Aadhar Card Download</a></li>
-                <li><a href="https://www.onlineservices.nsdl.com/" target="_blank">💳 Pan Card Apply Online</a></li>
-                <li><a href="https://scholarship.up.gov.in/" target="_blank">🎓 UP Scholarship Status</a></li>
-                <li><a href="https://voters.eci.gov.in/" target="_blank">🗳️ Voter ID Card Apply</a></li>
+                <li><a href="https://www.onlineservices.nsdl.com/" target="_blank">💳 Pan Card Apply</a></li>
             </ul>
         </div>
 
-        <div class="box">
-            <div class="head-common bg-tools">Other Forms</div>
-            <ul>
-                <li><a href="#" target="_blank">KVS Online Form 2026</a></li>
-                <li><a href="#" target="_blank">Anganwadi Bharti 2026</a></li>
-                <li><a href="#" target="_blank">CCC Online Form</a></li>
-                <li><a href="#" target="_blank">O Level Registration</a></li>
+        <div class="box" style="grid-column: span 2;">
+            <div class="head-common bg-state">🌍 Find Jobs By State</div>
+            <div class="state-grid">
+                <a href="https://www.google.com/search?q=UP+Govt+Jobs" target="_blank" class="btn-state">Uttar Pradesh</a>
+                <a href="https://www.google.com/search?q=Bihar+Govt+Jobs" target="_blank" class="btn-state">Bihar</a>
+                <a href="https://www.google.com/search?q=Delhi+Govt+Jobs" target="_blank" class="btn-state">Delhi</a>
+                <a href="https://www.google.com/search?q=Rajasthan+Govt+Jobs" target="_blank" class="btn-state">Rajasthan</a>
+                <a href="https://www.google.com/search?q=MP+Govt+Jobs" target="_blank" class="btn-state">Madhya Pradesh</a>
+                <a href="https://www.google.com/search?q=Haryana+Govt+Jobs" target="_blank" class="btn-state">Haryana</a>
+                <a href="https://www.google.com/search?q=Maharashtra+Govt+Jobs" target="_blank" class="btn-state">Maharashtra</a>
+                <a href="https://www.google.com/search?q=Uttarakhand+Govt+Jobs" target="_blank" class="btn-state">Uttarakhand</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-container">
+        <div class="box" style="width:100%;">
+            <div class="head-common bg-notes">📚 Free PDF Notes (Download Now)</div>
+            <ul style="display:flex; flex-wrap:wrap; justify-content:space-around; padding:15px;">
+                <li style="border:none;"><a href="#" target="_blank">📘 Lucent GK Hindi PDF</a></li>
+                <li style="border:none;"><a href="#" target="_blank">📐 R.S. Aggarwal Math Book</a></li>
+                <li style="border:none;"><a href="#" target="_blank">🧠 Reasoning Verbal/Non-Verbal</a></li>
+                <li style="border:none;"><a href="#" target="_blank">📅 Yearly Current Affairs 2026</a></li>
+                <li style="border:none;"><a href="#" target="_blank">📝 UP Police Previous Papers</a></li>
             </ul>
         </div>
     </div>
@@ -209,13 +210,7 @@
     </div>
 
     <div class="footer">
-        <p>© 2026 Asif Tech Global. All Rights Reserved.</p>
-        <p>
-            <a href="#">About Us</a> | 
-            <a href="#">Contact Us</a> | 
-            <a href="#">Privacy Policy</a> | 
-            <a href="#">Disclaimer</a>
-        </p>
+        © 2026 Asif Tech Global. All Rights Reserved.
     </div>
 
     <script>
