@@ -189,3 +189,23 @@ footer {
     nav { display: none; flex-direction: column; position: absolute; top: 60px; width: 100%; background: #0f172a; }
     nav.active { display: flex; }
 }
+/* Desktop view fix */
+nav#nav-links { display: flex; gap: 20px; }
+
+/* Mobile responsive fix */
+@media (max-width: 768px) {
+    .menu-toggle { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
+    .menu-toggle span { width: 25px; height: 3px; background: #38bdf8; }
+    
+    nav#nav-links {
+        display: none; /* Mobile par default band */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #0f172a;
+        padding: 20px;
+    }
+    nav#nav-links.active { display: flex; } /* Click par wapas aayega */
+}
