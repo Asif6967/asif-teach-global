@@ -43,3 +43,8 @@ function toggleMenu() {
     const nav = document.getElementById('nav-links');
     nav.classList.toggle('active');
 }
+// Mobile Menu Toggle Logic
+function toggleMenu() {
+    const nav = document.getElementById('nav-links'); // Ye aapki ID se match karna chahiye
+    nav.classList.toggle('active');
+}

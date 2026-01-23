@@ -110,6 +110,25 @@
     function clearAll() { document.querySelectorAll('input').forEach(i => i.value = ''); document.getElementById('profitResult').innerHTML = ''; document.getElementById('dTab').innerHTML = ''; initChart('line'); }
     function switchChart(t) { initChart(t); }
     function genReport() { document.getElementById('repBox').style.display='block'; document.getElementById('repBox').innerHTML="<b>MBA Summary:</b> Business Health is Optimized."; }
-    </script>
+    // New MBA Tool: Current Ratio Calculator
+function calcCurrentRatio() {
+    let assets = parseFloat(document.getElementById('cAssets').value) || 0;
+    let liabilities = parseFloat(document.getElementById('cLiab').value) || 0;
+    
+    if (liabilities === 0) {
+        alert("Liabilities zero nahi ho sakti bhai!");
+        return;
+    }
+    
+    let ratio = (assets / liabilities).toFixed(2);
+    let health = ratio >= 2 ? "Strong" : (ratio >= 1 ? "Average" : "Risky");
+    
+    document.getElementById('ratioDisp').innerHTML = `
+        <div style="background:#0f172a; border-left:4px solid #38bdf8; padding:10px; margin-top:10px;">
+            <b style="color:#38bdf8">Current Ratio: ${ratio}</b><br>
+            <span style="color:${health === 'Strong' ? '#4ade80' : '#f87171'}">Status: ${health}</span>
+        </div>`;
+}
+</script>
 </body>
 </html>
