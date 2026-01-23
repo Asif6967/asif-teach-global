@@ -1,43 +1,120 @@
-<section class="section dark">
-    <h2>Real-Time Job Alerts (Verified)</h2>
-    <div id="job-container" class="cards">
-        <p>Fetching latest updates from official sources...</p>
-    </div>
-</section>
-
- <section class="section dark">
-    <h2>Verified Job Station</h2>
-    <div id="job-display" class="cards">
-        <p>Loading real-time updates from official portals...</p>
-    </div>
-</section>
-
-<script>
-async function getLiveJobs() {
-    // Hum multiple reliable sources ka backup use kar rahe hain
-    const apiURL = 'https://api.rss2json.com/v1/api.json?rss_url=https://www.sarkariresult.com/rss.xml';
-    
-    try {
-        const res = await fetch(apiURL);
-        const data = await res.json();
-        const display = document.getElementById('job-display');
-        display.innerHTML = ''; 
-
-        if(data.items) {
-            data.items.slice(0, 8).forEach(job => {
-                const jobCard = document.createElement('div');
-                jobCard.className = 'card';
-                jobCard.innerHTML = `
-                    <h3 style="color:#38bdf8; font-size:1rem;">${job.title}</h3>
-                    <p style="font-size:0.8rem; margin:10px 0;">Source: Sarkari Result Verified</p>
-                    <a href="${job.link}" target="_blank" class="btn" style="padding:5px 10px;">Apply Now</a>
-                `;
-                display.appendChild(jobCard);
-            });
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verified Job Station | Asif Tech</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #0f172a; /* Dark Background */
+            color: white;
+            padding: 20px;
+            text-align: center;
         }
-    } catch (err) {
-        document.getElementById('job-display').innerHTML = "<p>Technical error in fetching live feed. Please try again after some time.</p>";
-    }
-}
-getLiveJobs();
-</script>
+        h2 { color: #38bdf8; }
+        .job-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .job-card {
+            background: #1e293b;
+            border-left: 5px solid #facc15; /* Yellow Accent */
+            padding: 20px;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            text-align: left;
+            transition: transform 0.3s;
+        }
+        .job-card:hover { transform: translateY(-5px); }
+        .job-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #e2e8f0;
+        }
+        .apply-btn {
+            display: inline-block;
+            background-color: #38bdf8;
+            color: #000;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .apply-btn:hover { background-color: #0ea5e9; }
+        .status { margin-top: 20px; color: #94a3b8; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <h2>🚀 Verified Job Station</h2>
+    <p>Live updates from Official Sources (Server: 127.0.0.1:5000)</p>
+
+    <div id="job-list" class="job-container">
+        <p>Loading jobs from backend...</p>
+    </div>
+
+    <div id="debug-msg" class="status"></div>
+
+    <script>
+        async function loadJobs() {
+            const container = document.getElementById('job-list');
+            const debug = document.getElementById('debug-msg');
+
+            try {
+                // Server se baat karna
+                const response = await fetch('http://127.0.0.1:5000/api/jobs');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP Error: ${response.status}`);
+                }
+
+                const jobs = await response.json();
+                
+                // Agar list khali hai
+                if (jobs.length === 0) {
+                    container.innerHTML = "<p>No jobs found. (Check backend logic)</p>";
+                    return;
+                }
+
+                // Jobs mil gayi! Ab unhe screen par lagao
+                container.innerHTML = ''; 
+                jobs.forEach(job => {
+                    const card = `
+                        <div class="job-card">
+                            <div class="job-title">${job.title}</div>
+                            <a href="${job.link}" target="_blank" class="apply-btn">Apply Now ↗</a>
+                        </div>
+                    `;
+                    container.innerHTML += card;
+                });
+                debug.textContent = "Status: Connected & Live ✅";
+                debug.style.color = "#4ade80";
+
+            } catch (err) {
+                console.error(err);
+                container.innerHTML = `
+                    <div style="color:#ff6b6b; background:#330000; padding:10px; border-radius:5px;">
+                        <h3>⚠️ Connection Failed</h3>
+                        <p>Server nahi mila. Ye check karein:</p>
+                        <ul style="text-align:left;">
+                            <li>Kya Terminal mein <b>python main.py</b> chal raha hai?</li>
+                            <li>Kya Terminal mein "Running on http://127.0.0.1:5000" likha hai?</li>
+                        </ul>
+                    </div>
+                `;
+                debug.textContent = "Status: Disconnected ❌";
+            }
+        }
+
+        // Page khulte hi chalao
+        loadJobs();
+    </script>
+
+</body>
+</html>
