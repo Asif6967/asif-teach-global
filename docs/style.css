@@ -265,3 +265,50 @@ nav#nav-links { display: flex; gap: 20px; }
 
 /* Show on Hover */
 .dropdown:hover .dropdown-content { display: block; }
+/* =========================================
+   MOBILE PHONE FIX (Yahan se neeche copy karo)
+   ========================================= */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Upar wala Menu theek karein */
+    .navbar {
+        flex-direction: column; /* Links ko ek ke neeche ek laye */
+        padding: 10px;
+        background: rgba(0,0,0,0.9); /* Peeche kaala background */
+    }
+    
+    .navbar a {
+        font-size: 13px; /* Links ka size chota */
+        margin: 5px 2px;
+        display: inline-block;
+    }
+
+    /* 2. Badi Heading (BUILDING THE DIGITAL FUTURE) ko fit karein */
+    .hero-content h1 {
+        font-size: 30px !important; /* Font size aadha kar diya */
+        line-height: 1.2;
+        margin-top: 10px;
+    }
+
+    .hero-content p {
+        font-size: 14px; /* Upar wala chota text */
+    }
+
+    /* 3. Buttons ko Mobile friendly banayein */
+    .hero-content div {
+        display: flex;
+        flex-direction: column; /* Buttons ko upar-neeche karein */
+        align-items: center;
+        gap: 15px; /* Beech mein gap */
+        margin-top: 20px !important;
+    }
+
+    /* Buttons ka size adjust karein */
+    .btn-gold, a[href="jobs.html"] {
+        width: 80%; /* Button mobile par chauda dikhega */
+        margin-left: 0 !important;
+        display: block;
+        text-align: center;
+        padding: 12px;
+    }
+}
